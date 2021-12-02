@@ -16,7 +16,7 @@ Certaines répertoires du dossier ***sources*** ont une utilité précise :
    - ***FXML*** : contient les fenetres FXML (préfixées du mot `Fenetre`)
    - ***media*** : contient les images, sons, bruitages du projet répartis en sous-dossiers
 - ***src*** : contient les sources du projet
-   - ***modele*** : contient les classes métier
-   - ***view*** : contient les classes liées aux vues FXML via un data-binding
+   - ***model*** : contient les classes métier (préfixées du mot `Model`)
+   - ***view*** : contient les classes liées aux vues FXML via un data-binding (préfixées du mot `View`)
 
 Bon courage !

@@ -10,6 +10,7 @@ public class Loader extends Application {
         Parent racine = FXMLLoader.load(getClass().getResource("FXML/FenetreJeu.fxml")); // getClass() peut etre null, il faut vérifier
         Scene scene = new Scene(racine);
         primaryStage.setScene(scene);
+        primaryStage.setMaximized(true); // on met la fenêtre en "plein écran"
         primaryStage.show();
     }
 }
