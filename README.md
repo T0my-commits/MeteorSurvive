@@ -10,4 +10,13 @@ Ce projet est composé de 3 dossiers :
 - ***Sources*** : contient les sources du projet, le code
 - ***Rendu*** : contient le compte-rendu du projet
 
+Certaines répertoires du dossier ***sources*** ont une utilité précise :
+
+- ***rscr*** : contient les ressources du projet
+   - ***FXML*** : contient les fenetres FXML (préfixées du mot `Fenetre`)
+   - ***media*** : contient les images, sons, bruitages du projet répartis en sous-dossiers
+- ***src*** : contient les sources du projet
+   - ***modele*** : contient les classes métier
+   - ***view*** : contient les classes liées aux vues FXML via un data-binding
+
 Bon courage !
