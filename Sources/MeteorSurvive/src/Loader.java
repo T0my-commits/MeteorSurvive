@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class Loader extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent racine = FXMLLoader.load(getClass().getResource("FXML/FenetrePrincipale.fxml"));
+        Parent racine = FXMLLoader.load(getClass().getResource("FXML/FenetreJeu.fxml")); // getClass() peut etre null, il faut vérifier
         Scene scene = new Scene(racine);
         primaryStage.setScene(scene);
         primaryStage.show();
