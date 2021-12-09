@@ -25,11 +25,7 @@ public class FenetreJeu {
     @FXML
     public BorderPane mainBP;
 
-
     Shoot shoot = new Shoot();
-
-
-
 
     public void initialize()
     {
