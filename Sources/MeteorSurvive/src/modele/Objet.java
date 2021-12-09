@@ -1,9 +1,13 @@
 package modele;
 
-public abstract class Abilities {
+/**
+ * La classe Objet défini un template pour tout les autres objets;
+ */
+public abstract class Objet {
     // déclaration des attributs
-    protected int xvelocity; // sur l'axe des x
-    protected int yvelocity; // sur l'axe des y
+    private String url_visuel; // l'url vers l'aspect de l'objet;
+    protected float xvelocity; // sur l'axe des x
+    protected float yvelocity; // sur l'axe des y
     protected int damage;
 
     /*
@@ -11,7 +15,7 @@ public abstract class Abilities {
        Les classes filles de cette classe vont hériter automatiquement de ces getters
        et setters, inutile donc de les redéfinir par la suite !
      */
-    public int getXvelocity() {
+    public float getXvelocity() {
         return xvelocity;
     }
 
@@ -19,19 +23,11 @@ public abstract class Abilities {
         this.xvelocity = xvelocity;
     }
 
-    public int getYvelocity() {
+    public float getYvelocity() {
         return yvelocity;
     }
 
     public void setYvelocity(int yvelocity) {
         this.yvelocity = yvelocity;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
     }
 }

@@ -8,17 +8,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="mainBP"  stylesheets="@style/StyleFenetre.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreJeu">
+<BorderPane fx:id="mainBP"  stylesheets="@style/StyleFenetre.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreJeu">
 
    <top>
       <Text fx:id="titre" text="MeteorSurvive" BorderPane.alignment="CENTER" />
    </top>
    <center>
-      <!--<ImageView fx:id="bg" fitHeight="420.0" fitWidth="605.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-         <image>
-            <Image url="@../media/volcan.jpg" />
-         </image>
-      </ImageView>-->
+
    </center>
    <bottom>
       <GridPane prefHeight="0.0" prefWidth="605.0">

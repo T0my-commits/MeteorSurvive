@@ -1,6 +1,6 @@
 package modele;
 
-public class Shoot extends Abilities {
+public class Shoot {
 
     public Shoot() {
     }
