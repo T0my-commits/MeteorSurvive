@@ -8,30 +8,23 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="mainBP"  stylesheets="@style/StyleFenetre.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreJeu">
+<?import javafx.scene.control.TextField?>
+<BorderPane fx:id="mainBP"
+            stylesheets="@style/StyleFenetre.css"
+            xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view.FenetreJeu"
+            >
 
    <top>
       <Text fx:id="titre" text="MeteorSurvive" BorderPane.alignment="CENTER" />
    </top>
    <center>
-
+      <TextField fx:id="txtfield" text="test" maxWidth="100"/>
    </center>
    <bottom>
-      <GridPane prefHeight="0.0" prefWidth="605.0">
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" />
-         </rowConstraints>
-         <columnConstraints>
-            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <children>
-            <Button text="TEST" />
-         </children>
-         <children>
-            <Button text="TEST2" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
-         </children>
-      </GridPane>
+
+      <Button fx:id="bouttondep" text="Deplacer"></Button>
    </bottom>
    <effect>
       <Glow />
