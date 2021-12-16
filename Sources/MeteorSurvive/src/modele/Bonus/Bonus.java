@@ -1,4 +1,6 @@
-package modele;
+package modele.Bonus;
+
+import modele.Objet.Objet;
 
 /**
  * Interface qui défini un objet de type bonus

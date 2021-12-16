@@ -4,18 +4,10 @@ import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
-import modele.Model;
-import modele.Shoot;
-
-import javax.swing.text.Position;
-import java.awt.*;
+import modele.Objet.Shoot;
 
 public class FenetreJeu {
 

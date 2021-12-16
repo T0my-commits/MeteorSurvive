@@ -7,6 +7,6 @@ package modele;
  *  - une instance de chaque objets dans le jeu ;
  *  - la capacité d'appeler chaque éléments du jeu et les faire travailler ensemble;
  */
-public class MaitreDuJeu {
+public class Monde {
 
 }

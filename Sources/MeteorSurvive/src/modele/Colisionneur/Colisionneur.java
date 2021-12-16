@@ -1,4 +1,6 @@
-package modele;
+package modele.Colisionneur;
+
+import modele.Objet.Personnage;
 
 public class Colisionneur {
 

@@ -1,4 +1,6 @@
-package modele;
+package modele.Danger;
+
+import modele.Objet.Objet;
 
 /**
  * Interface qui défini un objet dangereux

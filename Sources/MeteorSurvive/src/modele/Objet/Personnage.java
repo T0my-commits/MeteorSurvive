@@ -1,4 +1,4 @@
-package modele;
+package modele.Objet;
 
 /**
  * Classe qui permet de représenter un joueur dans le jeu (aka le dinosaure)

@@ -1,4 +1,4 @@
-package modele;
+package modele.Objet;
 
 /**
  * La classe Objet défini un template pour tout les autres objets;

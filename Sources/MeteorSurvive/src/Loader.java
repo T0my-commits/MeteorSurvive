@@ -3,10 +3,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import modele.Colisionneur;
-import modele.Deplaceur;
-import modele.DeplaceurBasePerso;
-import modele.Personnage;
+import modele.Colisionneur.Colisionneur;
+import modele.Deplaceur.DeplaceurBasePerso;
+import modele.Objet.Personnage;
 
 public class Loader extends Application {
     @Override
