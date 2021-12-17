@@ -1,11 +1,32 @@
 package modele.Deplaceur;
 
+import modele.Monde;
 import modele.Objet.Objet;
+import modele.Sujet;
+
+import java.util.List;
 
 public class DeplaceurMeteorite extends Deplaceur {
 
-    @Override
-    void update() {
 
+    int tmp;
+
+    public DeplaceurMeteorite(Sujet s, Monde m) {
+        tmp =0;
+        setBoucleur(s);
+        setMonde(m);
+        s.attacher(this);
     }
+
+    @Override
+    public void update() {
+        List<Objet> allObjet = getMonde().getObjet();
+        for(Objet o : allObjet){
+            o.setPosY(o.getPosY() + 1);
+            System.out.println(o);
+        }
+    }
+
+
 }
+

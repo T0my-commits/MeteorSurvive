@@ -1,15 +1,31 @@
 package modele.Deplaceur;
 
 import modele.Boucleur.Boucleur;
+import modele.Monde;
 import modele.Objet.Objet;
 import modele.Observateur;
+import modele.Sujet;
 
-public abstract class Deplaceur extends Observateur {
+public abstract class Deplaceur implements Observateur {
 
     private boolean etatObservateur; // utilisé dans les méthodes upadate des classes filles
     private static int velocity;
-    Boucleur boucleur; // instancié dans les classes filles
+    private Sujet boucleur; // instancié dans les classes filles
+    private Monde monde;
 
-    abstract void update();
+    public Sujet getBoucleur() {
+        return boucleur;
+    }
 
+    public void setBoucleur(Sujet boucleur) {
+        this.boucleur = boucleur;
+    }
+
+    public Monde getMonde() {
+        return monde;
+    }
+
+    public void setMonde(Monde monde) {
+        this.monde = monde;
+    }
 }

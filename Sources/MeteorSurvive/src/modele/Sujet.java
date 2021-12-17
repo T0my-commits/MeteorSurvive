@@ -23,4 +23,10 @@ public abstract class Sujet {
         this.observateurs.remove(o);
     }
 
+    public void notifier(){
+        for(Observateur o : observateurs){
+            o.update();
+        }
+    }
+
 }

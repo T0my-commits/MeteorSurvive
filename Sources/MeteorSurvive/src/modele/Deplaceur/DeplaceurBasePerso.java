@@ -9,7 +9,7 @@ public class DeplaceurBasePerso extends Deplaceur {
     private static int velocity = 10;
 
     public DeplaceurBasePerso() {
-        boucleur = new BoucleurJeu();
+       setBoucleur(new BoucleurJeu());
     }
 
     public void deplacer(Personnage pers, int x, int y) {
@@ -18,7 +18,8 @@ public class DeplaceurBasePerso extends Deplaceur {
     }
 
     @Override
-    void update() {
-
+    public void update() {
+        System.out.println("update base");
     }
+
 }

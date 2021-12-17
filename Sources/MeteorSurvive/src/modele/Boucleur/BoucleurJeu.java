@@ -15,6 +15,7 @@ public class BoucleurJeu extends Boucleur {
         while (true) {
             try {
                 sleep(100);
+                notifier();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

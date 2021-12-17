@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import modele.Manager.Manager;
 import modele.Objet.Shoot;
 
 public class FenetreJeu {
@@ -33,9 +34,10 @@ public class FenetreJeu {
         //bg.setPreserveRatio(true);
         titre.setFont(new Font(50));
         BorderPane.setAlignment(bouttondep, Pos.CENTER);
-
+        Manager manager = new Manager();
 
     }
+
 
 
 
