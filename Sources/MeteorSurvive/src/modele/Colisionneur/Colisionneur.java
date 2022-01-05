@@ -1,12 +1,12 @@
 package modele.Colisionneur;
 
-import modele.Objet.Personnage;
+import modele.Objet.Objet;
 
 public class Colisionneur {
 
-    public boolean isCollision(Personnage p1, Personnage p2){
-        if(p1.getPosx() == p2.getPosx() && p1.getPosY() == p2.getPosY()){
-            System.out.println("Attention colision entre les personnages");
+    public boolean isCollision(Objet o1, Objet o2){
+        if(o1.getPosX() == o2.getPosX() && o1.getPosY() == o2.getPosY()){
+            System.out.println("Attention colision entre les objets");
             return true;
         }
         return false;

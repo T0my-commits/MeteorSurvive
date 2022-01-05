@@ -3,15 +3,13 @@ package modele.Objet;
 import modele.Danger.Danger;
 import modele.Objet.Objet;
 
-public class Meteorite  extends Objet implements Danger {
+public class Meteorite extends Objet implements Danger {
 
     public Meteorite() {
-        setPosX(0);
-        setPosY(0);
+        super(0d,0d,1);
     }
-    public Meteorite(int x, int y){
-        setPosX(x);
-        setPosY(y);
+    public Meteorite(double x, double y){
+        super(x,y,1);
     }
 
     @Override

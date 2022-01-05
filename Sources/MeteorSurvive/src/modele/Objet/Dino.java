@@ -1,8 +1,8 @@
 package modele.Objet;
 
-public class Dino {
+public class Dino extends Objet {
 
-
-    public Dino() {
+    public Dino(double x, double y, int pointsdevie) {
+        super(x,y,pointsdevie);
     }
 }

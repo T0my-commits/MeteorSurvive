@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.effect.Glow?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
 
-<?import javafx.scene.control.TextField?>
-<BorderPane fx:id="mainBP"
-            stylesheets="@style/StyleFenetre.css"
-            xmlns="http://javafx.com/javafx/16"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="view.FenetreJeu"
-            >
-
-   <top>
-      <Text fx:id="titre" text="MeteorSurvive" BorderPane.alignment="CENTER" />
-   </top>
-   <center>
-      <TextField fx:id="txtfield" text="test" maxWidth="100"/>
-   </center>
-   <bottom>
-
-      <Button fx:id="bouttondep" text="Deplacer"></Button>
-   </bottom>
-   <effect>
-      <Glow />
-   </effect>
-</BorderPane>
+<Pane prefHeight="494.0" prefWidth="1041.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreJeu">
+   <children>
+      <ImageView fitHeight="511.0" fitWidth="1041.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../media/decors_001.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../media/dino_001.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

@@ -3,23 +3,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import modele.Boucleur.BoucleurJeu;
-import modele.Colisionneur.Colisionneur;
-import modele.Deplaceur.DeplaceurBasePerso;
-import modele.Deplaceur.DeplaceurMeteorite;
-import modele.Manager.Manager;
-import modele.Objet.Personnage;
+
+import java.util.Objects;
 
 public class Loader extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent racine = FXMLLoader.load(getClass().getResource("FXML/FenetreJeu.fxml")); // getClass() peut etre null, il faut vérifier
-        Scene scene = new Scene(racine);
-        primaryStage.setScene(scene);
-        primaryStage.setMaximized(true); // on met la fenêtre en "plein écran"
-        primaryStage.show();
-
-
-
+            Parent racine = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("FXML/FenetreJeu.fxml")));
+            Scene scene = new Scene(racine);
+            primaryStage.setScene(scene);
+            primaryStage.show();
     }
 }

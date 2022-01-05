@@ -1,6 +1,6 @@
 .root{
 
-    -fx-background-image:url('../../media/volcan.jpg');
+    -fx-background-image:url('../media/volcan.jpg');
     -fx-background-size:cover;
     -fx-background-repeat: stretch;
 }

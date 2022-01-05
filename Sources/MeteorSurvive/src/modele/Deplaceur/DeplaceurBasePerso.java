@@ -2,7 +2,6 @@ package modele.Deplaceur;
 
 import modele.Boucleur.BoucleurJeu;
 import modele.Objet.Objet;
-import modele.Objet.Personnage;
 
 public class DeplaceurBasePerso extends Deplaceur {
 
@@ -12,9 +11,9 @@ public class DeplaceurBasePerso extends Deplaceur {
        setBoucleur(new BoucleurJeu());
     }
 
-    public void deplacer(Personnage pers, int x, int y) {
-        pers.setPosx(x);
-        pers.setPosY(y);
+    public void deplacer(Objet o, int x, int y) {
+        o.setPosX(x);
+        o.setPosY(y);
     }
 
     @Override

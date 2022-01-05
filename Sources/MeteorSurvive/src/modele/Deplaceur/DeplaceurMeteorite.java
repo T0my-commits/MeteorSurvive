@@ -22,7 +22,7 @@ public class DeplaceurMeteorite extends Deplaceur {
     public void update() {
         List<Objet> allObjet = getMonde().getObjet();
         for(Objet o : allObjet){
-            o.setPosY(o.getPosY() + 1);
+            o.setPosY(o.getPosY() + 1d);
             System.out.println(o);
         }
     }
