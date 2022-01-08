@@ -3,6 +3,8 @@ package modele.Objet;
 import modele.Danger.Danger;
 import modele.Objet.Objet;
 
+import java.util.Random;
+
 public class Meteorite extends Objet implements Danger {
 
     public Meteorite() {
@@ -16,7 +18,6 @@ public class Meteorite extends Objet implements Danger {
     public void setDegats(Objet o1) {
 
     }
-
 
     @Override
     public String toString() {
