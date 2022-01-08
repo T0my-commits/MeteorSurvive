@@ -17,6 +17,7 @@ public class Meteorite extends Objet implements Danger {
 
     }
 
+
     @Override
     public String toString() {
         return "Meteorite{ " + getPosX() +" / "+ getPosY()+" }";

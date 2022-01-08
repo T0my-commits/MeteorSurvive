@@ -9,6 +9,8 @@ import modele.Objet.Dino;
 import modele.Objet.Meteorite;
 import modele.Objet.Objet;
 
+import java.util.List;
+
 public class Manager {
     Monde monde;
     BoucleurJeu boucleur;
@@ -26,6 +28,10 @@ public class Manager {
     public void creerObjetMeteorite(Objet o) {
         monde.addObjet(o);
         Deplaceur dep = new DeplaceurMeteorite(boucleur, monde);
+    }
+
+    public List<Meteorite> getMeteorite(){
+        return monde.getMeteorite();
     }
 
     public void creerObjetDino(Objet o) {

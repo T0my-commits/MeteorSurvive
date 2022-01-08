@@ -1,6 +1,7 @@
 package modele;
 
 import modele.Objet.Dino;
+import modele.Objet.Meteorite;
 import modele.Objet.Objet;
 
 import java.util.*;
@@ -19,6 +20,18 @@ public class Monde {
     public Monde() {
         dino = new Dino(0,1,100);
         allObject = new ArrayList<>();
+    }
+
+    public List<Meteorite> getMeteorite(){
+        List<Meteorite> l = new ArrayList<>();
+        for (Objet o: allObject
+             ) {
+            if(o instanceof Meteorite){
+                l.add((Meteorite) o);
+            }
+
+        }
+        return l;
     }
 
     public void addObjet(Objet o){

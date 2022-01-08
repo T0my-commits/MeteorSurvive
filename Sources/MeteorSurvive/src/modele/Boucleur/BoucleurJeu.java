@@ -4,8 +4,6 @@ import static java.lang.Thread.sleep;
 
 public class BoucleurJeu extends Boucleur {
 
-    private int moveX;
-    private int moveY;
 
     public BoucleurJeu() {}
 
@@ -14,7 +12,7 @@ public class BoucleurJeu extends Boucleur {
         // si le joueur veut bouger, on boucle
         while (true) {
             try {
-                sleep(100);
+                sleep(10);
                 notifier();
             } catch (InterruptedException e) {
                 e.printStackTrace();

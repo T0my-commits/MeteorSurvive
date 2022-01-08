@@ -27,12 +27,17 @@ public class FenetreMenu {
     @FXML
     public TextField txtfield;
 
+    Manager manager;
+
     public void initialize()
     {
         //bg.setPreserveRatio(true);
         titre.setFont(new Font(50));
         BorderPane.setAlignment(bouttondep, Pos.CENTER);
-        Manager manager = new Manager();
+        manager = new Manager();
 
     }
+
+
+
 }

@@ -1,6 +1,7 @@
 package modele.Deplaceur;
 
 import modele.Monde;
+import modele.Objet.Meteorite;
 import modele.Objet.Objet;
 import modele.Sujet;
 
@@ -20,7 +21,7 @@ public class DeplaceurMeteorite extends Deplaceur {
 
     @Override
     public void update() {
-        List<Objet> allObjet = getMonde().getObjet();
+        List<Meteorite> allObjet = getMonde().getMeteorite();
         for(Objet o : allObjet){
             o.setPosY(o.getPosY() + 1d);
             System.out.println(o);
