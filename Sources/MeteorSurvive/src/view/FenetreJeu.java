@@ -6,6 +6,8 @@ import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import modele.Manager.Manager;
 import modele.Objet.Meteorite;
@@ -15,13 +17,20 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+
+import java.awt.*;
+import java.util.EventListener;
+
 import static java.lang.Thread.sleep;
 
 
-public class FenetreJeu {
+public class FenetreJeu implements EventListener {
 
     @FXML
     public AnchorPane fenetrejeu;
+
+    @FXML
+    public javafx.scene.control.TextField controledep;
 
     Manager manager;
 
@@ -34,12 +43,33 @@ public class FenetreJeu {
         getScene();
 
 
+        System.out.println("*****************************************************");
 
         /*
         while (manager.getMonde().getDino().getPointsDeVie() > 0) {
             // smthg
         }
         */
+    }
+
+    @FXML
+    public void handleKeyPressed(KeyEvent keyEvent) {
+        controledep.setText("");
+        System.out.println("La touche " + keyEvent.getCode() + " a ete pressee");
+/*
+        switch (keyEvent.getCode()) {
+            case D -> // aller a gauche
+            break;
+            case Q -> // aller a gauche
+            break;
+            case S -> // aller en bas ?
+            break;
+            case Z,SPACE -> // aller en haut (sauter)
+            break;
+            default -> // on verifie que le dino touche le sol, sinon on le soumet à la gravité
+            break;
+        }
+ */
     }
 
     public void getScene(){

@@ -1,17 +1,16 @@
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.util.Objects;
+import modele.GestionnaireJeu;
 
 public class Loader extends Application {
+    @FXML
+    public AnchorPane fenetrejeu;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-            Parent racine = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("FXML/FenetreJeu.fxml")));
-            Scene scene = new Scene(racine);
-            primaryStage.setScene(scene);
-            primaryStage.show();
+        new GestionnaireJeu(primaryStage);
     }
+
 }

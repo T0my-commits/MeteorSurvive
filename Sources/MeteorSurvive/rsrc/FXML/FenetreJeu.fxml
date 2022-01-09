@@ -3,9 +3,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane  fx:id="fenetrejeu" prefWidth="1041.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreJeu">
+
+<?import javafx.scene.control.TextField?>
+<AnchorPane fx:id="fenetrejeu" prefWidth="1041.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml" fx:controller="view.FenetreJeu">
+   <children>
+      <TextField fx:id="controledep" onKeyPressed="#handleKeyPressed" />
+   </children>
    <children>
       <ImageView fitHeight="511.0" fitWidth="1041.0" pickOnBounds="true" preserveRatio="true">
          <image>
