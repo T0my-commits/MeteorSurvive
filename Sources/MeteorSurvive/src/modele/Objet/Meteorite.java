@@ -7,6 +7,10 @@ import java.util.Random;
 
 public class Meteorite extends Objet implements Danger {
 
+
+
+    private boolean isAffiche = false;
+
     public Meteorite() {
         super(0d,0d,1);
     }
@@ -14,10 +18,19 @@ public class Meteorite extends Objet implements Danger {
         super(x,y,1);
     }
 
+    public boolean isAffiche() {
+        return isAffiche;
+    }
+
+    public void setAffiche(boolean affiche) {
+        isAffiche = affiche;
+    }
+
     @Override
     public void setDegats(Objet o1) {
 
     }
+
 
     @Override
     public String toString() {

@@ -12,10 +12,6 @@
             <Image url="@../media/decors_001.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../media/dino_001.jpg" />
-         </image>
-      </ImageView>
+      
    </children>
 </AnchorPane>

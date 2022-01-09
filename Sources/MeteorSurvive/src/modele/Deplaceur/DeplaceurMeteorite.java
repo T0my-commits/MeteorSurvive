@@ -24,7 +24,7 @@ public class DeplaceurMeteorite extends Deplaceur {
         List<Meteorite> allObjet = getMonde().getMeteorite();
         for(Objet o : allObjet){
             o.setPosY(o.getPosY() + 1d);
-            System.out.println(o);
+            //System.out.println(o);
         }
     }
 

@@ -9,6 +9,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import modele.Manager.Manager;
 import modele.Objet.Meteorite;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 import static java.lang.Thread.sleep;
 
 
@@ -19,8 +25,7 @@ public class FenetreJeu {
 
     Manager manager;
 
-
-
+    Map<Meteorite, ImageView> allMeteorite = new HashMap<>();
 
     public void initialize()
     {
@@ -29,7 +34,6 @@ public class FenetreJeu {
         getScene();
 
 
-        System.out.println("*****************************************************");
 
         /*
         while (manager.getMonde().getDino().getPointsDeVie() > 0) {
@@ -49,17 +53,22 @@ public class FenetreJeu {
             fenetrejeu.getChildren().add(i);
         }
 */
-        manager.getMeteorite().addListener((ListChangeListener.Change<? extends Meteorite> change) -> {
-            while (change.next()){
-                if(change.wasAdded()){
-                    for (Meteorite m : change.getAddedSubList()
-                         ) {
+        manager.getMeteorite().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                for (Meteorite m : manager.getMeteorite()
+                ) {
+                    if(!m.isAffiche()){
+                        System.out.println("TEST");
                         ImageView i = new ImageView();
                         i.setImage(new Image("file:///"+ System.getProperty("user.dir") + "/rsrc/media/meteorite.png"));
                         i.xProperty().bind(m.posXProperty());
                         i.yProperty().bind(m.posYProperty());
                         fenetrejeu.getChildren().add(i);
+                        m.setAffiche(true);
+                        allMeteorite.put(m, i);
                     }
+
                 }
             }
         });
