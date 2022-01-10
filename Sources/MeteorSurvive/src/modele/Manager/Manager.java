@@ -8,9 +8,13 @@ import modele.Deplaceur.DeplaceurBasePerso;
 import modele.Deplaceur.DeplaceurMeteorite;
 import modele.Deplaceur.DeplaceurPet;
 import modele.Monde;
+import modele.Objet.Dino;
 import modele.Objet.Meteorite;
-import modele.Objet.Pet;
+import modele.Objet.Entite;
 import modele.createur.CreateurMeteorite;
+import modele.Objet.Pet;
+
+import java.util.List;
 
 public class Manager {
     Monde monde;
@@ -32,6 +36,11 @@ public class Manager {
         deplaceurBasePerso = new DeplaceurBasePerso();
 
     }
+
+    /*public void creerObjetMeteorite(Meteorite o) {
+        monde.addMeteorite(o);
+        Deplaceur dep = new DeplaceurMeteorite(boucleur, monde);
+    }*/
 
     public ObservableList<Meteorite> getMeteorite(){
         return monde.getMeteorite();

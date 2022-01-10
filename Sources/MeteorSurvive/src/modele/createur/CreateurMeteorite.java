@@ -25,7 +25,7 @@ public class CreateurMeteorite extends Createur implements Observateur {
 
     @Override
     public void creer(Monde m) {
-        m.addMeteorite(new Meteorite(new Random().nextInt(1000), -150));
+        m.addMeteorite(new Meteorite(new Random().nextInt(1200) +10 , -150));
     }
 
 }

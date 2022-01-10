@@ -1,8 +1,11 @@
 package modele.Objet;
 
+import modele.hitbox.Hitbox;
+
 public class Dino extends Entite {
 
-    public Dino(double x, double y, int pointsdevie) {
-        super(x,y,pointsdevie);
+    private int pdv = 3;
+    public Dino(double x, double y) {
+        super(x,y, new Hitbox(110,110));
     }
 }

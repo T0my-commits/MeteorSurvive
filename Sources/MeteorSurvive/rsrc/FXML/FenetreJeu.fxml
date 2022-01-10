@@ -8,12 +8,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.Font?>
-<AnchorPane fx:id="fenetrejeu" prefWidth="1100" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml" fx:controller="view.FenetreJeu">
+<AnchorPane fx:id="fenetrejeu" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml" fx:controller="view.FenetreJeu">
    <children>
       <TextField fx:id="controledep" onKeyPressed="#handleKeyPressed" />
    </children>
    <children>
-      <ImageView fitHeight="511.0" fitWidth="1041.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../media/volcan.png" />
          </image>

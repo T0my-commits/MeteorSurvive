@@ -25,7 +25,8 @@ public class GestionnaireJeu implements Observateur {
         Parent racine = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../FXML/FenetreJeu.fxml")));
         Scene scene = new Scene(racine);
         stage.setScene(scene);
-
+        stage.setHeight(720);
+        stage.setWidth(1280);
         stage.show();
     }
 

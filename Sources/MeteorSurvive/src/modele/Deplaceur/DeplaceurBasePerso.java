@@ -1,5 +1,6 @@
 package modele.Deplaceur;
 
+import modele.Boucleur.BoucleurJeu;
 import modele.Objet.Entite;
 
 public class DeplaceurBasePerso extends Deplaceur {
