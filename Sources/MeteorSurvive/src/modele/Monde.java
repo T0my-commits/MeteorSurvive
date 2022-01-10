@@ -1,14 +1,11 @@
 package modele;
 
-import javafx.beans.property.ListProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
-import modele.Boucleur.BoucleurMeteorite;
 import modele.Objet.Dino;
 import modele.Objet.Meteorite;
-import modele.Objet.Objet;
-import modele.createur.CreateurMeteorite;
+import modele.Objet.Entite;
+import modele.Objet.Pet;
 
 import java.util.*;
 
@@ -16,13 +13,14 @@ import java.util.*;
  * Le role du maitre du jeu est d'autoriser certaines les actions des objets en cours de partie.
  *
  * Il possède :
- *  - une instance de chaque objets dans le jeu ;
+ *  - une instance de chaque objets dans le jeu;
  *  - la capacité d'appeler chaque éléments du jeu et les faire travailler ensemble;
  */
 public class Monde{
-    private List<Objet> allObject;
+    private List<Entite> allObject;
     private Dino dino;
     private ObservableList<Meteorite> listMeteorite = FXCollections.observableArrayList();
+    private ObservableList<Pet> listPets = FXCollections.observableArrayList();
 
 
     public Monde() {
@@ -32,23 +30,22 @@ public class Monde{
     }
 
     public ObservableList<Meteorite> getMeteorite(){
-        //Si on a une liste avec tout les objet
-        /*List<Meteorite> l = new ArrayList<>();
-        for (Objet o: allObject
-             ) {
-            if(o instanceof Meteorite){
-                l.add((Meteorite) o);
-            }
-
-        }*/
         return listMeteorite;
+    }
+
+    public ObservableList<Pet> getPets(){
+        return listPets;
     }
 
     public void addMeteorite(Meteorite m){
         listMeteorite.add(m);
     }
 
-    public Dino getDino() { return dino; }
+    public Dino getDino() {
+        return dino;
+    }
 
-
+    public void peter(double x, double y, int pts) {
+        listPets.add(new Pet(x, y, pts));
+    }
 }

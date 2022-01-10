@@ -1,6 +1,6 @@
 package modele.Bonus;
 
-import modele.Objet.Objet;
+import modele.Objet.Entite;
 
 /**
  * Interface qui défini un objet de type bonus
@@ -12,5 +12,5 @@ public interface Bonus {
      * @param o1 L'objet qui reçoie les points de vie
      * @param nbPoints Le nombre de points à ajouter
      */
-    public void addPointDeVie(Objet o1, int nbPoints);
+    public void addPointDeVie(Entite o1, int nbPoints);
 }

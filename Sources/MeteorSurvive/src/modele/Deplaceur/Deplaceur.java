@@ -1,8 +1,6 @@
 package modele.Deplaceur;
 
-import modele.Boucleur.Boucleur;
 import modele.Monde;
-import modele.Objet.Objet;
 import modele.Observateur;
 import modele.Sujet;
 

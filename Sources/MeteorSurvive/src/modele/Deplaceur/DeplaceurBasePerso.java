@@ -1,19 +1,19 @@
 package modele.Deplaceur;
 
-import modele.Boucleur.BoucleurJeu;
-import modele.Objet.Objet;
+import modele.Objet.Entite;
 
 public class DeplaceurBasePerso extends Deplaceur {
 
     private static int velocity = 10;
 
-    public DeplaceurBasePerso() {
-       setBoucleur(new BoucleurJeu());
-    }
-
-    public void deplacer(Objet o, int x, int y) {
-        o.setPosX(x);
+    /**
+     * Défini une nouvelle position pour le dino
+     */
+    public void setPosition(Entite o, double i, double y) {
+        // --------------------- si aucune collision, on dépace le dino
+        o.setPosX(i);
         o.setPosY(y);
+        // sinon pas de déplacement
     }
 
     @Override

@@ -1,15 +1,14 @@
 package modele.Colisionneur;
 
-import modele.Objet.Objet;
+import modele.Objet.Entite;
 
 public class Colisionneur {
 
-    public boolean isCollision(Objet o1, Objet o2){
+    public boolean isCollision(Entite o1, Entite o2){
         if(o1.getPosX() == o2.getPosX() && o1.getPosY() == o2.getPosY()){
-            System.out.println("Attention colision entre les objets");
+            System.out.println("Attention collision entre les objets");
             return true;
         }
         return false;
-
     }
 }

@@ -1,10 +1,8 @@
 package modele.createur;
 
-import modele.Boucleur.BoucleurJeu;
 import modele.Boucleur.BoucleurMeteorite;
 import modele.Monde;
 import modele.Objet.Meteorite;
-import modele.Objet.Objet;
 import modele.Observateur;
 import modele.Sujet;
 

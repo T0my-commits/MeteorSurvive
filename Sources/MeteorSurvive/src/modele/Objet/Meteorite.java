@@ -1,15 +1,8 @@
 package modele.Objet;
 
 import modele.Danger.Danger;
-import modele.Objet.Objet;
 
-import java.util.Random;
-
-public class Meteorite extends Objet implements Danger {
-
-
-
-    private boolean isAffiche = false;
+public class Meteorite extends Entite implements Danger {
 
     public Meteorite() {
         super(0d,0d,1);
@@ -18,16 +11,8 @@ public class Meteorite extends Objet implements Danger {
         super(x,y,1);
     }
 
-    public boolean isAffiche() {
-        return isAffiche;
-    }
-
-    public void setAffiche(boolean affiche) {
-        isAffiche = affiche;
-    }
-
     @Override
-    public void setDegats(Objet o1) {
+    public void setDegats(Entite o1) {
 
     }
 

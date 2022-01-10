@@ -27,10 +27,6 @@ public class GestionnaireJeu implements Observateur {
         stage.setScene(scene);
 
         stage.show();
-
-        /*scene.setOnKeyPressed(event -> {
-            System.out.println("La touche " + event.getCode() + " a ete pressee !");
-        });*/
     }
 
     public void secondStage() {
