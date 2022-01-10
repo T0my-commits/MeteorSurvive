@@ -81,15 +81,21 @@ public class FenetreJeu implements EventListener {
             i.xProperty().bind(m.posXProperty());
             i.yProperty().bind(m.posYProperty());
             fenetrejeu.getChildren().add(i);
-        }
-*/
+        }*/
+        ImageView i = new ImageView();
+        i.setImage(new Image("file:///"+ System.getProperty("user.dir") + "/rsrc/media/sol.png"));
+        //i.yProperty().setValue(400);
+
+        fenetrejeu.getChildren().add(i);
+        AnchorPane.setBottomAnchor(i,1.0);
+
         manager.getMeteorite().addListener(new InvalidationListener() {
             @Override
             public void invalidated(Observable observable) {
                 for (Meteorite m : manager.getMeteorite()
                 ) {
                     if(!m.isAffiche()){
-                        System.out.println("TEST");
+                        System.out.println("Nouvele Meteorite : "+ m);
                         ImageView i = new ImageView();
                         i.setImage(new Image("file:///"+ System.getProperty("user.dir") + "/rsrc/media/meteorite.png"));
                         i.xProperty().bind(m.posXProperty());
