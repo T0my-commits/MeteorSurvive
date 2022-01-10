@@ -1,5 +1,6 @@
 package modele.Deplaceur;
 
+import modele.Colisionneur.Colisionneur;
 import modele.Monde;
 import modele.Objet.Meteorite;
 import modele.Objet.Entite;
@@ -19,10 +20,18 @@ public class DeplaceurMeteorite extends Deplaceur {
 
     @Override
     public void update() {
-        List<Meteorite> allObjet = getMonde().getMeteorite();
-        for(Entite o : allObjet){
-            o.setPosY(o.getPosY() + 1d);
-            o.setPosX(o.getPosX() - 0.2d);
+        List<Meteorite> allMereorite = getMonde().getMeteorite();
+        for(Meteorite e : allMereorite){
+            if(Colisionneur.isColision(e, getMonde(), e.getPosX()+1,e.getPosY())) {
+                System.out.println("COLISIONNNNNNNN");
+                getMonde().delEntite(e);
+            }
+            else{
+                e.setPosY(e.getPosY() + 1d);
+                e.setPosX(e.getPosX());
+            }
+
+
         }
     }
 

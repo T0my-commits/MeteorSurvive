@@ -5,10 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import modele.Boucleur.BoucleurMeteorite;
-import modele.Objet.Dino;
-import modele.Objet.Entite;
-import modele.Objet.Meteorite;
-import modele.Objet.Pet;
+import modele.Objet.*;
 import modele.createur.CreateurMeteorite;
 
 import java.util.*;
@@ -25,13 +22,19 @@ public class Monde{
 
     private List<Entite> allEntite;
     private Dino dino;
+    private Sol sol;
     private ObservableList<Meteorite> listMeteorite = FXCollections.observableArrayList();
     private ObservableList<Pet> listPets = FXCollections.observableArrayList();
+
+
 
 
     public Monde() {
         dino = new Dino(0,1);
         allEntite = new ArrayList<>();
+        allEntite.add(dino);
+        sol = new Sol();
+        allEntite.add(sol);
 
     }
 
@@ -50,6 +53,13 @@ public class Monde{
 
     public Dino getDino() {
         return dino;
+    }
+    public Sol getSol() {
+        return sol;
+    }
+
+    public void setSol(Sol sol) {
+        this.sol = sol;
     }
 
     public List<Entite> getAllEntite() {
@@ -70,7 +80,7 @@ public class Monde{
     }
 
 
-    public void peter(double x, double y, int pts) {
+    public void peter(double x, double y) {
         listPets.add(new Pet(x, y));
     }
 }

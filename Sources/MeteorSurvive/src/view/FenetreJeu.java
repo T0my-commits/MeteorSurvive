@@ -6,6 +6,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import modele.Manager.Manager;
 import modele.Objet.Meteorite;
@@ -84,9 +86,12 @@ public class FenetreJeu implements EventListener {
     public void getScene() {
         ImageView i = new ImageView();
         i.setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/sol.png"));
+        i.xProperty().bind(manager.getMonde().getSol().posXProperty());
+        i.yProperty().bind(manager.getMonde().getSol().posYProperty());
 
         fenetrejeu.getChildren().add(i);
         AnchorPane.setBottomAnchor(i, 1.0);
+
 
         manager.getMeteorite().addListener((InvalidationListener) observable -> {
             for (var o : manager.getMeteorite()) {
@@ -118,6 +123,8 @@ public class FenetreJeu implements EventListener {
                     allPets.put(o, i1);
                 }
             }
+
+
         });
     }
 }

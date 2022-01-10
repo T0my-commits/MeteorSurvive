@@ -1,6 +1,7 @@
 package modele.createur;
 
 import modele.Boucleur.BoucleurMeteorite;
+import modele.Colisionneur.Colisionneur;
 import modele.Monde;
 import modele.Objet.Meteorite;
 import modele.Observateur;
@@ -25,7 +26,11 @@ public class CreateurMeteorite extends Createur implements Observateur {
 
     @Override
     public void creer(Monde m) {
-        m.addMeteorite(new Meteorite(new Random().nextInt(1200) +10 , -150));
+        Meteorite tmp = new Meteorite(new Random().nextInt(1200) +10 , -150);
+        while (Colisionneur.isColision(tmp, m, tmp.getPosX(), tmp.getPosY())){
+            tmp = new Meteorite(new Random().nextInt(1200) +10 , -150);
+        }
+        m.addMeteorite(tmp);
     }
 
 }

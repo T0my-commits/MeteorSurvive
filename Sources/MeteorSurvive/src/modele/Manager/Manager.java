@@ -60,6 +60,6 @@ public class Manager {
     }
 
     public void peter(double x, double y, int pts) {
-        monde.peter(x, y, pts);
+        monde.peter(x, y);
     }
 }
