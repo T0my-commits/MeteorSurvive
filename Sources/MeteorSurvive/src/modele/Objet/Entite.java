@@ -3,6 +3,7 @@ package modele.Objet;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Bounds;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
 import java.util.Objects;
@@ -26,20 +27,15 @@ public abstract class Entite {
 
     private boolean isAffiche = false;
     private ImageView imageView;
+    private Rectangle hitbox;
 
     public Entite(double x, double y, Rectangle hitbox) {
         this.posX.set(x);
         this.posY.set(y);
         this.hitbox=hitbox;
+        imageView = new ImageView();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Entite)) return false;
-        Entite entite = (Entite) o;
-        return isAffiche() == entite.isAffiche() && Objects.equals(getPosX(), entite.getPosX()) && Objects.equals(getPosY(), entite.getPosY()) && Objects.equals(getHitbox(), entite.getHitbox());
-    }
 
 
     public Rectangle getHitbox() {
@@ -50,14 +46,6 @@ public abstract class Entite {
         this.hitbox = hitbox;
     }
 
-    private Rectangle hitbox;
-
-    public Entite(double x, double y, Rectangle hitbox) {
-        this.posX.set(x);
-        this.posY.set(y);
-        this.hitbox=hitbox;
-        imageView = new ImageView();
-    }
 
     public ImageView getImageView() {
         return imageView;
@@ -65,6 +53,8 @@ public abstract class Entite {
 
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
+    }
+
     public void updateX(double x){
         setPosX(getPosX()+x);
     }
@@ -73,15 +63,20 @@ public abstract class Entite {
         setPosY(getPosY()+y);
     }
 
-
-
     public boolean isAffiche() {
-        return isAffiche;
-    }
+            return isAffiche;
+        }
+        public void setAffiche(boolean affiche) {
+            isAffiche = affiche;
+        }
 
-    public void setAffiche(boolean val) {
-        isAffiche = val;
-    }
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Entite)) return false;
+            Entite entite = (Entite) o;
+            return isAffiche == entite.isAffiche && Objects.equals(getPosX(), entite.getPosX()) && Objects.equals(getPosY(), entite.getPosY()) && Objects.equals(getImageView(), entite.getImageView()) && Objects.equals(getHitbox(), entite.getHitbox());
+        }
 
     @Override
     public String toString() {
@@ -93,3 +88,7 @@ public abstract class Entite {
 
 
 }
+
+
+
+
