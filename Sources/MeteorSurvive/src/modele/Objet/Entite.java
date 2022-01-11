@@ -25,6 +25,7 @@ public abstract class Entite {
     public DoubleProperty posYProperty(){return posY;}
 
     private boolean isAffiche = false;
+    private ImageView imageView;
 
     public Entite(double x, double y, Rectangle hitbox) {
         this.posX.set(x);
@@ -51,6 +52,19 @@ public abstract class Entite {
 
     private Rectangle hitbox;
 
+    public Entite(double x, double y, Rectangle hitbox) {
+        this.posX.set(x);
+        this.posY.set(y);
+        this.hitbox=hitbox;
+        imageView = new ImageView();
+    }
+
+    public ImageView getImageView() {
+        return imageView;
+    }
+
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
     public void updateX(double x){
         setPosX(getPosX()+x);
     }

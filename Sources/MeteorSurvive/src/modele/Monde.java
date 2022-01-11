@@ -83,6 +83,8 @@ public class Monde{
 
 
     public void peter(double x, double y) {
-        listPets.add(new Pet(x, y));
+        Pet p = new Pet(x, y);
+        listPets.add(p);
+        allEntite.add(p);
     }
 }

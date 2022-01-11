@@ -1,5 +1,7 @@
 package view;
 
+import javafx.animation.Animation;
+import javafx.animation.Transition;
 import javafx.beans.InvalidationListener;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -9,6 +11,8 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
+import modele.Colisionneur.Colisionneur;
 import modele.Manager.Manager;
 import modele.Objet.Meteorite;
 import modele.Objet.Pet;
@@ -61,7 +65,7 @@ public class FenetreJeu implements EventListener {
         didacticiel.setVisible(false);
 
         // mise en place de la scene
-        manager.getMonde().getDino().setPosY(350d);
+        manager.getMonde().getDino().setPosY(535d);
         getScene();
     }
 
@@ -78,8 +82,7 @@ public class FenetreJeu implements EventListener {
                 manager.deplacerDinoGauche();
                 dino_view.setScaleX(-1f);
             }
-
-            case ENTER -> {
+            case SPACE -> {
                 manager.peter(manager.getMonde().getDino().getPosX(), manager.getMonde().getDino().getPosY(), 1);
             }
         }
@@ -99,13 +102,30 @@ public class FenetreJeu implements EventListener {
             for (var o : manager.getMeteorite()) {
                 if (!o.isAffiche()) {
                     System.out.println("Nouvel objet : " + o);
-                    ImageView i1 = new ImageView();
-                    i1.setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/meteorite.png"));
-                    i1.xProperty().bind(o.posXProperty());
-                    i1.yProperty().bind(o.posYProperty());
-                    fenetrejeu.getChildren().add(i1);
+                    o.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/meteorite.png"));
+                    o.getImageView().xProperty().bind(o.posXProperty());
+                    o.getImageView().yProperty().bind(o.posYProperty());
+                    fenetrejeu.getChildren().add(o.getImageView());
                     o.setAffiche(true);
-                    allMeteorite.put(o, i1);
+                    allMeteorite.put(o, o.getImageView());
+                }
+
+                if (Colisionneur.isColision(o, manager.getMonde(), o.getPosX(), o.getPosY())) {
+                    /*int index = fenetrejeu.getChildren().indexOf(o.getImageView());
+                    o.setPosY(o.getPosY() + 20d);
+                    ((ImageView) fenetrejeu.getChildren().get(index)).setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/explosion_001.png"));
+
+                    final Animation animation = new Transition() {
+                        {
+                            setCycleDuration(Duration.millis(1000d));
+                        }
+                        @Override
+                        protected void interpolate(double v) {
+                            fenetrejeu.getChildren().remove(o.getImageView());
+                        }
+                    };
+                    animation.play();*/
+                    fenetrejeu.getChildren().remove(o.getImageView());
                 }
                 else {
 
@@ -114,20 +134,19 @@ public class FenetreJeu implements EventListener {
         });
 
         manager.getPets().addListener((InvalidationListener) observable -> {
-            for (var o : manager.getPets()) {
+            for (Pet o : manager.getPets()) {
                 if (!o.isAffiche()) {
                     System.out.println("Nouvel objet : " + o);
-                    ImageView i1 = new ImageView();
-                    i1.setFitWidth(50);
-                    i1.setFitHeight(50);
-                    i1.setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/pet_001.png"));
-                    i1.xProperty().bind(o.posXProperty());
-                    i1.yProperty().bind(o.posYProperty());
-                    fenetrejeu.getChildren().add(i1);
+                    o.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/pet_001.png"));
+                    o.getImageView().setFitWidth(50);
+                    o.getImageView().setFitHeight(50);
+                    o.getImageView().xProperty().bind(o.posXProperty());
+                    o.getImageView().yProperty().bind(o.posYProperty());
+                    fenetrejeu.getChildren().add(o.getImageView());
                     o.setAffiche(true);
-                    allPets.put(o, i1);
+                    allPets.put(o, o.getImageView());
                 }
-            }
+        }
 
 
         });
