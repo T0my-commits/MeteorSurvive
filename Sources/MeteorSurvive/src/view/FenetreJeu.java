@@ -3,6 +3,9 @@ package view;
 import javafx.animation.Animation;
 import javafx.animation.Transition;
 import javafx.beans.InvalidationListener;
+import javafx.beans.binding.Binding;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -10,6 +13,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import modele.Colisionneur.Colisionneur;
@@ -41,6 +45,10 @@ public class FenetreJeu implements EventListener {
     public ImageView dino_view;
     @FXML
     public Text didacticiel;
+    @FXML
+    public Text pointVie;
+    @FXML
+    public HBox pdvBox;
 
     Map<Meteorite, ImageView> allMeteorite = new HashMap<>();
     Map<Pet, ImageView> allPets = new HashMap<>();
@@ -65,7 +73,7 @@ public class FenetreJeu implements EventListener {
         didacticiel.setVisible(false);
 
         // mise en place de la scene
-        manager.getMonde().getDino().setPosY(535d);
+        //manager.getMonde().getDino().setPosY(535d);
         getScene();
     }
 
@@ -89,13 +97,20 @@ public class FenetreJeu implements EventListener {
     }
 
     public void getScene() {
+
+        pointVie.textProperty().bind(Bindings.convert(manager.getMonde().getDino().pdvProperty()));
+        pointVie.setFont(Font.font("Impact", 20));
+        //AnchorPane.setBottomAnchor(pdvBox , 1.0);
+
+
         ImageView i = new ImageView();
         i.setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/sol.png"));
         i.xProperty().bind(manager.getMonde().getSol().posXProperty());
         i.yProperty().bind(manager.getMonde().getSol().posYProperty());
-
         fenetrejeu.getChildren().add(i);
         AnchorPane.setBottomAnchor(i, 1.0);
+
+
 
 
         manager.getMeteorite().addListener((InvalidationListener) observable -> {
@@ -103,6 +118,8 @@ public class FenetreJeu implements EventListener {
                 if (!o.isAffiche()) {
                     System.out.println("Nouvel objet : " + o);
                     o.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/meteorite.png"));
+                    o.getImageView().setFitHeight(160);
+                    o.getImageView().setFitWidth(75);
                     o.getImageView().xProperty().bind(o.posXProperty());
                     o.getImageView().yProperty().bind(o.posYProperty());
                     fenetrejeu.getChildren().add(o.getImageView());
@@ -147,6 +164,7 @@ public class FenetreJeu implements EventListener {
                     allPets.put(o, o.getImageView());
                 }
         }
+
 
 
         });

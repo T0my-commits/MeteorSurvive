@@ -2,14 +2,13 @@
 
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.control.TextArea?>
-<AnchorPane fx:id="fenetrejeu" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml" fx:controller="view.FenetreJeu">
+<AnchorPane fx:id="fenetrejeu" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreJeu">
    <children>
       <TextField fx:id="controledep" onKeyPressed="#handleKeyPressed" />
    </children>
@@ -19,22 +18,25 @@
             <Image url="@../media/volcan.png" />
          </image>
       </ImageView>
-      <Text fx:id="didacticiel" fill="#3397fc" layoutX="734.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pour se déplacer :
-       - D,Q,ESPACE
-       - Les flèches directionnelles
 
-      Pour attaquer :
-      - ENTREE"
-            wrappingWidth="245.05810546875">
+      <Text fx:id="didacticiel" fill="#3397fc" layoutX="734.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pour se déplacer :        - D,Q,ESPACE        - Les flèches directionnelles        Pour attaquer :       - ENTREE" wrappingWidth="245.05810546875">
          <font>
             <Font name="Quicksand Regular" size="15.0" />
          </font>
       </Text>
-      <ImageView fx:id="dino_view" fitWidth="110" fitHeight="110">
+      <ImageView fx:id="dino_view" fitHeight="100" fitWidth="100">
          <image>
             <Image url="@../media/dino_001.png" />
          </image>
       </ImageView>
+      <HBox fx:id="pdvBox">
+         <Text fx:id="pointVie" />
+         <ImageView fitHeight="25" fitWidth="25">
+            <image>
+               <Image url="@../media/coeur.png" />
+            </image>
+         </ImageView>
+      </HBox>
       
    </children>
 </AnchorPane>

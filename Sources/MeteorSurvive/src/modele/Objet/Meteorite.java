@@ -10,7 +10,7 @@ public class Meteorite extends Entite implements Danger {
     private boolean isAffiche = false;
 
     public Meteorite(double x, double y){
-        super(x,y, new Rectangle(x,y,53, 131));
+        super(x,y, new Rectangle(x,y,75, 160));
     }
 
     public Meteorite() {

@@ -9,6 +9,6 @@ import modele.hitbox.Hitbox;
 public class Pet extends Entite {
 
     public Pet(double x, double y) {
-        super(x, y, new Rectangle(x,y,167,155));
+        super(x, y, new Rectangle(x,y,140,125));
     }
 }
