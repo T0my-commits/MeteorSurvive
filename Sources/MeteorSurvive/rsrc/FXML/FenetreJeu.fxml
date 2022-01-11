@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TextArea?>
 <AnchorPane fx:id="fenetrejeu" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml" fx:controller="view.FenetreJeu">
    <children>
       <TextField fx:id="controledep" onKeyPressed="#handleKeyPressed" />

@@ -3,6 +3,7 @@ package modele.Objet;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Bounds;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
 import java.util.Objects;
@@ -23,6 +24,7 @@ public abstract class Entite {
     public DoubleProperty posYProperty(){return posY;}
 
     private boolean isAffiche = false;
+    private ImageView imageView;
 
     @Override
     public boolean equals(Object o) {
@@ -47,6 +49,15 @@ public abstract class Entite {
         this.posX.set(x);
         this.posY.set(y);
         this.hitbox=hitbox;
+        imageView = new ImageView();
+    }
+
+    public ImageView getImageView() {
+        return imageView;
+    }
+
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
     }
 
 
