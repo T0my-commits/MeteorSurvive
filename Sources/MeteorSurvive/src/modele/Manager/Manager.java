@@ -33,7 +33,7 @@ public class Manager {
 
         deplaceurMeteorite = new DeplaceurMeteorite(boucleur, monde);
         deplaceurPet = new DeplaceurPet(boucleur, monde);
-        deplaceurBasePerso = new DeplaceurBasePerso();
+        deplaceurBasePerso = new DeplaceurBasePerso(boucleur, monde);
 
     }
 
@@ -55,8 +55,13 @@ public class Manager {
     /**
      * Déplace le dino
      */
-    public void deplacerDino(double x, double y) {
-        deplaceurBasePerso.setPosition(monde.getDino(), x, y);
+    public void deplacerDinoDroite() {
+        deplaceurBasePerso.deplacerDroite();
+
+    }
+
+    public void deplacerDinoGauche() {
+        deplaceurBasePerso.deplacerGauche();
     }
 
     public void peter(double x, double y, int pts) {

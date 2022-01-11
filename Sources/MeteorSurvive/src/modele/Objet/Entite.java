@@ -11,18 +11,26 @@ import java.util.Objects;
  * La classe Objet défini un template pour tout les autres objets;
  */
 public abstract class Entite {
+
+
     // déclaration des attributs
     protected DoubleProperty posX = new SimpleDoubleProperty();
     public double getPosX(){return posX.get();}
-    public void setPosX(double value){posX.set(value);}
+    public void setPosX(double value){posX.set(value); hitbox.setX(value);}
     public DoubleProperty posXProperty(){return posX;}
 
     protected DoubleProperty posY = new SimpleDoubleProperty();
     public double getPosY(){return posY.get();}
-    public void setPosY(double value){posY.set(value);}
+    public void setPosY(double value){posY.set(value); hitbox.setY(value);}
     public DoubleProperty posYProperty(){return posY;}
 
     private boolean isAffiche = false;
+
+    public Entite(double x, double y, Rectangle hitbox) {
+        this.posX.set(x);
+        this.posY.set(y);
+        this.hitbox=hitbox;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -43,11 +51,14 @@ public abstract class Entite {
 
     private Rectangle hitbox;
 
-    public Entite(double x, double y, Rectangle hitbox) {
-        this.posX.set(x);
-        this.posY.set(y);
-        this.hitbox=hitbox;
+    public void updateX(double x){
+        setPosX(getPosX()+x);
     }
+
+    public void updateY(double y){
+        setPosY(getPosY()+y);
+    }
+
 
 
     public boolean isAffiche() {

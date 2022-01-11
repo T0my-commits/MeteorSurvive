@@ -27,8 +27,7 @@ public class DeplaceurMeteorite extends Deplaceur {
                 getMonde().delEntite(e);
             }
             else{
-                e.setPosY(e.getPosY() + 1d);
-                e.setPosX(e.getPosX());
+                e.updateY(1);
             }
 
 

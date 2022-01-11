@@ -9,4 +9,6 @@ public class Dino extends Entite {
     public Dino(double x, double y) {
         super(x,y, new Rectangle(x,y,110,110));
     }
+
+
 }

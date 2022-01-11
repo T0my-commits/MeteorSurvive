@@ -22,6 +22,7 @@ public class Monde{
 
     private List<Entite> allEntite;
     private Dino dino;
+
     private Sol sol;
     private ObservableList<Meteorite> listMeteorite = FXCollections.observableArrayList();
     private ObservableList<Pet> listPets = FXCollections.observableArrayList();
@@ -30,7 +31,7 @@ public class Monde{
 
 
     public Monde() {
-        dino = new Dino(0,1);
+        dino = new Dino(600,0);
         allEntite = new ArrayList<>();
         allEntite.add(dino);
         sol = new Sol();
@@ -54,6 +55,7 @@ public class Monde{
     public Dino getDino() {
         return dino;
     }
+
     public Sol getSol() {
         return sol;
     }

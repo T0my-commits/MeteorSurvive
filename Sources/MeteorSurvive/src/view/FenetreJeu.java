@@ -50,6 +50,8 @@ public class FenetreJeu implements EventListener {
         dino_view.xProperty().bind(manager.getMonde().getDino().posXProperty());
         dino_view.yProperty().bind(manager.getMonde().getDino().posYProperty());
 
+
+
         try {
             final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
             executorService.scheduleAtFixedRate(() -> didacticiel.setVisible(true), 0, 5, TimeUnit.SECONDS);
@@ -69,11 +71,11 @@ public class FenetreJeu implements EventListener {
         System.out.println("La touche " + keyEvent.getCode() + " a ete pressee");
         switch (keyEvent.getCode()) {
             case D, RIGHT -> {
-                manager.deplacerDino(manager.getMonde().getDino().getPosX() + 10, manager.getMonde().getDino().getPosY());
+                manager.deplacerDinoDroite();
                 dino_view.setScaleX(1f);
             }
             case Q, LEFT -> {
-                manager.deplacerDino(manager.getMonde().getDino().getPosX() - 10, manager.getMonde().getDino().getPosY());
+                manager.deplacerDinoGauche();
                 dino_view.setScaleX(-1f);
             }
 
@@ -104,6 +106,9 @@ public class FenetreJeu implements EventListener {
                     fenetrejeu.getChildren().add(i1);
                     o.setAffiche(true);
                     allMeteorite.put(o, i1);
+                }
+                else {
+
                 }
             }
         });
