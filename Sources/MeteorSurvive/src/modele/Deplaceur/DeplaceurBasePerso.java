@@ -10,7 +10,7 @@ import modele.Sujet;
 
 public class DeplaceurBasePerso extends Deplaceur {
 
-    private static int velocity = 10;
+    private static int velocity = 5;
     private int gravite;
     private int direction;
     int i =0;
@@ -35,7 +35,7 @@ public class DeplaceurBasePerso extends Deplaceur {
     public void deplacerDroite(){
         if(ColisionneurDino.OnGround(getMonde())) gravite = 0;
         else gravite = 10;
-        direction = 10;
+        direction = velocity;
         //getMonde().getDino().setPosX(getMonde().getDino().getPosX()+10);
         //getMonde().getDino().setPosY(getMonde().getDino().getPosY()+gravite);
     }
@@ -43,10 +43,8 @@ public class DeplaceurBasePerso extends Deplaceur {
     public void deplacerGauche(){
         if(ColisionneurDino.OnGround(getMonde())) gravite = 0;
         else gravite = 10;
-        direction = -10;
+        direction = -velocity;
 
-        //getMonde().getDino().setPosX(getMonde().getDino().getPosX()-10);
-        //getMonde().getDino().setPosY(getMonde().getDino().getPosY()+gravite);
 
     }
 
@@ -59,7 +57,7 @@ public class DeplaceurBasePerso extends Deplaceur {
         if(!ColisionneurDino.OnGround(getMonde())){
             d.updateY(gravite);
         }
-        direction =0;
+        //direction =0;
         //d.setPosX(d.getPosX()+direction);
         //d.setPosY(d.getPosY()+gravite);
     }

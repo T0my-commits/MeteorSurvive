@@ -98,9 +98,12 @@ public class FenetreJeu implements EventListener {
 
     public void getScene() {
 
+
+
         pointVie.textProperty().bind(Bindings.convert(manager.getMonde().getDino().pdvProperty()));
         pointVie.setFont(Font.font("Impact", 20));
-        //AnchorPane.setBottomAnchor(pdvBox , 1.0);
+        AnchorPane.setRightAnchor(pdvBox , 1.0);
+        AnchorPane.setBottomAnchor(pdvBox, 1.0);
 
 
         ImageView i = new ImageView();
@@ -108,7 +111,7 @@ public class FenetreJeu implements EventListener {
         i.xProperty().bind(manager.getMonde().getSol().posXProperty());
         i.yProperty().bind(manager.getMonde().getSol().posYProperty());
         fenetrejeu.getChildren().add(i);
-        AnchorPane.setBottomAnchor(i, 1.0);
+        AnchorPane.setBottomAnchor(i, 0.0);
 
 
 

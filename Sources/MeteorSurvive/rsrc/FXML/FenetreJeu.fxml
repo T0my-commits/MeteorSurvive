@@ -8,10 +8,11 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.TextField?>
-<AnchorPane fx:id="fenetrejeu" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreJeu">
+<AnchorPane fx:id="fenetrejeu" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreJeu">
    <children>
       <TextField fx:id="controledep" onKeyPressed="#handleKeyPressed" />
    </children>
+
    <children>
       <ImageView pickOnBounds="true" preserveRatio="true">
          <image>
@@ -29,6 +30,8 @@
             <Image url="@../media/dino_001.png" />
          </image>
       </ImageView>
+   </children>
+   <children>
       <HBox fx:id="pdvBox">
          <Text fx:id="pointVie" />
          <ImageView fitHeight="25" fitWidth="25">
@@ -37,6 +40,7 @@
             </image>
          </ImageView>
       </HBox>
-      
+
    </children>
+
 </AnchorPane>

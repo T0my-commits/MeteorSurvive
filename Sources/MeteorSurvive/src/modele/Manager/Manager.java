@@ -61,6 +61,7 @@ public class Manager {
     }
 
     public void deplacerDinoGauche() {
+
         deplaceurBasePerso.deplacerGauche();
     }
 

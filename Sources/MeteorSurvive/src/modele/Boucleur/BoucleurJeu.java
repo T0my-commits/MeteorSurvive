@@ -20,7 +20,7 @@ public class BoucleurJeu extends Boucleur {
         // si le joueur veut bouger, on boucle
         while (true) {
             try {
-                sleep(1);
+                sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
