@@ -1,12 +1,9 @@
 package modele;
 
-import javafx.beans.property.ListProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
-import modele.Boucleur.BoucleurMeteorite;
+import javafx.scene.shape.Rectangle;
 import modele.Objet.*;
-import modele.createur.CreateurMeteorite;
 
 import java.util.*;
 
@@ -20,15 +17,16 @@ import java.util.*;
 public class Monde{
 
 
-    private List<Entite> allEntite;
-    private Dino dino;
+    private final List<Entite> allEntite;
+    private final Dino dino;
 
     private Sol sol;
-    private ObservableList<Meteorite> listMeteorite = FXCollections.observableArrayList();
-    private ObservableList<Pet> listPets = FXCollections.observableArrayList();
+    private final ObservableList<Meteorite> listMeteorite = FXCollections.observableArrayList();
+    private final ObservableList<Pet> listPets = FXCollections.observableArrayList();
+    private final ObservableList<Item> listItem = FXCollections.observableArrayList();
 
-
-
+    // permet d'avoir un historique des Entite qui ont étés supprimées
+    private final ObservableList<Entite> childrensRemoved = FXCollections.observableArrayList();
 
     public Monde() {
         dino = new Dino(600,0);
@@ -36,7 +34,6 @@ public class Monde{
         allEntite.add(dino);
         sol = new Sol();
         allEntite.add(sol);
-
     }
 
     public ObservableList<Meteorite> getMeteorite(){
@@ -72,19 +69,34 @@ public class Monde{
         allEntite.add(e);
     }
 
-    public void delMeteorite(Meteorite m){
-        listMeteorite.remove(m);
-        delEntite(m);
-    }
-
-    public void delEntite(Entite e){
-        allEntite.remove(e);
-    }
-
-
     public void peter(double x, double y) {
         Pet p = new Pet(x, y);
         listPets.add(p);
         allEntite.add(p);
+    }
+
+    public void addItemBonus(double x, double y) {
+        Item i = new ItemRechargePet(x, y, new Rectangle(x, y, 25, 25));
+        listItem.add(i);
+        allEntite.add(i);
+    }
+
+    public ObservableList<Item> getItems() {
+        return listItem;
+    }
+
+    public void removeEntite(Entite e) {
+        assert false;
+        childrensRemoved.add(e);
+        allEntite.remove(e);
+    }
+
+    public ObservableList<Entite> getChildrendsRemoved() {
+        return childrensRemoved;
+    }
+
+    public Entite getIndexOfLastChildenRemoved() {
+        assert false;
+        return childrensRemoved.get(childrensRemoved.size());
     }
 }

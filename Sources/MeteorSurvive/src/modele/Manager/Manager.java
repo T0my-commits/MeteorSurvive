@@ -3,18 +3,10 @@ package modele.Manager;
 import javafx.collections.ObservableList;
 import modele.Boucleur.BoucleurJeu;
 import modele.Boucleur.BoucleurMeteorite;
-import modele.Deplaceur.Deplaceur;
-import modele.Deplaceur.DeplaceurBasePerso;
-import modele.Deplaceur.DeplaceurMeteorite;
-import modele.Deplaceur.DeplaceurPet;
+import modele.Deplaceur.*;
 import modele.Monde;
-import modele.Objet.Dino;
-import modele.Objet.Meteorite;
-import modele.Objet.Entite;
+import modele.Objet.*;
 import modele.createur.CreateurMeteorite;
-import modele.Objet.Pet;
-
-import java.util.List;
 
 public class Manager {
     Monde monde;
@@ -23,6 +15,7 @@ public class Manager {
     DeplaceurBasePerso deplaceurBasePerso;
     Deplaceur deplaceurMeteorite;
     Deplaceur deplaceurPet;
+    Deplaceur deplaceurItem;
 
     public Manager() {
         monde = new Monde();
@@ -34,13 +27,8 @@ public class Manager {
         deplaceurMeteorite = new DeplaceurMeteorite(boucleur, monde);
         deplaceurPet = new DeplaceurPet(boucleur, monde);
         deplaceurBasePerso = new DeplaceurBasePerso(boucleur, monde);
-
+        deplaceurItem = new DeplaceurItem(boucleur, monde);
     }
-
-    /*public void creerObjetMeteorite(Meteorite o) {
-        monde.addMeteorite(o);
-        Deplaceur dep = new DeplaceurMeteorite(boucleur, monde);
-    }*/
 
     public ObservableList<Meteorite> getMeteorite(){
         return monde.getMeteorite();
@@ -65,7 +53,23 @@ public class Manager {
         deplaceurBasePerso.deplacerGauche();
     }
 
-    public void peter(double x, double y, int pts) {
+    public void creerPet(double x, double y) {
         monde.peter(x, y);
+    }
+
+    public void creerItem(double x, double y) {
+        monde.addItemBonus(x, y);
+    }
+
+    public ObservableList<Item> getItems() {
+        return monde.getItems();
+    }
+
+    public ObservableList<Entite> getChildrensRemoved() {
+        return monde.getChildrendsRemoved();
+    }
+
+    public Entite getLastChildrenRemoved() {
+        return monde.getIndexOfLastChildenRemoved();
     }
 }

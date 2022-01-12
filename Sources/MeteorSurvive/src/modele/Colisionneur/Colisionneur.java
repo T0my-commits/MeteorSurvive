@@ -5,6 +5,7 @@ import javafx.scene.shape.Rectangle;
 import modele.Monde;
 import modele.Objet.Dino;
 import modele.Objet.Entite;
+import modele.Objet.Item;
 import modele.Objet.Pet;
 
 public class Colisionneur {
@@ -17,12 +18,14 @@ public class Colisionneur {
             if (e instanceof Pet && entite instanceof Dino) return false;
             if (e instanceof Dino && entite instanceof Pet) return false;
             if (newCoord.intersects((entite.getHitbox().getBoundsInLocal())) && !entite.equals(e)){
-                System.out.println(e);
-                System.out.println(entite.getClass() + "    "  +entite);
                 return true;
             }
 
         }
         return false;
+    }
+
+    public static boolean OnGround(Monde m, Entite e) {
+        return m.getSol().getHitbox().intersects(e.getHitbox().getBoundsInLocal());
     }
 }

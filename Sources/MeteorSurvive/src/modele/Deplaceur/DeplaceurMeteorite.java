@@ -23,8 +23,7 @@ public class DeplaceurMeteorite extends Deplaceur {
         List<Meteorite> allMereorite = getMonde().getMeteorite();
         for(Meteorite e : allMereorite){
             if(Colisionneur.isColision(e, getMonde(), e.getPosX()+1,e.getPosY())) {
-                System.out.println("COLISIONNNNNNNN");
-                getMonde().delEntite(e);
+                getMonde().removeEntite(e);
             }
             else{
                 e.updateY(5);

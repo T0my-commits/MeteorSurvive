@@ -13,7 +13,6 @@ import java.util.Objects;
  */
 public abstract class Entite {
 
-
     // déclaration des attributs
     protected DoubleProperty posX = new SimpleDoubleProperty();
     public double getPosX(){return posX.get();}

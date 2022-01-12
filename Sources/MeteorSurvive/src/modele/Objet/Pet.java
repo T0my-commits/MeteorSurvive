@@ -1,7 +1,6 @@
 package modele.Objet;
 
 import javafx.scene.shape.Rectangle;
-import modele.hitbox.Hitbox;
 
 /**
  * Représente un pet de dinosaure
@@ -9,6 +8,6 @@ import modele.hitbox.Hitbox;
 public class Pet extends Entite {
 
     public Pet(double x, double y) {
-        super(x, y, new Rectangle(x,y,140,125));
+        super(x, y, new Rectangle(x,y,40,36));
     }
 }
