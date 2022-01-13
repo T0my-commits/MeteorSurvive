@@ -1,16 +1,15 @@
 package modele.Objet;
 
-import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import modele.Danger.Danger;
-import modele.hitbox.Hitbox;
 
 public class Meteorite extends Entite implements Danger {
 
     private boolean isAffiche = false;
+    private boolean isItemDroppped = false;
 
     public Meteorite(double x, double y){
-        super(x,y, new Rectangle(x,y,75, 160));
+        super(x,y, new Rectangle(x,y,50, 120));
     }
 
     public Meteorite() {
@@ -32,5 +31,13 @@ public class Meteorite extends Entite implements Danger {
     @Override
     public String toString() {
         return "Meteorite{ " + getPosX() +" / "+ getPosY()+" }";
+    }
+
+    public void isItemDropped(boolean b) {
+        isItemDroppped = b;
+    }
+
+    public boolean isItemDropped() {
+        return isItemDroppped;
     }
 }

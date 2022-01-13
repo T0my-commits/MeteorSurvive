@@ -1,6 +1,7 @@
 package modele.Deplaceur;
 
 import modele.Boucleur.BoucleurJeu;
+import modele.Colisionneur.Colisionneur;
 import modele.Colisionneur.ColisionneurDino;
 import modele.GestionnaireJeu;
 import modele.Monde;
@@ -22,16 +23,6 @@ public class DeplaceurBasePerso extends Deplaceur {
         gravite = 10;
     }
 
-    /**
-     * Défini une nouvelle position pour le dino
-     */
-    public void setPosition(Entite o, double i, double y) {
-        // --------------------- si aucune collision, on dépace le dino
-        o.setPosX(i);
-        o.setPosY(y);
-        // sinon pas de déplacement
-    }
-
     public void deplacerDroite(){
         if(ColisionneurDino.OnGround(getMonde())) gravite = 0;
         else gravite = 10;
@@ -47,10 +38,8 @@ public class DeplaceurBasePerso extends Deplaceur {
 
     }
 
-
     @Override
     public void update() {
-
         Dino d = getMonde().getDino();
         if(ColisionneurDino.isColision(getMonde(), getMonde().getDino().getPosX()+direction,getMonde().getDino().getPosY())){
             d.updateX(direction);
@@ -59,7 +48,6 @@ public class DeplaceurBasePerso extends Deplaceur {
         if(!ColisionneurDino.OnGround(getMonde())){
             d.updateY(gravite);
         }
-
     }
 
 }

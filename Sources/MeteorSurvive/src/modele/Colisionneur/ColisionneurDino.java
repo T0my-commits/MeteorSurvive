@@ -3,13 +3,13 @@ package modele.Colisionneur;
 import javafx.scene.shape.Rectangle;
 import modele.Monde;
 import modele.Objet.Entite;
+import modele.Objet.Entite;
 import modele.Objet.Mur;
 
 public class ColisionneurDino extends Colisionneur{
 
-    public static boolean OnGround(Monde m){
-        if(m.getDino().getHitbox().intersects(m.getSol().getHitbox().getBoundsInLocal())) return true;
-        return false;
+    public static boolean OnGround(Monde m) {
+        return OnGround(m, m.getDino());
     }
 
     public static boolean isColision(Monde m, double newX, double newY){

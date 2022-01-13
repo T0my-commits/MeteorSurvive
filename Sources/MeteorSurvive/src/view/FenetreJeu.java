@@ -1,28 +1,19 @@
 package view;
 
-import javafx.animation.Animation;
-import javafx.animation.Transition;
 import javafx.beans.InvalidationListener;
-import javafx.beans.binding.Binding;
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.util.Duration;
 import modele.Colisionneur.Colisionneur;
 import modele.Manager.Manager;
-import modele.Objet.Meteorite;
+import modele.Objet.Item;
 import modele.Objet.Pet;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 import java.util.EventListener;
@@ -50,9 +41,6 @@ public class FenetreJeu implements EventListener {
     @FXML
     public HBox pdvBox;
 
-    Map<Meteorite, ImageView> allMeteorite = new HashMap<>();
-    Map<Pet, ImageView> allPets = new HashMap<>();
-
     public void initialize()
     {
         // création du monde, des objets, des déplaceurs, du collisionneur, etc.
@@ -61,8 +49,6 @@ public class FenetreJeu implements EventListener {
         // binding des propriétés
         dino_view.xProperty().bind(manager.getMonde().getDino().posXProperty());
         dino_view.yProperty().bind(manager.getMonde().getDino().posYProperty());
-
-
 
         try {
             final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
@@ -73,14 +59,12 @@ public class FenetreJeu implements EventListener {
         didacticiel.setVisible(false);
 
         // mise en place de la scene
-        //manager.getMonde().getDino().setPosY(535d);
         getScene();
     }
 
     @FXML
     public void handleKeyPressed(KeyEvent keyEvent) {
         controledep.setText("");
-        System.out.println("La touche " + keyEvent.getCode() + " a ete pressee");
         switch (keyEvent.getCode()) {
             case D, RIGHT -> {
                 manager.deplacerDinoDroite();
@@ -91,20 +75,16 @@ public class FenetreJeu implements EventListener {
                 dino_view.setScaleX(-1f);
             }
             case SPACE -> {
-                manager.peter(manager.getMonde().getDino().getPosX(), manager.getMonde().getDino().getPosY(), 1);
+                manager.creerPet(manager.getMonde().getDino().getPosX(), manager.getMonde().getDino().getPosY());
             }
         }
     }
 
     public void getScene() {
-
-
-
         pointVie.textProperty().bind(Bindings.convert(manager.getMonde().getDino().pdvProperty()));
         pointVie.setFont(Font.font("Impact", 20));
         AnchorPane.setRightAnchor(pdvBox , 1.0);
         AnchorPane.setBottomAnchor(pdvBox, 1.0);
-
 
         ImageView i = new ImageView();
         i.setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/sol.png"));
@@ -112,9 +92,6 @@ public class FenetreJeu implements EventListener {
         i.yProperty().bind(manager.getMonde().getSol().posYProperty());
         fenetrejeu.getChildren().add(i);
         AnchorPane.setBottomAnchor(i, 0.0);
-
-
-
 
         manager.getMeteorite().addListener((InvalidationListener) observable -> {
             for (var o : manager.getMeteorite()) {
@@ -127,28 +104,9 @@ public class FenetreJeu implements EventListener {
                     o.getImageView().yProperty().bind(o.posYProperty());
                     fenetrejeu.getChildren().add(o.getImageView());
                     o.setAffiche(true);
-                    allMeteorite.put(o, o.getImageView());
                 }
-
                 if (Colisionneur.isColision(o, manager.getMonde(), o.getPosX(), o.getPosY())) {
-                    /*int index = fenetrejeu.getChildren().indexOf(o.getImageView());
-                    o.setPosY(o.getPosY() + 20d);
-                    ((ImageView) fenetrejeu.getChildren().get(index)).setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/explosion_001.png"));
-
-                    final Animation animation = new Transition() {
-                        {
-                            setCycleDuration(Duration.millis(1000d));
-                        }
-                        @Override
-                        protected void interpolate(double v) {
-                            fenetrejeu.getChildren().remove(o.getImageView());
-                        }
-                    };
-                    animation.play();*/
                     fenetrejeu.getChildren().remove(o.getImageView());
-                }
-                else {
-
                 }
             }
         });
@@ -164,12 +122,30 @@ public class FenetreJeu implements EventListener {
                     o.getImageView().yProperty().bind(o.posYProperty());
                     fenetrejeu.getChildren().add(o.getImageView());
                     o.setAffiche(true);
-                    allPets.put(o, o.getImageView());
                 }
-        }
+                if (Colisionneur.isColision(o, manager.getMonde(), o.getPosX(), o.getPosY())) {
+                    fenetrejeu.getChildren().remove(o.getImageView());
+                }
+            }
+        });
 
+        manager.getItems().addListener((InvalidationListener) observable -> {
+            for (Item item : manager.getItems()) {
+                if (!item.isAffiche()) {
+                    System.out.println("Nouvel objet : " + i);
+                    item.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/bonus-item_001.png"));
+                    item.getImageView().setFitWidth(50);
+                    item.getImageView().setFitHeight(50);
+                    item.getImageView().xProperty().bind(item.posXProperty());
+                    item.getImageView().yProperty().bind(item.posYProperty());
+                    fenetrejeu.getChildren().add(item.getImageView());
+                    item.setAffiche(true);
+                }
+            }
+        });
 
-
+        manager.getChildrensRemoved().addListener((InvalidationListener) observable -> {
+            //fenetrejeu.getChildren().remove(manager.getLastChildrenRemoved().getImageView());
         });
     }
 }

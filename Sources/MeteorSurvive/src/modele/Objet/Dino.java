@@ -7,8 +7,9 @@ import javafx.scene.shape.Rectangle;
 
 public class Dino extends Entite {
 
-
     protected IntegerProperty pdv = new SimpleIntegerProperty();
+    protected IntegerProperty nbPets = new SimpleIntegerProperty();
+
     public int getPdv(){return pdv.get();}
     public void setPdv(int value){pdv.set(value);}
     public IntegerProperty pdvProperty(){return pdv;}
@@ -17,6 +18,18 @@ public class Dino extends Entite {
     public Dino(double x, double y) {
         super(x,y, new Rectangle(x,y,100,100));
         setPdv(3);
+    }
+
+    public void setPet(int val) {
+        nbPets.set(val);
+    }
+
+    public int getPets() {
+        return nbPets.get();
+    }
+
+    public IntegerProperty getNbPetsProperty() {
+        return nbPets;
     }
 
 
