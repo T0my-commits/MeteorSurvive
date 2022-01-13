@@ -36,15 +36,14 @@ public class DeplaceurBasePerso extends Deplaceur {
         if(ColisionneurDino.OnGround(getMonde())) gravite = 0;
         else gravite = 10;
         direction = velocity;
-        //getMonde().getDino().setPosX(getMonde().getDino().getPosX()+10);
-        //getMonde().getDino().setPosY(getMonde().getDino().getPosY()+gravite);
+
+
     }
 
     public void deplacerGauche(){
         if(ColisionneurDino.OnGround(getMonde())) gravite = 0;
         else gravite = 10;
         direction = -velocity;
-
 
     }
 
@@ -53,13 +52,14 @@ public class DeplaceurBasePerso extends Deplaceur {
     public void update() {
 
         Dino d = getMonde().getDino();
-        d.updateX(direction);
+        if(ColisionneurDino.isColision(getMonde(), getMonde().getDino().getPosX()+direction,getMonde().getDino().getPosY())){
+            d.updateX(direction);
+
+        }
         if(!ColisionneurDino.OnGround(getMonde())){
             d.updateY(gravite);
         }
-        //direction =0;
-        //d.setPosX(d.getPosX()+direction);
-        //d.setPosY(d.getPosY()+gravite);
+
     }
 
 }

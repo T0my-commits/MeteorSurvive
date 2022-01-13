@@ -36,6 +36,8 @@ public class Monde{
         allEntite.add(dino);
         sol = new Sol();
         allEntite.add(sol);
+        allEntite.add(new Mur(1180, 0));
+        allEntite.add(new Mur(100, 0));
 
     }
 
@@ -50,6 +52,15 @@ public class Monde{
     public void addMeteorite(Meteorite m){
         listMeteorite.add(m);
         allEntite.add(m);
+    }
+
+    public List<Mur> getWall(){
+        List<Mur> murs = new ArrayList<>();
+        for (Entite e: getAllEntite()
+             ) {
+            if (e instanceof Mur) murs.add((Mur) e);
+        }
+        return murs;
     }
 
     public Dino getDino() {
