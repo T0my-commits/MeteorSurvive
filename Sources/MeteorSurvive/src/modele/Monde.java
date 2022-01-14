@@ -73,6 +73,7 @@ public class Monde{
         Pet p = new Pet(x, y);
         listPets.add(p);
         allEntite.add(p);
+        getDino().setPet(getDino().getPets() - 1);
     }
 
     public void addItemBonus(double x, double y) {

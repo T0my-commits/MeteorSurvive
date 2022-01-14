@@ -2,7 +2,13 @@ package view;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -10,6 +16,7 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import modele.Bonus.IBonus;
 import modele.Colisionneur.Colisionneur;
 import modele.Manager.Manager;
 import modele.Objet.Item;
@@ -40,6 +47,8 @@ public class FenetreJeu implements EventListener {
     public Text pointVie;
     @FXML
     public HBox pdvBox;
+    @FXML
+    public Label nb_de_pets;
 
     public void initialize()
     {
@@ -59,6 +68,7 @@ public class FenetreJeu implements EventListener {
         didacticiel.setVisible(false);
 
         // mise en place de la scene
+        nb_de_pets.textProperty().bind(manager.getMonde().getDino().nbPetsStringProperty());
         getScene();
     }
 
@@ -140,6 +150,10 @@ public class FenetreJeu implements EventListener {
                     item.getImageView().yProperty().bind(item.posYProperty());
                     fenetrejeu.getChildren().add(item.getImageView());
                     item.setAffiche(true);
+                }
+                if (Colisionneur.isColision(item, manager.getMonde(), item.getPosX(), item.getPosY())) {
+                    manager.addBonus((IBonus) item);
+                    fenetrejeu.getChildren().remove(item.getImageView());
                 }
             }
         });
