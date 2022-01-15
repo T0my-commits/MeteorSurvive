@@ -2,9 +2,11 @@ package modele;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import modele.Objet.*;
+import modele.Objet.Item.Item;
+import modele.Objet.Item.ItemRechargePet;
+import modele.Objet.Item.ItemRechargeVie;
 
 import java.util.*;
 
@@ -26,9 +28,6 @@ public class Monde{
     private final ObservableList<Pet> listPets = FXCollections.observableArrayList();
     private final ObservableList<Item> listItem = FXCollections.observableArrayList();
 
-    // permet d'avoir un historique des Entite qui ont étés supprimées
-    private final ObservableList<Entite> childrensRemoved = FXCollections.observableArrayList();
-
     public Monde() {
         dino = new Dino(600,0);
         allEntite = new ArrayList<>();
@@ -37,8 +36,6 @@ public class Monde{
         allEntite.add(sol);
         allEntite.add(new Mur(1269, 0));
         allEntite.add(new Mur(-2, 0));
-
-
     }
 
     public ObservableList<Meteorite> getMeteorite(){
@@ -84,14 +81,22 @@ public class Monde{
     }
 
     public void peter(double x, double y) {
-        Pet p = new Pet(x, y);
-        listPets.add(p);
-        allEntite.add(p);
-        getDino().setPet(getDino().getPets() - 1);
+        if (getDino().getPets() > 0) {
+            Pet p = new Pet(x, y);
+            listPets.add(p);
+            allEntite.add(p);
+            getDino().setPet(getDino().getPets() - 1);
+        }
     }
 
     public void addItemBonus(double x, double y) {
         Item i = new ItemRechargePet(x, y, new Rectangle(x, y, 25, 25));
+        listItem.add(i);
+        allEntite.add(i);
+    }
+
+    public void addItemVie(double posX, double posY) {
+        Item i = new ItemRechargeVie(posX, posY, new Rectangle(posX, posY, 25, 25));
         listItem.add(i);
         allEntite.add(i);
     }
@@ -101,17 +106,6 @@ public class Monde{
     }
 
     public void removeEntite(Entite e) {
-        assert false;
-        childrensRemoved.add(e);
         allEntite.remove(e);
-    }
-
-    public ObservableList<Entite> getChildrendsRemoved() {
-        return childrensRemoved;
-    }
-
-    public Entite getIndexOfLastChildenRemoved() {
-        assert false;
-        return childrensRemoved.get(childrensRemoved.size());
     }
 }

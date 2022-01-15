@@ -1,12 +1,10 @@
 package modele.Colisionneur;
 
-import javafx.geometry.Bounds;
 import javafx.scene.shape.Rectangle;
 import modele.Monde;
 import modele.Objet.*;
 import modele.Objet.Dino;
 import modele.Objet.Entite;
-import modele.Objet.Item;
 import modele.Objet.Pet;
 
 public class Colisionneur {

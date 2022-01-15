@@ -1,7 +1,5 @@
 package modele.Colisionneur;
 
-import modele.Monde;
-import modele.Objet.Item;
 import modele.Objet.Meteorite;
 import modele.Objet.Pet;
 

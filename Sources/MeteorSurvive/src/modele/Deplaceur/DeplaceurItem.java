@@ -1,13 +1,8 @@
 package modele.Deplaceur;
 
-import modele.Colisionneur.Colisionneur;
-import modele.Colisionneur.ColisionneurDino;
 import modele.Colisionneur.ColisionneurItem;
-import modele.Colisionneur.ColisionneurPet;
 import modele.Monde;
-import modele.Objet.Item;
-import modele.Objet.ItemRechargePet;
-import modele.Objet.Meteorite;
+import modele.Objet.Item.Item;
 import modele.Sujet;
 
 import java.util.List;

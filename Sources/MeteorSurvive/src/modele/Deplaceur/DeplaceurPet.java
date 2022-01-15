@@ -26,7 +26,7 @@ public class DeplaceurPet extends Deplaceur {
             for (Meteorite m : allMeteorites) {
                 if (ColisionneurPet.OnMeteorite(m, o)) {
                     if (!m.isItemDropped())
-                        getMonde().addItemBonus(m.getPosX(), m.getPosY());
+                        getMonde().addItemVie(m.getPosX(), m.getPosY());
                     m.isItemDropped(true);
                     getMonde().removeEntite(o);
                 }

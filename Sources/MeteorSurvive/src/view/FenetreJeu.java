@@ -2,32 +2,22 @@ package view;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import modele.Bonus.IBonus;
 import modele.Colisionneur.Colisionneur;
 import modele.Manager.Manager;
-import modele.Objet.Item;
+import modele.Objet.Item.Item;
 import modele.Objet.Pet;
 
 
 import java.util.EventListener;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import static java.lang.Thread.sleep;
 
@@ -43,8 +33,6 @@ public class FenetreJeu implements EventListener {
     @FXML
     public ImageView dino_view;
     @FXML
-    public Text didacticiel;
-    @FXML
     public Text pointVie;
     @FXML
     public HBox pdvBox;
@@ -59,14 +47,6 @@ public class FenetreJeu implements EventListener {
         // binding des propriétés
         dino_view.xProperty().bind(manager.getMonde().getDino().posXProperty());
         dino_view.yProperty().bind(manager.getMonde().getDino().posYProperty());
-
-        try {
-            final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-            executorService.scheduleAtFixedRate(() -> didacticiel.setVisible(true), 0, 5, TimeUnit.SECONDS);
-        } catch(Exception e) {
-            System.out.println(e);
-        }
-        didacticiel.setVisible(false);
 
         // mise en place de la scene
         nb_de_pets.textProperty().bind(manager.getMonde().getDino().nbPetsStringProperty());
@@ -92,8 +72,6 @@ public class FenetreJeu implements EventListener {
     }
 
     public void getScene() {
-
-
         pointVie.textProperty().bind(Bindings.convert(manager.getMonde().getDino().pdvProperty()));
         pointVie.setFont(Font.font("Impact", 20));
         AnchorPane.setRightAnchor(pdvBox , 1.0);
@@ -146,7 +124,7 @@ public class FenetreJeu implements EventListener {
             for (Item item : manager.getItems()) {
                 if (!item.isAffiche()) {
                     System.out.println("Nouvel objet : " + i);
-                    item.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/bonus-item_001.png"));
+                    item.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/coeur.png"));
                     item.getImageView().setFitWidth(50);
                     item.getImageView().setFitHeight(50);
                     item.getImageView().xProperty().bind(item.posXProperty());
@@ -159,11 +137,6 @@ public class FenetreJeu implements EventListener {
                     fenetrejeu.getChildren().remove(item.getImageView());
                 }
             }
-        });
-
-
-        manager.getChildrensRemoved().addListener((InvalidationListener) observable -> {
-            //fenetrejeu.getChildren().remove(manager.getLastChildrenRemoved().getImageView());
         });
     }
 }

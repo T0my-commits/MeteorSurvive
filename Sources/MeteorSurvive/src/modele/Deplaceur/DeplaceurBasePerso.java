@@ -48,5 +48,4 @@ public class DeplaceurBasePerso extends Deplaceur {
             d.updateY(gravite);
         }
     }
-
 }

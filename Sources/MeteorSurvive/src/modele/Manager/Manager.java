@@ -7,7 +7,9 @@ import modele.Boucleur.BoucleurMeteorite;
 import modele.Deplaceur.*;
 import modele.Monde;
 import modele.Objet.*;
+import modele.Objet.Item.Item;
 import modele.createur.CreateurMeteorite;
+import modele.createur.CreateurPet;
 
 public class Manager {
     Monde monde;
@@ -24,6 +26,7 @@ public class Manager {
         boucleur = new BoucleurJeu();
         new Thread(boucleur).start();
         new CreateurMeteorite(monde);
+        new CreateurPet(monde);
 
         deplaceurMeteorite = new DeplaceurMeteorite(boucleur, monde);
         deplaceurPet = new DeplaceurPet(boucleur, monde);
@@ -64,14 +67,6 @@ public class Manager {
 
     public ObservableList<Item> getItems() {
         return monde.getItems();
-    }
-
-    public ObservableList<Entite> getChildrensRemoved() {
-        return monde.getChildrendsRemoved();
-    }
-
-    public Entite getLastChildrenRemoved() {
-        return monde.getIndexOfLastChildenRemoved();
     }
 
     public void addBonus(IBonus bonus) {
