@@ -24,15 +24,10 @@ public class DeplaceurPet extends Deplaceur {
         for(Pet o : allPets) {
             for (Meteorite m : allMeteorites) {
                 if (ColisionneurPet.OnMeteorite(m, o)) {
-<<<<<<< HEAD
-                    if (m.isEnable())
+                    if (o.isEnable())
                         getMonde().addItemVie(m.getPosX(), m.getPosY());
+                    o.setEtat(false);
                     m.setEtat(false);
-=======
-                    if (!m.isEnable())
-                        getMonde().addItemVie(m.getPosX(), m.getPosY());
-                    m.setEtat(true);
->>>>>>> bfa2c3f199697e490e6849151a937f25623a93ee
                     getMonde().removeEntite(o);
                 }
             }

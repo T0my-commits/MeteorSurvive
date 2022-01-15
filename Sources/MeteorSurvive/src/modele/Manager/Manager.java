@@ -62,14 +62,10 @@ public class Manager {
     }
 
     public void creerItem(double x, double y) {
-        monde.addItemBonus(x, y);
+        monde.addItemRechargePet(x, y);
     }
 
     public ObservableList<Item> getItems() {
         return monde.getItems();
-    }
-
-    public void addBonus(IBonus bonus) {
-        bonus.addBonus(getMonde().getDino(), 1);
     }
 }

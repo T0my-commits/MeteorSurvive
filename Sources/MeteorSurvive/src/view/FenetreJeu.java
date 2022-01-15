@@ -99,8 +99,8 @@ public class FenetreJeu implements EventListener {
                     fenetrejeu.getChildren().add(item.getImageView());
                     item.setAffiche(true);
                 }
-                if (Colisionneur.isColision(item, manager.getMonde(), item.getPosX(), item.getPosY())) {
-                    manager.addBonus((IBonus) item);
+                if (!item.isEnable()) {
+                    //manager.addBonus((IBonus) item);
                     //fenetrejeu.getChildren().remove(item.getImageView());
                 }
             }

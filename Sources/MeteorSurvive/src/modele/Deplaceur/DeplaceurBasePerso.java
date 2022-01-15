@@ -1,13 +1,18 @@
 package modele.Deplaceur;
 
+import modele.Bonus.IBonus;
 import modele.Boucleur.BoucleurJeu;
 import modele.Colisionneur.Colisionneur;
 import modele.Colisionneur.ColisionneurDino;
+import modele.Colisionneur.ColisionneurItem;
 import modele.GestionnaireJeu;
 import modele.Monde;
 import modele.Objet.Dino;
 import modele.Objet.Entite;
+import modele.Objet.Item.Item;
 import modele.Sujet;
+
+import java.util.List;
 
 public class DeplaceurBasePerso extends Deplaceur {
 
@@ -46,6 +51,14 @@ public class DeplaceurBasePerso extends Deplaceur {
         }
         if(!ColisionneurDino.OnGround(getMonde())){
             d.updateY(gravite);
+        }
+
+        Item i = ColisionneurItem.GetItem(getMonde().getDino(), getMonde().getItems());
+        if (i != null) {
+            if (i.isEnable()) {
+                getMonde().addBonus((IBonus) i);
+                i.setEtat(false);
+            }
         }
     }
 }

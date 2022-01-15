@@ -3,6 +3,7 @@ package modele;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.shape.Rectangle;
+import modele.Bonus.IBonus;
 import modele.Objet.*;
 import modele.Objet.Item.Item;
 import modele.Objet.Item.ItemRechargePet;
@@ -55,7 +56,8 @@ public class Monde{
         List<Mur> murs = new ArrayList<>();
         for (Entite e: getAllEntite()
              ) {
-            if (e instanceof Mur) murs.add((Mur) e);
+            if (e instanceof Mur)
+                murs.add((Mur) e);
         }
         return murs;
     }
@@ -89,7 +91,7 @@ public class Monde{
         }
     }
 
-    public void addItemBonus(double x, double y) {
+    public void addItemRechargePet(double x, double y) {
         Item i = new ItemRechargePet(x, y, new Rectangle(x, y, 25, 25));
         listItem.add(i);
         allEntite.add(i);
@@ -103,6 +105,10 @@ public class Monde{
 
     public ObservableList<Item> getItems() {
         return listItem;
+    }
+
+    public void addBonus(IBonus bonus) {
+        bonus.addBonus(getDino(), 1);
     }
 
     public void removeEntite(Entite e) {
