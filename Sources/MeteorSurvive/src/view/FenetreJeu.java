@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -91,6 +92,8 @@ public class FenetreJeu implements EventListener {
     }
 
     public void getScene() {
+
+
         pointVie.textProperty().bind(Bindings.convert(manager.getMonde().getDino().pdvProperty()));
         pointVie.setFont(Font.font("Impact", 20));
         AnchorPane.setRightAnchor(pdvBox , 1.0);
@@ -157,6 +160,7 @@ public class FenetreJeu implements EventListener {
                 }
             }
         });
+
 
         manager.getChildrensRemoved().addListener((InvalidationListener) observable -> {
             //fenetrejeu.getChildren().remove(manager.getLastChildrenRemoved().getImageView());

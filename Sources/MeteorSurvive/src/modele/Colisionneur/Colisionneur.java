@@ -18,9 +18,10 @@ public class Colisionneur {
              ) {
             if (e instanceof Pet && entite instanceof Dino) return false;
             if (e instanceof Dino && entite instanceof Pet) return false;
+            if (e instanceof Dino && entite instanceof Sol) return false;
             if (newCoord.intersects((entite.getHitbox().getBoundsInLocal())) && !entite.equals(e)){
-
-                return true;
+                if(entite instanceof Mur);
+                else return true;
             }
 
         }

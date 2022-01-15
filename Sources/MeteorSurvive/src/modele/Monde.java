@@ -2,6 +2,7 @@ package modele;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import modele.Objet.*;
 
@@ -34,8 +35,9 @@ public class Monde{
         allEntite.add(dino);
         sol = new Sol();
         allEntite.add(sol);
-        allEntite.add(new Mur(1180, 0));
-        allEntite.add(new Mur(100, 0));
+        allEntite.add(new Mur(1269, 0));
+        allEntite.add(new Mur(-2, 0));
+
 
     }
 

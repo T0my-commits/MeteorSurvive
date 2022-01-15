@@ -13,12 +13,17 @@ public class ColisionneurDino extends Colisionneur{
     }
 
     public static boolean isColision(Monde m, double newX, double newY){
-        if(Colisionneur.isColision(m.getDino(),m,newX,newY)) return true;
+        if(Colisionneur.isColision(m.getDino(),m,newX,newY)){
+            System.out.println("COLISION Dino");
+            return true;
+        }
 
         Rectangle newHitbox = new Rectangle(newX, newY, m.getDino().getHitbox().getWidth(), m.getDino().getHitbox().getHeight());
         for (Mur mur: m.getWall()
         ) {
-            if(newHitbox.intersects(mur.getHitbox().getBoundsInLocal())) return true;
+            if(newHitbox.intersects(mur.getHitbox().getBoundsInLocal())) {
+                return true;
+            }
         }
         return false;
     }

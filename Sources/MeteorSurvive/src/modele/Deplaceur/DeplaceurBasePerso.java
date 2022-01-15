@@ -41,9 +41,8 @@ public class DeplaceurBasePerso extends Deplaceur {
     @Override
     public void update() {
         Dino d = getMonde().getDino();
-        if(ColisionneurDino.isColision(getMonde(), getMonde().getDino().getPosX()+direction,getMonde().getDino().getPosY())){
+        if(!ColisionneurDino.isColision(getMonde(), getMonde().getDino().getPosX()+direction,getMonde().getDino().getPosY())){
             d.updateX(direction);
-
         }
         if(!ColisionneurDino.OnGround(getMonde())){
             d.updateY(gravite);
