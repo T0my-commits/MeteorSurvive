@@ -1,6 +1,7 @@
 package modele.Manager;
 
 import javafx.collections.ObservableList;
+import modele.Bonus.IBonus;
 import modele.Boucleur.BoucleurJeu;
 import modele.Boucleur.BoucleurMeteorite;
 import modele.Deplaceur.*;
@@ -71,5 +72,9 @@ public class Manager {
 
     public Entite getLastChildrenRemoved() {
         return monde.getIndexOfLastChildenRemoved();
+    }
+
+    public void addBonus(IBonus bonus) {
+        bonus.addBonus(getMonde().getDino(), 1);
     }
 }
