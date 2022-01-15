@@ -84,6 +84,25 @@ public class FenetreJeu implements EventListener {
         fenetrejeu.getChildren().add(i);
         AnchorPane.setBottomAnchor(i, 0.0);
 
+        manager.getItems().addListener((InvalidationListener) observable -> {
+            for (Item item : manager.getItems()) {
+                if (!item.isAffiche()) {
+                    System.out.println("Nouvel objet : " + i);
+                    item.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/coeur.png"));
+                    item.getImageView().setFitWidth(50);
+                    item.getImageView().setFitHeight(50);
+                    item.getImageView().xProperty().bind(item.posXProperty());
+                    item.getImageView().yProperty().bind(item.posYProperty());
+                    fenetrejeu.getChildren().add(item.getImageView());
+                    item.setAffiche(true);
+                }
+                if (Colisionneur.isColision(item, manager.getMonde(), item.getPosX(), item.getPosY())) {
+                    manager.addBonus((IBonus) item);
+                    //fenetrejeu.getChildren().remove(item.getImageView());
+                }
+            }
+        });
+
         manager.getMeteorite().addListener((InvalidationListener) observable -> {
             for (var o : manager.getMeteorite()) {
                 if (!o.isAffiche()) {
@@ -116,25 +135,6 @@ public class FenetreJeu implements EventListener {
                 }
                 if (Colisionneur.isColision(o, manager.getMonde(), o.getPosX(), o.getPosY())) {
                     fenetrejeu.getChildren().remove(o.getImageView());
-                }
-            }
-        });
-
-        manager.getItems().addListener((InvalidationListener) observable -> {
-            for (Item item : manager.getItems()) {
-                if (!item.isAffiche()) {
-                    System.out.println("Nouvel objet : " + i);
-                    item.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/coeur.png"));
-                    item.getImageView().setFitWidth(50);
-                    item.getImageView().setFitHeight(50);
-                    item.getImageView().xProperty().bind(item.posXProperty());
-                    item.getImageView().yProperty().bind(item.posYProperty());
-                    fenetrejeu.getChildren().add(item.getImageView());
-                    item.setAffiche(true);
-                }
-                if (Colisionneur.isColision(item, manager.getMonde(), item.getPosX(), item.getPosY())) {
-                    manager.addBonus((IBonus) item);
-                    fenetrejeu.getChildren().remove(item.getImageView());
                 }
             }
         });
