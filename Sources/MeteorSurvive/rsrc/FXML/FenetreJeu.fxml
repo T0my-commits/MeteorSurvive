@@ -5,7 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="fenetrejeu" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreJeu">
+<AnchorPane fx:id="fenetrejeu"
+            xmlns="http://javafx.com/javafx/11.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view.FenetreJeu"
+            stylesheets="@style/StyleFenetreJeu.css">
    <children>
       <TextField fx:id="controledep" onKeyPressed="#handleKeyPressed" />
    </children>
@@ -24,14 +28,16 @@
       </ImageView>
    </children>
    <children>
-      <HBox fx:id="pdvBox">
-         <Text fx:id="pointVie" />
-         <ImageView fitHeight="25" fitWidth="25">
+      <HBox fx:id="pdvBox" layoutX="1200" layoutY="10" styleClass="hboxStyle">
+         <Text fx:id="pointVie" styleClass="contour" />
+         <ImageView fitHeight="25" fitWidth="25" >
             <image>
                <Image url="@../media/coeur.png" />
             </image>
          </ImageView>
       </HBox>
+   </children>
+   <children>
       <Label fx:id="nb_de_pets" layoutX="191.0" layoutY="27.0" text="\${nb_de_pets.text}" textFill="WHITE">
          <font>
             <Font size="16.0" />

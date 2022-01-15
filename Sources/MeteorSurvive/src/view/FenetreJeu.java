@@ -3,6 +3,7 @@ package view;
 import javafx.beans.InvalidationListener;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -72,10 +73,12 @@ public class FenetreJeu implements EventListener {
     }
 
     public void getScene() {
+
+
         pointVie.textProperty().bind(Bindings.convert(manager.getMonde().getDino().pdvProperty()));
         pointVie.setFont(Font.font("Impact", 20));
-        AnchorPane.setRightAnchor(pdvBox , 1.0);
-        AnchorPane.setBottomAnchor(pdvBox, 1.0);
+        AnchorPane.setRightAnchor(pdvBox , 10.0);
+
 
         ImageView i = new ImageView();
         i.setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/sol.png"));

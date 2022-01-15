@@ -1,0 +1,9 @@
+.contour{
+    -fx-stroke: white;
+    -fx-stroke-width: 0.5;
+}
+
+.hboxStyle {
+    -fx-padding: 10;
+    -fx-spacing: 5;
+}

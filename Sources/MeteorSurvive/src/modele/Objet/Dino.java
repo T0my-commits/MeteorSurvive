@@ -29,6 +29,9 @@ public class Dino extends Entite {
         setPet(5);
     }
 
+    public void setDegat(){
+        setPdv(getPdv()-1);
+    }
     public void setPet(int val) {
         nbPets.set(val);
         nbPetsString.set(val+"");
