@@ -1,5 +1,6 @@
 package modele.createur;
 
+import modele.Boucleur.Boucleur;
 import modele.Boucleur.BoucleurMeteorite;
 import modele.Monde;
 import modele.Observateur;
@@ -10,10 +11,9 @@ public class CreateurPet extends Createur implements Observateur {
     private Sujet boucleur;
     private int nb_meteorite;
 
-    public CreateurPet(Monde m) {
+    public CreateurPet(Monde m, Boucleur b) {
         super(m);
-        boucleur = new BoucleurMeteorite();
-        new Thread((Runnable) boucleur).start();
+        boucleur = b;
         boucleur.attacher(this);
         nb_meteorite = 5;
     }

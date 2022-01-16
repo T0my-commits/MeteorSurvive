@@ -4,23 +4,23 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.property.adapter.JavaBeanProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.shape.Rectangle;
 
 public class Dino extends Entite {
 
     protected IntegerProperty pdv = new SimpleIntegerProperty();
+    public int getPdv(){return pdv.get();}
+    public void setPdv(int value){pdv.set(value);}
+    public IntegerProperty pdvProperty(){return pdv;}
+
     protected IntegerProperty nbPets = new SimpleIntegerProperty();
     protected StringProperty nbPetsString = new SimpleStringProperty();
-
     public ObservableValue<String> nbPetsStringProperty() {
         System.out.println("Le nombre de pets actuel est " + nbPets.get());
         return nbPetsString;
     }
-
-    public int getPdv(){return pdv.get();}
-    public void setPdv(int value){pdv.set(value);}
-    public IntegerProperty pdvProperty(){return pdv;}
 
 
     public Dino(double x, double y) {
@@ -32,6 +32,7 @@ public class Dino extends Entite {
     public void setDegat(){
         setPdv(getPdv()-1);
     }
+
     public void setPet(int val) {
         nbPets.set(val);
         nbPetsString.set(val+"");

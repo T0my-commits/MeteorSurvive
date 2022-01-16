@@ -6,7 +6,7 @@ import static java.lang.Thread.sleep;
 
 public class BoucleurMeteorite extends Boucleur{
 
-    public BoucleurMeteorite(){}
+    public BoucleurMeteorite(){System.out.println("METEORITE");}
 
     @Override
     public void run() {
@@ -18,12 +18,17 @@ public class BoucleurMeteorite extends Boucleur{
         };
 
         while (true) {
-            try {
-                sleep(400);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            if(!isGameOver()){
+                try {
+                    sleep(350);
+                    Platform.runLater(notifieur);
+                } catch (InterruptedException e) {
+                    //e.printStackTrace();
+                }
             }
-            Platform.runLater(notifieur);
+
+
+
         }
     }
 }

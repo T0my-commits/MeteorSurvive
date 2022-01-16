@@ -12,10 +12,9 @@ import java.util.Random;
 public class CreateurMeteorite extends Createur implements Observateur {
 
     private Sujet boucleM;
-    public CreateurMeteorite(Monde m) {
+    public CreateurMeteorite(Monde m, BoucleurMeteorite b) {
         super(m);
-        boucleM = new BoucleurMeteorite();
-        new Thread((Runnable) boucleM).start();
+        boucleM =b;
         boucleM.attacher(this);
     }
 

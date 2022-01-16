@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.shape.Rectangle;
 import modele.Bonus.IBonus;
+import modele.Manager.Manager;
 import modele.Objet.*;
 import modele.Objet.Item.Item;
 import modele.Objet.Item.ItemRechargePet;
@@ -28,8 +29,10 @@ public class Monde{
     private final ObservableList<Meteorite> listMeteorite = FXCollections.observableArrayList();
     private final ObservableList<Pet> listPets = FXCollections.observableArrayList();
     private final ObservableList<Item> listItem = FXCollections.observableArrayList();
+    Manager manager;
 
-    public Monde() {
+
+    public Monde(Manager m) {
         dino = new Dino(600,0);
         allEntite = new ArrayList<>();
         allEntite.add(dino);
@@ -37,6 +40,8 @@ public class Monde{
         allEntite.add(sol);
         allEntite.add(new Mur(1269, 0));
         allEntite.add(new Mur(-2, 0));
+        manager = m;
+
     }
 
     public ObservableList<Meteorite> getMeteorite(){
@@ -115,4 +120,13 @@ public class Monde{
         allEntite.remove(e);
         e.setPosX(-8000);
     }
+
+    public void infligerDegat(Meteorite m){
+        dino.setDegat();
+        m.setEtat(false);
+        if(dino.getPdv() <= 0){
+            manager.arretPartie();
+        }
+    }
+
 }

@@ -22,15 +22,13 @@ public class Colisionneur {
                 else if((e instanceof Meteorite && entite instanceof Dino) || (e instanceof Dino && entite instanceof Meteorite)){
                     if(e instanceof Dino) {
                         if(((Meteorite) entite).isEnable()){
-                            ((Dino) e).setDegat();
-                            ((Meteorite) entite).setEtat(false);
+                            m.infligerDegat((Meteorite) entite);
                             return true;
                         }
                     }
                     else {
                         if(((Meteorite) e).isEnable()){
-                            ((Dino) entite).setDegat();
-                            ((Meteorite) e).setEtat(false);
+                            m.infligerDegat((Meteorite) e);
                             return true;
                         }
                     }

@@ -2,13 +2,26 @@ package modele.Boucleur;
 
 import modele.Sujet;
 
-public abstract class Boucleur extends Sujet implements Runnable {
-    private boolean etatSujet;
+public class Boucleur extends Sujet implements Runnable {
+
+    private static boolean gameOver = false;
+
+
+    public static boolean isGameOver() {
+        return gameOver;
+    }
+
+    public static void setGameOver(boolean gameOver) {
+        Boucleur.gameOver = gameOver;
+    }
+
+
+    public Boucleur() {
+    }
 
     @Override
-    public abstract void run();
+    public void run() {
 
-    public boolean getEtat() {
-        return etatSujet;
     }
+
 }

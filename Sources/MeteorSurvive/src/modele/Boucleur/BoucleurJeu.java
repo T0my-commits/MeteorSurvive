@@ -7,7 +7,7 @@ import static java.lang.Thread.sleep;
 public class BoucleurJeu extends Boucleur {
 
 
-    public BoucleurJeu() {}
+    public BoucleurJeu() {System.out.println("JEU");}
 
     @Override
     public void run() {
@@ -19,12 +19,16 @@ public class BoucleurJeu extends Boucleur {
         };
         // si le joueur veut bouger, on boucle
         while (true) {
-            try {
-                sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            if(!isGameOver()){
+                try {
+                    sleep(10);
+                    Platform.runLater(notifieur);
+                } catch (InterruptedException e) {
+                    //e.printStackTrace();
+                }
             }
-            Platform.runLater(notifieur);
+
+
         }
     }
 }

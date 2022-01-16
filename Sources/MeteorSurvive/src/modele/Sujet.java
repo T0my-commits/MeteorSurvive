@@ -30,4 +30,11 @@ public abstract class Sujet {
         }
     }
 
+    public void detacherAll(){
+        for (Observateur o : observateurs
+             ) {
+            detacher(o);
+        }
+    }
+
 }
