@@ -32,8 +32,6 @@ public class DeplaceurBasePerso extends Deplaceur {
         if(ColisionneurDino.OnGround(getMonde())) gravite = 0;
         else gravite = 10;
         direction = velocity;
-
-
     }
 
     public void deplacerGauche(){
@@ -58,6 +56,7 @@ public class DeplaceurBasePerso extends Deplaceur {
             if (i.isEnable()) {
                 getMonde().addBonus((IBonus) i);
                 i.setEtat(false);
+                getMonde().removeEntite(i);
             }
         }
     }

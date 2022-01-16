@@ -2,6 +2,7 @@ package view;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.binding.Bindings;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -14,7 +15,11 @@ import javafx.scene.text.Text;
 import modele.Bonus.IBonus;
 import modele.Colisionneur.Colisionneur;
 import modele.Manager.Manager;
+import modele.Objet.Entite;
 import modele.Objet.Item.Item;
+import modele.Objet.Item.ItemRechargePet;
+import modele.Objet.Item.ItemRechargeVie;
+import modele.Objet.Meteorite;
 import modele.Objet.Pet;
 
 
@@ -73,8 +78,6 @@ public class FenetreJeu implements EventListener {
     }
 
     public void getScene() {
-
-
         pointVie.textProperty().bind(Bindings.convert(manager.getMonde().getDino().pdvProperty()));
         pointVie.setFont(Font.font("Impact", 20));
         AnchorPane.setRightAnchor(pdvBox , 10.0);
@@ -88,58 +91,59 @@ public class FenetreJeu implements EventListener {
         AnchorPane.setBottomAnchor(i, 0.0);
 
         manager.getItems().addListener((InvalidationListener) observable -> {
-            for (Item item : manager.getItems()) {
-                if (!item.isAffiche()) {
-                    System.out.println("Nouvel objet : " + i);
-                    item.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/coeur.png"));
-                    item.getImageView().setFitWidth(50);
-                    item.getImageView().setFitHeight(50);
-                    item.getImageView().xProperty().bind(item.posXProperty());
-                    item.getImageView().yProperty().bind(item.posYProperty());
-                    fenetrejeu.getChildren().add(item.getImageView());
-                    item.setAffiche(true);
-                }
-                if (!item.isEnable()) {
-                    //manager.addBonus((IBonus) item);
-                    //fenetrejeu.getChildren().remove(item.getImageView());
-                }
+            for (var item : manager.getItems()) {
+                creerUIElement(item);
             }
         });
 
         manager.getMeteorite().addListener((InvalidationListener) observable -> {
             for (var o : manager.getMeteorite()) {
-                if (!o.isAffiche()) {
-                    System.out.println("Nouvel objet : " + o);
-                    o.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/meteorite.png"));
-                    o.getImageView().setFitHeight(160);
-                    o.getImageView().setFitWidth(75);
-                    o.getImageView().xProperty().bind(o.posXProperty());
-                    o.getImageView().yProperty().bind(o.posYProperty());
-                    fenetrejeu.getChildren().add(o.getImageView());
-                    o.setAffiche(true);
-                }
-                if (Colisionneur.isColision(o, manager.getMonde(), o.getPosX(), o.getPosY())) {
-                    fenetrejeu.getChildren().remove(o.getImageView());
-                }
+                creerUIElement(o);
             }
         });
 
         manager.getPets().addListener((InvalidationListener) observable -> {
-            for (Pet o : manager.getPets()) {
-                if (!o.isAffiche()) {
-                    System.out.println("Nouvel objet : " + o);
-                    o.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/pet_001.png"));
-                    o.getImageView().setFitWidth(50);
-                    o.getImageView().setFitHeight(50);
-                    o.getImageView().xProperty().bind(o.posXProperty());
-                    o.getImageView().yProperty().bind(o.posYProperty());
-                    fenetrejeu.getChildren().add(o.getImageView());
-                    o.setAffiche(true);
-                }
-                if (Colisionneur.isColision(o, manager.getMonde(), o.getPosX(), o.getPosY())) {
-                    fenetrejeu.getChildren().remove(o.getImageView());
-                }
+            for (var o : manager.getPets()) {
+                creerUIElement(o);
             }
         });
+    }
+
+    /**
+     * Méthode qui permet d'ajouter un nouvel UI Element à la scene
+     * @param entite
+     */
+    private void creerUIElement(Entite entite) {
+        String chemin = "";
+        int h=0, w=0;
+
+        // définition des paramètres;
+        if (entite instanceof Meteorite) {
+            chemin = "/rsrc/media/meteorite.png";
+            h = 160; w = 75;
+        }
+        if (entite instanceof Pet) {
+            chemin = "/rsrc/media/pet_001.png";
+            h = 50; w = 50;
+        }
+        if (entite instanceof Item) {
+            if (entite instanceof ItemRechargeVie)
+                chemin = "/rsrc/media/coeur.png";
+            if (entite instanceof ItemRechargePet)
+                chemin = "/rscr/media/bonus-item_001.png";
+            h = 50; w = 50;
+        }
+
+        // création d'un élément dans la scene;
+        if (!entite.isAffiche()) {
+            System.out.println("Nouvel objet : " + entite);
+            entite.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + chemin));
+            entite.getImageView().setFitHeight(h);
+            entite.getImageView().setFitWidth(w);
+            entite.getImageView().xProperty().bind(entite.posXProperty());
+            entite.getImageView().yProperty().bind(entite.posYProperty());
+            fenetrejeu.getChildren().add(entite.getImageView());
+            entite.setAffiche(true);
+        }
     }
 }
