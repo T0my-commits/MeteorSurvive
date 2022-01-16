@@ -107,5 +107,6 @@ public class Monde{
 
     public void removeEntite(Entite e) {
         allEntite.remove(e);
+        e.setPosX(-8000);
     }
 }

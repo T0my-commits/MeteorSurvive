@@ -19,6 +19,22 @@ public class Colisionneur {
             if (e instanceof Dino && entite instanceof Sol) return false;
             if (newCoord.intersects((entite.getHitbox().getBoundsInLocal())) && !entite.equals(e)){
                 if(entite instanceof Mur);
+                else if((e instanceof Meteorite && entite instanceof Dino) || (e instanceof Dino && entite instanceof Meteorite)){
+                    if(e instanceof Dino) {
+                        if(((Meteorite) entite).isEnable()){
+                            ((Dino) e).setDegat();
+                            ((Meteorite) entite).setEtat(false);
+                            return true;
+                        }
+                    }
+                    else {
+                        if(((Meteorite) e).isEnable()){
+                            ((Dino) entite).setDegat();
+                            ((Meteorite) e).setEtat(false);
+                            return true;
+                        }
+                    }
+                }
                 else return true;
             }
 

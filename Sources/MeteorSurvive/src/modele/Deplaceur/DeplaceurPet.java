@@ -2,7 +2,6 @@ package modele.Deplaceur;
 
 import modele.Colisionneur.ColisionneurPet;
 import modele.Monde;
-import modele.Objet.Entite;
 import modele.Objet.Meteorite;
 import modele.Objet.Pet;
 import modele.Sujet;
@@ -25,9 +24,9 @@ public class DeplaceurPet extends Deplaceur {
         for(Pet o : allPets) {
             for (Meteorite m : allMeteorites) {
                 if (ColisionneurPet.OnMeteorite(m, o)) {
-                    if (!m.isItemDropped())
+                    if (!m.isEnable())
                         getMonde().addItemVie(m.getPosX(), m.getPosY());
-                    m.isItemDropped(true);
+                    m.setEtat(true);
                     getMonde().removeEntite(o);
                 }
             }

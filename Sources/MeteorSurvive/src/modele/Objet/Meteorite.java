@@ -6,7 +6,7 @@ import modele.Danger.Danger;
 public class Meteorite extends Entite implements Danger {
 
     private boolean isAffiche = false;
-    private boolean isItemDroppped = false;
+    private boolean isEnable = true;
 
     public Meteorite(double x, double y){
         super(x,y, new Rectangle(x,y,50, 120));
@@ -33,11 +33,11 @@ public class Meteorite extends Entite implements Danger {
         return "Meteorite{ " + getPosX() +" / "+ getPosY()+" }";
     }
 
-    public void isItemDropped(boolean b) {
-        isItemDroppped = b;
+    public void setEtat(boolean b) {
+        isEnable = b;
     }
 
-    public boolean isItemDropped() {
-        return isItemDroppped;
+    public boolean isEnable() {
+        return isEnable;
     }
 }
