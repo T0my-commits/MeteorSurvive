@@ -18,6 +18,7 @@ public class DeplaceurBasePerso extends Deplaceur {
 
     private static int velocity = 5;
     private int gravite;
+    private boolean saute =false;
     private int direction;
     int i =0;
 
@@ -42,7 +43,10 @@ public class DeplaceurBasePerso extends Deplaceur {
     }
 
     public void sauter(){
-        if(ColisionneurDino.OnGround(getMonde()))i = 50;
+        if(ColisionneurDino.OnGround(getMonde())){
+            saute=true;
+            i = 50;
+        }
     }
 
     @Override
@@ -51,26 +55,38 @@ public class DeplaceurBasePerso extends Deplaceur {
         if(!ColisionneurDino.isColision(getMonde(), getMonde().getDino().getPosX()+direction,getMonde().getDino().getPosY())){
             d.updateX(direction);
         }
+        /*
         if(direction!= 0){
             System.out.println(i);
 
             if(i>=15){
-                d.updateY(-i/4);
+                d.updateY(-(i*i)/150);
                 i--;
             }
             else if(i>0 && i<15){
                 if(!ColisionneurDino.OnGround(getMonde())){
-                    d.updateY(-i/10);
+                    d.updateY(-(i*i)/150);
                 }
                 i--;
             }
+
+        }*/
+        if(saute){
+           // System.out.println(-((i-25)*(i-25))/50);
+
+            if(i>25)d.updateY(-((i-25)*(i-25))*9.81/200);
+            else d.updateY(((i-25)*(i-25))*9.81/200);
+
+            i--;
+            if(i==0) saute=false;
 
         }
 
 
 
         if(!ColisionneurDino.OnGround(getMonde()) && i==0){
-            d.updateY(10);
+            d.updateY(15);
+
         }
 
         Item i = ColisionneurItem.GetItem(getMonde().getDino(), getMonde().getItems());
