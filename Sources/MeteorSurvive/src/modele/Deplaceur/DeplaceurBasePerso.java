@@ -56,7 +56,6 @@ public class DeplaceurBasePerso extends Deplaceur {
 
             if(i>=15){
                 d.updateY(-i/4);
-                System.out.println(gravite);
                 i--;
             }
             else if(i>0 && i<15){
