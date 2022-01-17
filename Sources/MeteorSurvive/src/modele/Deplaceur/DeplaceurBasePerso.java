@@ -41,14 +41,37 @@ public class DeplaceurBasePerso extends Deplaceur {
 
     }
 
+    public void sauter(){
+        if(ColisionneurDino.OnGround(getMonde()))i = 50;
+    }
+
     @Override
     public void update() {
         Dino d = getMonde().getDino();
         if(!ColisionneurDino.isColision(getMonde(), getMonde().getDino().getPosX()+direction,getMonde().getDino().getPosY())){
             d.updateX(direction);
         }
-        if(!ColisionneurDino.OnGround(getMonde())){
-            d.updateY(gravite);
+        if(direction!= 0){
+            System.out.println(i);
+
+            if(i>=15){
+                d.updateY(-i/4);
+                System.out.println(gravite);
+                i--;
+            }
+            else if(i>0 && i<15){
+                if(!ColisionneurDino.OnGround(getMonde())){
+                    d.updateY(-i/10);
+                }
+                i--;
+            }
+
+        }
+
+
+
+        if(!ColisionneurDino.OnGround(getMonde()) && i==0){
+            d.updateY(10);
         }
 
         Item i = ColisionneurItem.GetItem(getMonde().getDino(), getMonde().getItems());

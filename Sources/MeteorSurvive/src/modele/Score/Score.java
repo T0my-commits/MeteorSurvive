@@ -23,6 +23,5 @@ public class Score implements Observateur {
     @Override
     public void update() {
         setScore(getScore()+1);
-        System.out.println(score);
     }
 }

@@ -92,4 +92,9 @@ public class Manager {
 
     }
 
+    public void sauter(){
+
+        deplaceurBasePerso.sauter();
+    }
+
 }

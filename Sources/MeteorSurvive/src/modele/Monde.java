@@ -10,6 +10,7 @@ import modele.Objet.Item.Item;
 import modele.Objet.Item.ItemRechargePet;
 import modele.Objet.Item.ItemRechargeVie;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**

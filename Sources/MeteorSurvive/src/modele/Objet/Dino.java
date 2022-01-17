@@ -25,7 +25,7 @@ public class Dino extends Entite {
 
     public Dino(double x, double y) {
         super(x,y, new Rectangle(x,y,100,100));
-        setPdv(3);
+        setPdv(300);
         setPet(5);
     }
 

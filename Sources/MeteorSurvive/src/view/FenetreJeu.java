@@ -74,6 +74,11 @@ public class FenetreJeu implements EventListener {
             case SPACE -> {
                 manager.creerPet(manager.getMonde().getDino().getPosX(), manager.getMonde().getDino().getPosY());
             }
+            case UP -> {
+                manager.sauter();
+            }
+
+
         }
     }
 
