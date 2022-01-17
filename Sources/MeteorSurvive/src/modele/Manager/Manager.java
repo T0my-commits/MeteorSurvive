@@ -9,6 +9,7 @@ import modele.Deplaceur.*;
 import modele.Monde;
 import modele.Objet.*;
 import modele.Objet.Item.Item;
+import modele.Score.GestionnaireScore;
 import modele.Score.Score;
 import modele.createur.CreateurMeteorite;
 import modele.createur.CreateurPet;
@@ -23,7 +24,7 @@ public class Manager {
     Deplaceur deplaceurMeteorite;
     Deplaceur deplaceurPet;
     Deplaceur deplaceurItem;
-    Score score;
+    GestionnaireScore score;
 
     public Manager() {
         monde = new Monde(this);
@@ -43,7 +44,7 @@ public class Manager {
         new CreateurMeteorite(monde, boucleM);
         new CreateurPet(monde, boucleM);
 
-        score = new Score(boucleur);
+        score = new GestionnaireScore(boucleur);
 
     }
 
@@ -89,6 +90,7 @@ public class Manager {
         threadJeu.interrupt();
         threadBoucleM.interrupt();
         System.out.println(("/*/*/*//*/*/*/*/*/"));
+        score.SauvegarderScore();
 
     }
 

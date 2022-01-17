@@ -5,14 +5,14 @@ import modele.Observateur;
 
 public class Score implements Observateur {
 
-    private static int score;
+    private long score;
 
-    public static int getScore() {
+    public long getScore() {
         return score;
     }
 
-    public static void setScore(int score) {
-        Score.score = score;
+    public void setScore(long score) {
+        this.score = score;
     }
 
     public Score(Boucleur b){
@@ -22,6 +22,7 @@ public class Score implements Observateur {
 
     @Override
     public void update() {
+        System.out.println(score);
         setScore(getScore()+1);
     }
 }
