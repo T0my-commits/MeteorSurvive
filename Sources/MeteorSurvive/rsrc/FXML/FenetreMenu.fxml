@@ -1,36 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.effect.Glow?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Text?>
-
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="mainBP"
-            stylesheets="@style/StyleFenetre.css"
-            xmlns="http://javafx.com/javafx/16"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="view.FenetreMenu"
-            >
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<AnchorPane fx:id="mainAnchor" stylesheets="@style/StyleFenetre.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreMenu">
+   <ImageView pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../media/volcan.png" />
+      </image>
+   </ImageView>
+   <VBox fx:id="vBox" alignment="CENTER" minWidth="1280" spacing="20.0" styleClass="hboxStyle">
+      <children>
+         <Text fx:id="titre" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="5.0" text="Meteor Survive">
+            <font>
+               <Font name="Impact" size="100.0" />
+            </font>
+            <fill>
+               <RadialGradient centerX="0.4118942731277533" centerY="0.5568181818181819" cycleMethod="REFLECT" radius="0.7201834949878377">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="1.0" />
+                        </color>
+                     </Stop>
+                     <Stop offset="0.4890109890109889">
+                        <color>
+                           <Color red="0.8736842274665833" green="0.485703706741333" blue="0.16826510429382324" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="1.0" green="0.9008620977401733" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </fill>
+         </Text>
+      </children>
+      <children>
+         <VBox alignment="CENTER" minWidth="1280">
+            <Text fill="WHITE" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeType="OUTSIDE" text="Nom du joueur :">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="29.0" />
+               </font>
+            </Text>
+            <TextField maxWidth="400" promptText="Entrez votre nom" />
+         </VBox>
+      </children>
+      <children>
+         <Button fx:id="playButton" minWidth="150" styleClass="playButton" text="Jouer">
+            <graphic>
+               <ImageView fitHeight="40" fitWidth="40">
+                  <image>
+                     <Image url="@../media/dino_001.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+      </children>
+      <children>
+         <Text fill="WHITE" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeType="OUTSIDE" text="Tableau des meilleurs scores">
+            <font>
+               <Font name="Copperplate Gothic Bold" size="29.0" />
+            </font>
+         </Text>
 
-   <top>
-      <Text fx:id="titre" text="MeteorSurvive" BorderPane.alignment="CENTER" />
-   </top>
-   <center>
-      <TextField fx:id="txtfield" text="test" maxWidth="100"/>
-   </center>
-   <bottom>
+         <GridPane fx:id="tableauScore"  alignment="CENTER" hgap="300.0" vgap="10.0" styleClass="tableauScore" maxWidth="500">
+            <Text GridPane.columnIndex="0" GridPane.rowIndex="0" text="Nom du joueur" styleClass="TitreColScore"/>
+            <Text GridPane.columnIndex="1" GridPane.rowIndex="0" text="Score" styleClass="TitreColScore"/>
+         </GridPane>
+      </children>
 
-      <Button fx:id="bouttondep" text="Deplacer">
-
-      </Button>
-   </bottom>
-   <effect>
-      <Glow />
-   </effect>
-</BorderPane>
+   </VBox>
+</AnchorPane>

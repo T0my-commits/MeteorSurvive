@@ -124,8 +124,8 @@ public class FenetreJeu implements EventListener {
 
         // définition des paramètres;
         if (entite instanceof Meteorite) {
-            chemin = "/rsrc/media/meteorite.png";
-            h = 160; w = 75;
+            chemin = "/rsrc/media/meteorite.gif";
+            h = 180; w = 125;
         }
         if (entite instanceof Pet) {
             chemin = "/rsrc/media/pet_001.png";

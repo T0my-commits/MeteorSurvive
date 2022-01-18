@@ -15,10 +15,11 @@ public class GestionnaireJeu implements Observateur {
     private final Stage stage;
     private boolean isPlaying; // true si en jeu, false si le joueur est sur le menu principal;
 
+
     public GestionnaireJeu(Stage primaryStage) throws IOException {
         stage = primaryStage;
         setIsPlaying(false);
-        firstStage();
+        secondStage();
     }
 
     public void firstStage() throws IOException {
@@ -34,12 +35,12 @@ public class GestionnaireJeu implements Observateur {
         });
     }
 
-    public void secondStage() {
-        Label x = new Label("Second stage");
-        VBox y = new VBox();
-
-        y.getChildren().add(x);
-        stage.setScene(new Scene(y, 300, 300));
+    public void secondStage() throws IOException {
+        Parent racine = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../FXML/FenetreMenu.fxml")));
+        Scene scene = new Scene(racine);
+        stage.setScene(scene);
+        stage.setHeight(720);
+        stage.setWidth(1280);
         stage.show();
     }
 
@@ -51,7 +52,11 @@ public class GestionnaireJeu implements Observateur {
     public void update() {
         if (!isPlaying) {
             setIsPlaying(true);
-            secondStage();
+            try {
+                secondStage();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         else {
             setIsPlaying(false);

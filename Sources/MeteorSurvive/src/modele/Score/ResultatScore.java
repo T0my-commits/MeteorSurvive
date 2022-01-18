@@ -6,6 +6,7 @@ public class ResultatScore implements Serializable {
 
     private long score;
     private String nomJoueur;
+    static final long serialVersionUID = 8216180604790104263L;
 
     public ResultatScore(long score, String nomJoueur) {
         this.score = score;
@@ -35,4 +36,5 @@ public class ResultatScore implements Serializable {
                 ", nomJoueur='" + nomJoueur + '\'' +
                 '}';
     }
+
 }

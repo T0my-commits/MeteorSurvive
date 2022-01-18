@@ -9,23 +9,19 @@ import java.util.List;
 public class LoadScoreSerialization implements LoadScore{
     @Override
     public List<ResultatScore> LoadScore() {
-        List<ResultatScore> allRes= new ArrayList<>();
+        List<ResultatScore> allRes = new ArrayList<>();
         int nblu = 0;
         try {
             FileInputStream fis = new FileInputStream("bin/scores.bin");
-             ObjectInputStream ois = new ObjectInputStream(fis);
+            ObjectInputStream ois = new ObjectInputStream(fis);
             {
-                allRes.add((ResultatScore)ois.readObject());
-                while (nblu<5){
+                while (nblu < 5) {
                     try {
-                        allRes.add((ResultatScore)ois.readObject());
+                        allRes.add((ResultatScore) ois.readObject());
                         nblu++;
-
-                    }
-                    catch (ClassNotFoundException e){
+                    } catch (ClassNotFoundException e) {
                         return allRes;
-                    }
-                    catch (EOFException e){
+                    } catch (EOFException e) {
                         return allRes;
                     }
                 }
@@ -37,10 +33,9 @@ public class LoadScoreSerialization implements LoadScore{
         }
         catch (IOException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            return allRes;
+
         }
         return allRes;
-
     }
 }

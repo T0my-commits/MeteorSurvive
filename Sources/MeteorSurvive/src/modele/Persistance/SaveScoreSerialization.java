@@ -17,11 +17,20 @@ public class SaveScoreSerialization implements SaveScore {
         try (FileOutputStream fos = new FileOutputStream("bin/scores.bin");
              ObjectOutputStream oos = new ObjectOutputStream(fos))
         {
-            for (ResultatScore res : allscore
-                 ) {
-                System.out.println(res);
-                oos.writeObject(res);
+            if(allscore.size()<=5){
+                for (ResultatScore res : allscore
+                ) {
+                    System.out.println(res);
+                    oos.writeObject(res);
+                }
             }
+            else {
+                for(int i =1; i<=5;i++){
+                    System.out.println(allscore.get(allscore.size()-i));
+                    oos.writeObject(allscore.get(allscore.size()-i));
+                }
+            }
+
         }
 
         catch (FileNotFoundException e) {

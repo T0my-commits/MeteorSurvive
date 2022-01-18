@@ -8,6 +8,7 @@ import modele.Boucleur.Boucleur;
 import modele.Persistance.LoadScoreSerialization;
 import modele.Persistance.SaveScoreSerialization;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.SortedMap;
 
@@ -25,7 +26,7 @@ public class GestionnaireScore {
     public void SauvegarderScore()  {
         allScores.add(new ResultatScore(currentScore.getScore(), currentPlayer));
         try {
-            new SaveScoreSerialization().SaveScore(allScores.sorted());
+            new SaveScoreSerialization().SaveScore(allScores.sorted(Comparator.comparing(ResultatScore::getScore)));
 
         }
         catch (Exception e){
