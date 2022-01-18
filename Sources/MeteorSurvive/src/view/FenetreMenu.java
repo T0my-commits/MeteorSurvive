@@ -1,20 +1,27 @@
 package view;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import modele.Manager.Manager;
+import modele.Loader.Loader;
 import modele.Manager.ManagerMenu;
-import modele.Objet.Shoot;
 import modele.Score.ResultatScore;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public class FenetreMenu {
 
@@ -78,9 +85,13 @@ public class FenetreMenu {
 
             i++;
         }
+        //((Stage)((Node)e.getSource()).getScene().getWindow()).hide();
+
 
     }
 
 
-
+    public void handleButtonPress(ActionEvent actionEvent) throws IOException {
+        Loader.gestionnaireJeu.firstStage();
+    }
 }

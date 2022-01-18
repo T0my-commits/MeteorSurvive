@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import modele.Loader.Loader;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -16,10 +17,12 @@ public class GestionnaireJeu implements Observateur {
     private boolean isPlaying; // true si en jeu, false si le joueur est sur le menu principal;
 
 
-    public GestionnaireJeu(Stage primaryStage) throws IOException {
+    public GestionnaireJeu(Stage primaryStage, Loader l) throws IOException {
         stage = primaryStage;
         setIsPlaying(false);
+        Loader.gestionnaireJeu = this;
         secondStage();
+
     }
 
     public void firstStage() throws IOException {

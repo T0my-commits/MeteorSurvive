@@ -44,11 +44,14 @@ public class FenetreJeu implements EventListener {
     public HBox pdvBox;
     @FXML
     public Label nb_de_pets;
+    @FXML
+    public ImageView sol;
 
     public void initialize()
     {
         // création du monde, des objets, des déplaceurs, du collisionneur, etc.
         manager = new Manager();
+
 
         // binding des propriétés
         dino_view.xProperty().bind(manager.getMonde().getDino().posXProperty());
@@ -56,6 +59,15 @@ public class FenetreJeu implements EventListener {
 
         // mise en place de la scene
         nb_de_pets.textProperty().bind(manager.getMonde().getDino().nbPetsStringProperty());
+
+        ImageView i = new ImageView();
+        i.setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/sol.png"));
+        i.xProperty().bind(manager.getMonde().getSol().posXProperty());
+        i.yProperty().bind(manager.getMonde().getSol().posYProperty());
+        fenetrejeu.getChildren().add(i);
+        AnchorPane.setBottomAnchor(i, 0.0);
+
+
         getScene();
     }
 
@@ -85,7 +97,6 @@ public class FenetreJeu implements EventListener {
     public void getScene() {
         pointVie.textProperty().bind(Bindings.convert(manager.getMonde().getDino().pdvProperty()));
         pointVie.setFont(Font.font("Impact", 20));
-        AnchorPane.setRightAnchor(pdvBox , 10.0);
 
 
         ImageView i = new ImageView();
@@ -93,7 +104,7 @@ public class FenetreJeu implements EventListener {
         i.xProperty().bind(manager.getMonde().getSol().posXProperty());
         i.yProperty().bind(manager.getMonde().getSol().posYProperty());
         fenetrejeu.getChildren().add(i);
-        AnchorPane.setBottomAnchor(i, 0.0);
+
 
         manager.getItems().addListener((InvalidationListener) observable -> {
             for (var item : manager.getItems()) {

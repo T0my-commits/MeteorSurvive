@@ -59,7 +59,7 @@
          </VBox>
       </children>
       <children>
-         <Button fx:id="playButton" minWidth="150" styleClass="playButton" text="Jouer">
+         <Button fx:id="playButton" minWidth="150" styleClass="playButton" text="Jouer" onAction="#handleButtonPress">
             <graphic>
                <ImageView fitHeight="40" fitWidth="40">
                   <image>

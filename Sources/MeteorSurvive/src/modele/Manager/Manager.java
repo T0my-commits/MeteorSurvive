@@ -6,6 +6,7 @@ import modele.Boucleur.Boucleur;
 import modele.Boucleur.BoucleurJeu;
 import modele.Boucleur.BoucleurMeteorite;
 import modele.Deplaceur.*;
+import modele.Loader.Loader;
 import modele.Monde;
 import modele.Objet.*;
 import modele.Objet.Item.Item;
@@ -13,6 +14,8 @@ import modele.Score.GestionnaireScore;
 import modele.Score.Score;
 import modele.createur.CreateurMeteorite;
 import modele.createur.CreateurPet;
+
+import java.io.IOException;
 
 public class Manager {
     Monde monde;
@@ -27,6 +30,7 @@ public class Manager {
     GestionnaireScore score;
 
     public Manager() {
+        Boucleur.setGameOver(false);
         monde = new Monde(this);
         boucleur = new BoucleurJeu();
         boucleM = new BoucleurMeteorite();
@@ -91,6 +95,12 @@ public class Manager {
         threadBoucleM.interrupt();
         System.out.println(("/*/*/*//*/*/*/*/*/"));
         score.SauvegarderScore();
+
+        try {
+            Loader.gestionnaireJeu.secondStage();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
