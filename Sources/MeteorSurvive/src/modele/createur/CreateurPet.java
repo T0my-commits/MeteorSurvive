@@ -15,7 +15,7 @@ public class CreateurPet extends Createur implements Observateur {
         super(m);
         boucleur = b;
         boucleur.attacher(this);
-        nb_meteorite = 5;
+        nb_meteorite = 25;
     }
 
     @Override

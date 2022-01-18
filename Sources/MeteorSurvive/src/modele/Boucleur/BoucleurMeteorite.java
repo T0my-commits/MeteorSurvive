@@ -20,7 +20,7 @@ public class BoucleurMeteorite extends Boucleur{
         while (true) {
             if(!isGameOver()){
                 try {
-                    sleep(350);
+                    sleep(300);
                     Platform.runLater(notifieur);
                 } catch (InterruptedException e) {
                     //e.printStackTrace();
