@@ -134,10 +134,10 @@ public class FenetreJeu implements EventListener {
         }
         if (entite instanceof Item) {
             if (entite instanceof ItemRechargePetDino) {
-                chemin = "/rscr/media/croquette_001.png";
+                chemin = "/rsrc/media/coeur.png";
             }
             if (entite instanceof ItemRechargeVie) {
-                chemin = "/rsrc/media/coeur.png";
+                chemin = "/rscr/media/croquette_001.png";
             }
             if (entite instanceof ItemAugmenterSaut) {
                 chemin = "/rsrc/media/bonus-item_002.png";
