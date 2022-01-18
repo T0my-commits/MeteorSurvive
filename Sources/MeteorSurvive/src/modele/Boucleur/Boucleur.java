@@ -6,7 +6,6 @@ public class Boucleur extends Sujet implements Runnable {
 
     private static boolean gameOver = false;
 
-
     public static boolean isGameOver() {
         return gameOver;
     }

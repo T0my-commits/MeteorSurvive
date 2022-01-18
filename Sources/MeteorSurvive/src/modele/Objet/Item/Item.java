@@ -20,4 +20,9 @@ public class Item extends Entite {
         isEnable = enable;
     }
 
+    @Override
+    public String toString() {
+        return "Item {"+posX.get()+" ; "+posY.get()+"}";
+    }
+
 }

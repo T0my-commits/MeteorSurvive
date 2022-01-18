@@ -35,8 +35,6 @@ public abstract class Entite {
         imageView = new ImageView();
     }
 
-
-
     public Rectangle getHitbox() {
         return hitbox;
     }

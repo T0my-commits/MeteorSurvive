@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import modele.Bonus.IBonus;
@@ -56,8 +57,6 @@ public class FenetreJeu implements EventListener {
         // binding des propriétés
         dino_view.xProperty().bind(manager.getMonde().getDino().posXProperty());
         dino_view.yProperty().bind(manager.getMonde().getDino().posYProperty());
-
-        // mise en place de la scene
         nb_de_pets.textProperty().bind(manager.getMonde().getDino().nbPetsStringProperty());
 
         ImageView i = new ImageView();
@@ -86,7 +85,7 @@ public class FenetreJeu implements EventListener {
             case SPACE -> {
                 manager.creerPet(manager.getMonde().getDino().getPosX(), manager.getMonde().getDino().getPosY());
             }
-            case UP -> {
+            case Z, UP -> {
                 manager.sauter();
             }
 
@@ -97,6 +96,7 @@ public class FenetreJeu implements EventListener {
     public void getScene() {
         pointVie.textProperty().bind(Bindings.convert(manager.getMonde().getDino().pdvProperty()));
         pointVie.setFont(Font.font("Impact", 20));
+        AnchorPane.setRightAnchor(pdvBox , 10.0);
 
 
         ImageView i = new ImageView();
@@ -135,8 +135,9 @@ public class FenetreJeu implements EventListener {
 
         // définition des paramètres;
         if (entite instanceof Meteorite) {
-            chemin = "/rsrc/media/meteorite.gif";
-            h = 180; w = 125;
+            chemin = "/rsrc/media/meteorite.png";
+            //h = 180; w = 125;
+            h = 150; w = 80;
         }
         if (entite instanceof Pet) {
             chemin = "/rsrc/media/pet_001.png";
@@ -152,13 +153,14 @@ public class FenetreJeu implements EventListener {
 
         // création d'un élément dans la scene;
         if (!entite.isAffiche()) {
-            System.out.println("Nouvel objet : " + entite);
+            System.out.println(">> Nouvel objet : " + entite);
             entite.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + chemin));
             entite.getImageView().setFitHeight(h);
             entite.getImageView().setFitWidth(w);
             entite.getImageView().xProperty().bind(entite.posXProperty());
             entite.getImageView().yProperty().bind(entite.posYProperty());
             fenetrejeu.getChildren().add(entite.getImageView());
+            entite.getImageView().toFront();
             entite.setAffiche(true);
         }
     }

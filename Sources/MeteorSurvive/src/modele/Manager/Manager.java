@@ -12,6 +12,7 @@ import modele.Objet.*;
 import modele.Objet.Item.Item;
 import modele.Score.GestionnaireScore;
 import modele.Score.Score;
+import modele.createur.CreateurItem;
 import modele.createur.CreateurMeteorite;
 import modele.createur.CreateurPet;
 
@@ -46,6 +47,7 @@ public class Manager {
         threadBoucleM.start();
 
         new CreateurMeteorite(monde, boucleM);
+        //new CreateurItem(monde, boucleM);
         new CreateurPet(monde, boucleM);
 
         score = new GestionnaireScore(boucleur);
@@ -58,6 +60,10 @@ public class Manager {
 
     public ObservableList<Pet> getPets(){
         return monde.getPets();
+    }
+
+    public ObservableList<Item> getItems() {
+        return monde.getItems();
     }
 
     public Monde getMonde() { return monde; }
@@ -79,12 +85,8 @@ public class Manager {
         monde.peter(x, y);
     }
 
-    public void creerItem(double x, double y) {
+    public void creerItemRechargePet(double x, double y) {
         monde.addItemRechargePet(x, y);
-    }
-
-    public ObservableList<Item> getItems() {
-        return monde.getItems();
     }
 
     public void arretPartie(){
@@ -105,7 +107,6 @@ public class Manager {
     }
 
     public void sauter(){
-
         deplaceurBasePerso.sauter();
     }
 

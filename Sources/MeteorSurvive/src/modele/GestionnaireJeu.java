@@ -45,6 +45,14 @@ public class GestionnaireJeu implements Observateur {
         stage.setHeight(720);
         stage.setWidth(1280);
         stage.show();
+
+        stage.setOnCloseRequest(event -> {
+            System.exit(0);
+        });
+    }
+
+    public boolean isPlaying() {
+        return this.isPlaying;
     }
 
     public void setIsPlaying(boolean val) {
