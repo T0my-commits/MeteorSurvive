@@ -7,6 +7,7 @@ import javafx.collections.transformation.SortedList;
 import modele.Boucleur.Boucleur;
 import modele.Persistance.LoadScoreSerialization;
 import modele.Persistance.SaveScoreSerialization;
+import modele.Variables;
 
 import java.util.Comparator;
 import java.util.List;
@@ -24,6 +25,8 @@ public class GestionnaireScore {
     }
 
     public void SauvegarderScore()  {
+        currentPlayer= Variables.nomJoueur;
+        Variables.lastScore=currentScore.getScore();
         allScores.add(new ResultatScore(currentScore.getScore(), currentPlayer));
         try {
             new SaveScoreSerialization().SaveScore(allScores.sorted(Comparator.comparing(ResultatScore::getScore)));

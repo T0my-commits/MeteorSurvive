@@ -51,7 +51,7 @@
       </children>
       <children>
          <VBox alignment="CENTER" minWidth="1280">
-            <Text fx:id="id_nom_joueur" fill="WHITE" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeType="OUTSIDE" text="Nom du joueur :">
+            <Text fill="WHITE" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeType="OUTSIDE" text="Nom du joueur :">
                <font>
                   <Font name="Copperplate Gothic Bold" size="29.0" />
                </font>

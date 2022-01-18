@@ -66,7 +66,6 @@ public class FenetreJeu implements EventListener {
         fenetrejeu.getChildren().add(i);
         AnchorPane.setBottomAnchor(i, 0.0);
 
-
         getScene();
     }
 
