@@ -7,6 +7,7 @@ import modele.Objet.Pet;
 import modele.Sujet;
 
 import java.util.List;
+import java.util.Random;
 
 public class DeplaceurPet extends Deplaceur {
 
@@ -24,10 +25,21 @@ public class DeplaceurPet extends Deplaceur {
         for(Pet o : allPets) {
             for (Meteorite m : allMeteorites) {
                 if (ColisionneurPet.OnMeteorite(m, o)) {
-                    if (o.isEnable())
-                        getMonde().addItemVie(m.getPosX(), m.getPosY());
+                    if (o.isEnable()) {
+                        // on fais spawn un item au hasard (60%), ou pas d'item du tout (40%);
+                        if (new Random().nextInt(100) > 40) {
+                            final int NB_TYPES_ITEMS = 3;
+                            int random = new Random().nextInt(NB_TYPES_ITEMS);
+                            switch (random) {
+                                case 0 -> getMonde().addItemRechargePet(m.getPosX(), m.getPosY());
+                                case 1 -> getMonde().addItemVie(m.getPosX(), m.getPosY());
+                                case 2 -> getMonde().addItemAugmenterSaut(m.getPosX(), m.getPosY());
+                            }
+                        }
+                    }
                     o.setEtat(false);
                     m.setEtat(false);
+                    getMonde().removeEntite(m);
                     getMonde().removeEntite(o);
                 }
             }

@@ -18,6 +18,7 @@ import modele.Colisionneur.Colisionneur;
 import modele.Manager.Manager;
 import modele.Objet.Entite;
 import modele.Objet.Item.Item;
+import modele.Objet.Item.ItemAugmenterSaut;
 import modele.Objet.Item.ItemRechargePet;
 import modele.Objet.Item.ItemRechargeVie;
 import modele.Objet.Meteorite;
@@ -53,7 +54,6 @@ public class FenetreJeu implements EventListener {
         // création du monde, des objets, des déplaceurs, du collisionneur, etc.
         manager = new Manager();
 
-
         // binding des propriétés
         dino_view.xProperty().bind(manager.getMonde().getDino().posXProperty());
         dino_view.yProperty().bind(manager.getMonde().getDino().posYProperty());
@@ -87,8 +87,6 @@ public class FenetreJeu implements EventListener {
             case SPACE -> {
                 manager.sauter();
             }
-
-
         }
     }
 
@@ -96,13 +94,11 @@ public class FenetreJeu implements EventListener {
         pointVie.textProperty().bind(Bindings.convert(manager.getMonde().getDino().pdvProperty()));
         pointVie.setFont(Font.font("Impact", 20));
 
-
         ImageView i = new ImageView();
         i.setImage(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/sol.png"));
         i.xProperty().bind(manager.getMonde().getSol().posXProperty());
         i.yProperty().bind(manager.getMonde().getSol().posYProperty());
         fenetrejeu.getChildren().add(i);
-
 
         manager.getItems().addListener((InvalidationListener) observable -> {
             for (var item : manager.getItems()) {
@@ -133,19 +129,24 @@ public class FenetreJeu implements EventListener {
 
         // définition des paramètres;
         if (entite instanceof Meteorite) {
-            chemin = "/rsrc/media/meteorite.gif";
-            h = 180; w = 125;
-            //h = 150; w = 80;
+            chemin = "/rsrc/media/meteorite.png";
+            //h = 180; w = 125;
+            h = 150; w = 70;
         }
         if (entite instanceof Pet) {
             chemin = "/rsrc/media/pet_001.png";
             h = 50; w = 50;
         }
         if (entite instanceof Item) {
-            if (entite instanceof ItemRechargeVie)
-                chemin = "/rsrc/media/coeur.png";
-            if (entite instanceof ItemRechargePet)
+            if (entite instanceof ItemRechargePet) {
                 chemin = "/rscr/media/bonus-item_001.png";
+            }
+            if (entite instanceof ItemRechargeVie) {
+                chemin = "/rsrc/media/coeur.png";
+            }
+            if (entite instanceof ItemAugmenterSaut) {
+                chemin = "/rsrc/media/bonus-item_002.png";
+            }
             h = 50; w = 50;
         }
 

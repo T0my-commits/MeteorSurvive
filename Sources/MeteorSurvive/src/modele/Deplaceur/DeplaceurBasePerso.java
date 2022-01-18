@@ -17,71 +17,64 @@ import java.util.List;
 public class DeplaceurBasePerso extends Deplaceur {
 
     private static int velocity = 5;
-    private int gravite;
-    private boolean saute =false;
+    private double gravite;
     private int direction;
-    int i =0;
+    private int nb_double_saut = 5;
+
+    int i = 0;
 
     public DeplaceurBasePerso(Sujet s, Monde m) {
         setBoucleur(s);
         s.attacher(this);
         setMonde(m);
-        gravite = 10;
+        gravite = 9.81;
     }
 
     public void deplacerDroite(){
-        if(ColisionneurDino.OnGround(getMonde())) gravite = 0;
-        else gravite = 10;
         direction = velocity;
     }
 
     public void deplacerGauche(){
-        if(ColisionneurDino.OnGround(getMonde())) gravite = 0;
-        else gravite = 10;
         direction = -velocity;
 
     }
 
     public void sauter(){
         if(ColisionneurDino.OnGround(getMonde())){
-            saute=true;
-            i = 50;
+            getMonde().getDino().setSaute(true);
+
+            if (getMonde().getDino().isDoubleSaut()) {
+                if (nb_double_saut >= 0) {
+                    nb_double_saut -= 1;
+                } else {
+                    nb_double_saut = 5;
+                    getMonde().getDino().setDoubleSaut(false);
+                    getMonde().getDino().setHauteurSaut(40);
+                }
+            }
+
+            i = getMonde().getDino().getHauteurSaut();
+            System.out.println("La hauteur du saut : " + getMonde().getDino().getHauteurSaut());
         }
     }
 
     @Override
     public void update() {
+
         Dino d = getMonde().getDino();
+
         if(!ColisionneurDino.isColision(getMonde(), getMonde().getDino().getPosX()+direction,getMonde().getDino().getPosY())){
             d.updateX(direction);
         }
-        /*
-        if(direction!= 0){
-            System.out.println(i);
 
-            if(i>=15){
-                d.updateY(-(i*i)/150);
-                i--;
-            }
-            else if(i>0 && i<15){
-                if(!ColisionneurDino.OnGround(getMonde())){
-                    d.updateY(-(i*i)/150);
-                }
-                i--;
-            }
-
-        }*/
-        if(saute){
-           // System.out.println(-((i-25)*(i-25))/50);
-
-            if(i>25)d.updateY(-((i-25)*(i-25))*9.81/200);
-            else d.updateY(((i-25)*(i-25))*9.81/200);
+        if(getMonde().getDino().isSaute()){
+            if(i>(i/2))d.updateY(-((i-(i/2))*(i-(i/2)))*gravite/200);
+            else d.updateY(((i-(i/2))*(i-(i/2)))*gravite/200);
 
             i--;
-            if(i==0) saute=false;
+            if(i==0) getMonde().getDino().setSaute(false);
 
         }
-
 
 
         if(!ColisionneurDino.OnGround(getMonde()) && i==0){

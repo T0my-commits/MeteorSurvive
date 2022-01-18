@@ -4,9 +4,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.shape.Rectangle;
 import modele.Bonus.IBonus;
+import modele.Deplaceur.Deplaceur;
 import modele.Manager.Manager;
 import modele.Objet.*;
 import modele.Objet.Item.Item;
+import modele.Objet.Item.ItemAugmenterSaut;
 import modele.Objet.Item.ItemRechargePet;
 import modele.Objet.Item.ItemRechargeVie;
 
@@ -42,7 +44,6 @@ public class Monde{
         allEntite.add(new Mur(1269, 0));
         allEntite.add(new Mur(-2, 0));
         manager = m;
-
     }
 
     public ObservableList<Meteorite> getMeteorite(){
@@ -105,6 +106,12 @@ public class Monde{
 
     public void addItemVie(double posX, double posY) {
         Item i = new ItemRechargeVie(posX, posY, new Rectangle(posX, posY, 25, 25));
+        listItem.add(i);
+        allEntite.add(i);
+    }
+
+    public void addItemAugmenterSaut(double posX, double posY) {
+        Item i = new ItemAugmenterSaut(posX, posY, new Rectangle(posX, posY, 25, 25));
         listItem.add(i);
         allEntite.add(i);
     }

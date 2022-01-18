@@ -68,6 +68,10 @@ public class Manager {
 
     public Monde getMonde() { return monde; }
 
+    public Deplaceur getDeplaceurDino() {
+        return deplaceurBasePerso;
+    }
+
     /**
      * Déplace le dino
      */

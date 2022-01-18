@@ -15,9 +15,17 @@ public class Colisionneur {
         Rectangle newCoord = new Rectangle(newX, newY, e.getHitbox().getWidth(), e.getHitbox().getHeight());
         for (Entite entite: m.getAllEntite()
              ) {
+            // pas de collision entre un pet et un dino;
             if (e instanceof Pet && entite instanceof Dino) continue;
             if (e instanceof Dino && entite instanceof Pet) continue;
+
+            // pas de collision entre une météorite et un item;
+            if (e instanceof Meteorite && entite instanceof Item) continue;
+            if (e instanceof Item && entite instanceof Meteorite) continue;
+
+            // pas de collision entre un dino et le sol dans cette fonction;
             if (e instanceof Dino && entite instanceof Sol) return false;
+
             if (newCoord.intersects((entite.getHitbox().getBoundsInLocal())) && !entite.equals(e)){
                 if(entite instanceof Mur);
                 else if((e instanceof Meteorite && entite instanceof Dino) || (e instanceof Dino && entite instanceof Meteorite)){
