@@ -2,24 +2,19 @@ package view;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.binding.Bindings;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import modele.Bonus.IBonus;
-import modele.Colisionneur.Colisionneur;
 import modele.Manager.Manager;
 import modele.Objet.Entite;
 import modele.Objet.Item.Item;
 import modele.Objet.Item.ItemAugmenterSaut;
-import modele.Objet.Item.ItemRechargePet;
+import modele.Objet.Item.ItemRechargePetDino;
 import modele.Objet.Item.ItemRechargeVie;
 import modele.Objet.Meteorite;
 import modele.Objet.Pet;
@@ -81,7 +76,7 @@ public class FenetreJeu implements EventListener {
                 manager.deplacerDinoGauche();
                 dino_view.setScaleX(-1f);
             }
-            case Z, DOWN -> {
+            case S, DOWN -> {
                 manager.creerPet(manager.getMonde().getDino().getPosX(), manager.getMonde().getDino().getPosY());
             }
             case SPACE -> {
@@ -129,17 +124,17 @@ public class FenetreJeu implements EventListener {
 
         // définition des paramètres;
         if (entite instanceof Meteorite) {
-            chemin = "/rsrc/media/meteorite.png";
-            //h = 180; w = 125;
-            h = 150; w = 70;
+            chemin = "/rsrc/media/meteorite.gif";
+            h = 180; w = 125;
+            //h = 150; w = 70;
         }
         if (entite instanceof Pet) {
             chemin = "/rsrc/media/pet_001.png";
             h = 50; w = 50;
         }
         if (entite instanceof Item) {
-            if (entite instanceof ItemRechargePet) {
-                chemin = "/rscr/media/bonus-item_001.png";
+            if (entite instanceof ItemRechargePetDino) {
+                chemin = "/rscr/media/croquette_001.png";
             }
             if (entite instanceof ItemRechargeVie) {
                 chemin = "/rsrc/media/coeur.png";

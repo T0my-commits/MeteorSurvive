@@ -15,14 +15,15 @@ public class DeplaceurItem extends Deplaceur {
         setBoucleur(s);
         s.attacher(this);
         setMonde(m);
-        gravite = 5;
+        this.gravite = 5;
     }
 
     @Override
     public void update() {
         List<Item> p = getMonde().getItems();
-        for(Item i : p) {
-            if (!ColisionneurItem.OnGround(getMonde(), i))
+
+        for (Item i : p) {
+            if (!ColisionneurItem.OnGround(getMonde(), i) && !i.isStatique())
                 i.updateY(gravite);
         }
     }

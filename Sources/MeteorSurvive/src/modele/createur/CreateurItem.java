@@ -1,10 +1,7 @@
 package modele.createur;
 
-import javafx.scene.shape.Rectangle;
 import modele.Boucleur.BoucleurMeteorite;
 import modele.Monde;
-import modele.Objet.Item.Item;
-import modele.Objet.Item.ItemRechargePet;
 import modele.Observateur;
 import modele.Sujet;
 
@@ -38,6 +35,6 @@ public class CreateurItem extends Createur implements Observateur {
         double x = new Random().nextInt(1230);
         double y = new Random().nextInt(450);
 
-        m.addItemRechargePet(x, y);
+        m.addItemRechargePetDino(x, y);
     }
 }

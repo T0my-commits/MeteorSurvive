@@ -27,7 +27,7 @@ public class Manager {
     DeplaceurBasePerso deplaceurBasePerso;
     Deplaceur deplaceurMeteorite;
     Deplaceur deplaceurPet;
-    Deplaceur deplaceurItem;
+    Deplaceur deplaceurItem, deplaceurItemStatique;
     GestionnaireScore score;
 
     public Manager() {
@@ -35,10 +35,12 @@ public class Manager {
         monde = new Monde(this);
         boucleur = new BoucleurJeu();
         boucleM = new BoucleurMeteorite();
+
         deplaceurMeteorite = new DeplaceurMeteorite(boucleur, monde);
         deplaceurPet = new DeplaceurPet(boucleur, monde);
         deplaceurBasePerso = new DeplaceurBasePerso(boucleur, monde);
         deplaceurItem = new DeplaceurItem(boucleur, monde);
+        deplaceurItemStatique = new DeplaceurItem(boucleur, monde);
 
         threadJeu =  new Thread(boucleur);
         threadJeu.start();
@@ -47,7 +49,7 @@ public class Manager {
         threadBoucleM.start();
 
         new CreateurMeteorite(monde, boucleM);
-        //new CreateurItem(monde, boucleM);
+        new CreateurItem(monde, boucleM);
         new CreateurPet(monde, boucleM);
 
         score = new GestionnaireScore(boucleur);
@@ -90,7 +92,7 @@ public class Manager {
     }
 
     public void creerItemRechargePet(double x, double y) {
-        monde.addItemRechargePet(x, y);
+        monde.addItemRechargePetDino(x, y);
     }
 
     public void arretPartie(){

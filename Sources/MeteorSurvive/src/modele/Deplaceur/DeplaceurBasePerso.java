@@ -54,7 +54,6 @@ public class DeplaceurBasePerso extends Deplaceur {
             }
 
             i = getMonde().getDino().getHauteurSaut();
-            System.out.println("La hauteur du saut : " + getMonde().getDino().getHauteurSaut());
         }
     }
 

@@ -4,15 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.shape.Rectangle;
 import modele.Bonus.IBonus;
-import modele.Deplaceur.Deplaceur;
 import modele.Manager.Manager;
 import modele.Objet.*;
 import modele.Objet.Item.Item;
 import modele.Objet.Item.ItemAugmenterSaut;
-import modele.Objet.Item.ItemRechargePet;
+import modele.Objet.Item.ItemRechargePetDino;
 import modele.Objet.Item.ItemRechargeVie;
 
-import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -98,8 +96,8 @@ public class Monde{
         }
     }
 
-    public void addItemRechargePet(double x, double y) {
-        Item i = new ItemRechargePet(x, y, new Rectangle(x, y, 25, 25));
+    public void addItemRechargePetDino(double x, double y) {
+        Item i = new ItemRechargePetDino(x, y, new Rectangle(x, y, 25, 25));
         listItem.add(i);
         allEntite.add(i);
     }
@@ -129,12 +127,11 @@ public class Monde{
         e.setPosX(-8000);
     }
 
-    public void infligerDegat(Meteorite m){
+    public void infligerDegat(Meteorite m) {
         dino.setDegat();
         m.setEtat(false);
-        if(dino.getPdv() <= 0){
+        if (dino.getPdv() <= 0) {
             manager.arretPartie();
         }
     }
-
 }

@@ -31,7 +31,7 @@ public class DeplaceurPet extends Deplaceur {
                             final int NB_TYPES_ITEMS = 3;
                             int random = new Random().nextInt(NB_TYPES_ITEMS);
                             switch (random) {
-                                case 0 -> getMonde().addItemRechargePet(m.getPosX(), m.getPosY());
+                                case 0 -> getMonde().addItemRechargePetDino(m.getPosX(), m.getPosY());
                                 case 1 -> getMonde().addItemVie(m.getPosX(), m.getPosY());
                                 case 2 -> getMonde().addItemAugmenterSaut(m.getPosX(), m.getPosY());
                             }
