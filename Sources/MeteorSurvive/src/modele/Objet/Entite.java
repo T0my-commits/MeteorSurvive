@@ -63,17 +63,17 @@ public abstract class Entite {
     public boolean isAffiche() {
             return isAffiche;
         }
-        public void setAffiche(boolean affiche) {
-            isAffiche = affiche;
-        }
+    public void setAffiche(boolean affiche) {
+        isAffiche = affiche;
+    }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof Entite)) return false;
-            Entite entite = (Entite) o;
-            return isAffiche == entite.isAffiche && Objects.equals(getPosX(), entite.getPosX()) && Objects.equals(getPosY(), entite.getPosY()) && Objects.equals(getImageView(), entite.getImageView()) && Objects.equals(getHitbox(), entite.getHitbox());
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Entite)) return false;
+        Entite entite = (Entite) o;
+        return isAffiche == entite.isAffiche && Objects.equals(getPosX(), entite.getPosX()) && Objects.equals(getPosY(), entite.getPosY()) && Objects.equals(getImageView(), entite.getImageView()) && Objects.equals(getHitbox(), entite.getHitbox());
+    }
 
     @Override
     public String toString() {

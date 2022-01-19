@@ -16,14 +16,16 @@ public class Dino extends Entite {
     public IntegerProperty pdvProperty(){return pdv;}
 
     protected IntegerProperty nbPets = new SimpleIntegerProperty();
-    protected StringProperty nbPetsString = new SimpleStringProperty();
-    public ObservableValue<String> nbPetsStringProperty() {
-        return nbPetsString;
+    public int getPets() {
+        return nbPets.get();
+    }
+    public void setPet(int val) {
+        nbPets.set(val);
     }
 
     private int hauteur_saut;
     private boolean isSaute; // est en train de sauter ?
-    private boolean double_saut;
+    private boolean isDoubleSaut;
 
     public Dino(double x, double y) {
         super(x,y, new Rectangle(x,y,100,100));
@@ -31,30 +33,12 @@ public class Dino extends Entite {
         setPet(5);
         hauteur_saut = 40;
         isSaute = false;
-        double_saut = false;
+        isDoubleSaut = false;
     }
 
     public void setDegat(){
         setPdv(getPdv()-1);
     }
-
-    public void setPet(int val) {
-        nbPets.set(val);
-        nbPetsString.set(val+"");
-    }
-
-    public int getPets() {
-        return nbPets.get();
-    }
-
-    public IntegerProperty petProperty() {
-        return nbPets;
-    }
-
-    public IntegerProperty getNbPetsProperty() {
-        return nbPets;
-    }
-
 
     public int getHauteurSaut() {
         return this.hauteur_saut;
@@ -65,14 +49,14 @@ public class Dino extends Entite {
     }
 
     public boolean isDoubleSaut() {
-        return double_saut;
+        return isDoubleSaut;
     }
 
     public void setDoubleSaut(boolean val) {
         //if (val) setHauteurSaut(60);
         //else setHauteurSaut(40);
 
-        this.double_saut = val;
+        this.isDoubleSaut = val;
     }
 
     public boolean isSaute() {
