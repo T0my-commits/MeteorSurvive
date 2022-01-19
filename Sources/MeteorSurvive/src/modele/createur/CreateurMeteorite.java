@@ -6,6 +6,7 @@ import modele.Monde;
 import modele.Objet.Meteorite;
 import modele.Observateur;
 import modele.Sujet;
+import modele.Variables;
 
 import java.util.Random;
 
@@ -14,14 +15,17 @@ public class CreateurMeteorite extends Createur implements Observateur {
     private Sujet boucleM;
 
     // on passe more_meteorite tours de boucle avant de créer une nouvelle météorite;
-    private static int more_meteorite = 0;
-    private static int lenteur_jeu; // = 5 -> lent ; = 0 -> rapide
-    private static int temoin = 0;
+    private int more_meteorite;
+    private int lenteur_jeu; // = 5 -> lent ; = 0 -> rapide
+    private int temoin;
 
     public CreateurMeteorite(Monde m, BoucleurMeteorite b) {
         super(m);
         boucleM = b;
         boucleM.attacher(this);
+        more_meteorite = Variables.more_meteorite;
+        lenteur_jeu = Variables.lenteur_jeu;
+        temoin=Variables.temoin;
     }
 
     @Override

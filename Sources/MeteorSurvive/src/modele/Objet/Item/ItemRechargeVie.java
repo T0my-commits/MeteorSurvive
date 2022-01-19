@@ -12,6 +12,6 @@ public class ItemRechargeVie extends Item implements IBonus {
 
     @Override
     public void addBonus(Dino d, int value) {
-        d.setPdv(d.getPdv() + value);
+        if(d.getPdv()<10) d.setPdv(d.getPdv() + value);
     }
 }

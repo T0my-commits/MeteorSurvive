@@ -81,10 +81,10 @@ public class FenetreJeu implements EventListener {
                 manager.deplacerDinoGauche();
                 dino_view.setScaleX(-1f);
             }
-            case SPACE -> {
+            case Z, DOWN -> {
                 manager.creerPet(manager.getMonde().getDino().getPosX(), manager.getMonde().getDino().getPosY());
             }
-            case Z, UP -> {
+            case SPACE -> {
                 manager.sauter();
             }
 
@@ -95,7 +95,6 @@ public class FenetreJeu implements EventListener {
     public void getScene() {
         pointVie.textProperty().bind(Bindings.convert(manager.getMonde().getDino().pdvProperty()));
         pointVie.setFont(Font.font("Impact", 20));
-        AnchorPane.setRightAnchor(pdvBox , 10.0);
 
 
         ImageView i = new ImageView();
@@ -134,9 +133,9 @@ public class FenetreJeu implements EventListener {
 
         // définition des paramètres;
         if (entite instanceof Meteorite) {
-            chemin = "/rsrc/media/meteorite.png";
-            //h = 180; w = 125;
-            h = 150; w = 80;
+            chemin = "/rsrc/media/meteorite.gif";
+            h = 180; w = 125;
+            //h = 150; w = 80;
         }
         if (entite instanceof Pet) {
             chemin = "/rsrc/media/pet_001.png";

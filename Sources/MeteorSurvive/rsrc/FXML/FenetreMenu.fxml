@@ -20,6 +20,11 @@
          <Image url="@../media/volcan.png" />
       </image>
    </ImageView>
+   <ImageView layoutX="950" layoutY="100" fitWidth="300" fitHeight="550" >
+      <image>
+         <Image url="@../media/Didacticiel.png" />
+      </image>
+   </ImageView>
    <VBox fx:id="vBox" alignment="CENTER" minWidth="1280" spacing="20.0" styleClass="hboxStyle">
       <children>
          <Text fx:id="titre" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="5.0" text="Meteor Survive">
@@ -56,7 +61,7 @@
                   <Font name="Copperplate Gothic Bold" size="29.0" />
                </font>
             </Text>
-            <TextField maxWidth="400" promptText="Entrez votre nom" />
+            <TextField fx:id="nomJoueurTF" maxWidth="400" promptText="Entrez votre nom" />
          </VBox>
       </children>
       <children>

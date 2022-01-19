@@ -28,7 +28,7 @@
       </ImageView>
    </children>
    <children>
-      <HBox fx:id="pdvBox" layoutX="1200" layoutY="10" styleClass="hboxStyle">
+      <HBox fx:id="pdvBox" layoutX="1100" layoutY="10" styleClass="hboxStyle">
          <Text fx:id="pointVie" styleClass="contour" />
          <ImageView fitHeight="25" fitWidth="25" >
             <image>
@@ -38,16 +38,20 @@
       </HBox>
    </children>
    <children>
-      <Label fx:id="nb_de_pets" layoutX="191.0" layoutY="27.0" text="\${nb_de_pets.text}" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="38.0" layoutY="27.0" text="Nombre de pets : " textFill="WHITE" underline="true">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
+      <HBox  layoutX="38.0" layoutY="27.0">
+         <Label text="Nombre de pets : " textFill="WHITE">
+            <font>
+               <Font name="Impact" size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="nb_de_pets" textFill="WHITE">
+            <font>
+               <Font name="Impact" size="20.0" />
+            </font>
+         </Label>
+
+      </HBox>
+
 
    </children>
 
