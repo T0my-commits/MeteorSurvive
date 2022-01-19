@@ -3,11 +3,9 @@ package modele.Deplaceur;
 import modele.Colisionneur.Colisionneur;
 import modele.Monde;
 import modele.Objet.Meteorite;
-import modele.Objet.Entite;
 import modele.Sujet;
 import modele.Variables;
 
-import java.time.temporal.ValueRange;
 import java.util.List;
 
 public class DeplaceurMeteorite extends Deplaceur {
@@ -30,7 +28,7 @@ public class DeplaceurMeteorite extends Deplaceur {
         List<Meteorite> allMereorite = getMonde().getMeteorite();
 
         for(Meteorite e : allMereorite){
-            if(Colisionneur.isColision(e, getMonde(), e.getPosX()+1,e.getPosY())) {
+            if(Colisionneur.IsColision(e, getMonde(), e.getPosX()+1,e.getPosY())) {
                 getMonde().removeEntite(e);
             }
             else{

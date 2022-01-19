@@ -12,17 +12,17 @@ import java.util.Random;
 
 public class CreateurMeteorite extends Createur implements Observateur {
 
-    private Sujet boucleM;
+    private Sujet boucleur;
 
     // on passe more_meteorite tours de boucle avant de créer une nouvelle météorite;
     private int more_meteorite;
     private int lenteur_jeu; // = 5 -> lent ; = 0 -> rapide
     private int temoin;
 
-    public CreateurMeteorite(Monde m, BoucleurMeteorite b) {
+    public CreateurMeteorite(Monde m, BoucleurMeteorite boucleurM) {
         super(m);
-        boucleM = b;
-        boucleM.attacher(this);
+        boucleur = boucleurM;
+        boucleur.attacher(this);
         more_meteorite = Variables.more_meteorite;
         lenteur_jeu = Variables.lenteur_jeu;
         temoin=Variables.temoin;
@@ -53,7 +53,7 @@ public class CreateurMeteorite extends Createur implements Observateur {
     @Override
     public void creer(Monde m) {
         Meteorite tmp = new Meteorite(new Random().nextInt(1300) +10 , -150);
-        while (Colisionneur.isColision(tmp, m, tmp.getPosX(), tmp.getPosY())){
+        while (Colisionneur.IsColision(tmp, m, tmp.getPosX(), tmp.getPosY())){
             tmp = new Meteorite(new Random().nextInt(1200) +10 , -150);
         }
         m.addMeteorite(tmp);

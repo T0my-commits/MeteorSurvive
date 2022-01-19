@@ -2,7 +2,7 @@ package modele.Boucleur;
 
 import modele.Sujet;
 
-public class Boucleur extends Sujet implements Runnable {
+public abstract class Boucleur extends Sujet implements Runnable {
 
     private static boolean gameOver = false;
 

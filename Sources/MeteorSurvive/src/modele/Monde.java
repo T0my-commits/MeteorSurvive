@@ -83,10 +83,6 @@ public class Monde{
         return allEntite;
     }
 
-    public void AddEntite(Entite e) {
-        allEntite.add(e);
-    }
-
     public void peter(double x, double y) {
         if (getDino().getPets() > 0) {
             Pet p = new Pet(x, y);

@@ -1,18 +1,12 @@
 package modele.Deplaceur;
 
 import modele.Bonus.IBonus;
-import modele.Boucleur.BoucleurJeu;
-import modele.Colisionneur.Colisionneur;
 import modele.Colisionneur.ColisionneurDino;
 import modele.Colisionneur.ColisionneurItem;
-import modele.GestionnaireJeu;
 import modele.Monde;
 import modele.Objet.Dino;
-import modele.Objet.Entite;
 import modele.Objet.Item.Item;
 import modele.Sujet;
-
-import java.util.List;
 
 public class DeplaceurBasePerso extends Deplaceur {
 
@@ -61,7 +55,7 @@ public class DeplaceurBasePerso extends Deplaceur {
 
         Dino d = getMonde().getDino();
 
-        if(!ColisionneurDino.isColision(getMonde(), getMonde().getDino().getPosX()+direction,getMonde().getDino().getPosY())){
+        if(!ColisionneurDino.IsColision(getMonde(), getMonde().getDino().getPosX()+direction,getMonde().getDino().getPosY())){
             d.updateX(direction);
         }
 
