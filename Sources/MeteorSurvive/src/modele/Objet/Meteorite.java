@@ -3,16 +3,15 @@ package modele.Objet;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
-import modele.Danger.Danger;
 
-public class Meteorite extends Entite implements Danger {
+public class Meteorite extends Entite {
 
     private boolean isAffiche = false;
     private boolean isEnable = true;
 
     public Meteorite(double x, double y){
         super(x,y, new Rectangle(x,y,100, 150));
-        setImageView(new ImageView(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/meteorite.gif")));
+        setImageView(new ImageView(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/meteorite.png")));
 
     }
 
@@ -26,10 +25,6 @@ public class Meteorite extends Entite implements Danger {
 
     public void setAffiche(boolean affiche) {
         isAffiche = affiche;
-    }
-
-    @Override
-    public void setDegats(Entite o1) {
     }
 
     @Override

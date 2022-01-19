@@ -16,10 +16,10 @@ import java.util.List;
 
 public class DeplaceurBasePerso extends Deplaceur {
 
+    private final double GRAVITE = 9.81;
     private static int velocity = 5;
-    private double gravite;
-    private int direction;
     private int nb_double_saut = 5;
+    private int direction;
 
     int i = 0;
 
@@ -27,7 +27,6 @@ public class DeplaceurBasePerso extends Deplaceur {
         setBoucleur(s);
         s.attacher(this);
         setMonde(m);
-        gravite = 9.81;
     }
 
     public void deplacerDroite(){
@@ -67,8 +66,8 @@ public class DeplaceurBasePerso extends Deplaceur {
         }
 
         if(getMonde().getDino().isSaute()){
-            if(i>(i/2))d.updateY(-((i-(i/2))*(i-(i/2)))*gravite/200);
-            else d.updateY(((i-(i/2))*(i-(i/2)))*gravite/200);
+            if(i>(i/2))d.updateY(-((i-(i/2))*(i-(i/2)))*GRAVITE/200);
+            else d.updateY(((i-(i/2))*(i-(i/2)))*GRAVITE/200);
 
             i--;
             if(i==0) getMonde().getDino().setSaute(false);

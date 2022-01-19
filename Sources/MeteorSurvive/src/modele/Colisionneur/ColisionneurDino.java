@@ -27,13 +27,4 @@ public class ColisionneurDino extends Colisionneur{
         }
         return false;
     }
-
-    public static boolean IsbetweenWall(Monde m){
-        System.out.println(m.getWall().size());
-        for (Mur mur: m.getWall()
-             ) {
-            if(m.getDino().getHitbox().intersects(mur.getHitbox().getBoundsInLocal())) return false;
-        }
-        return true;
-    }
 }

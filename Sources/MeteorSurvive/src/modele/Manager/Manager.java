@@ -27,7 +27,7 @@ public class Manager {
     DeplaceurBasePerso deplaceurBasePerso;
     Deplaceur deplaceurMeteorite;
     Deplaceur deplaceurPet;
-    Deplaceur deplaceurItem, deplaceurItemStatique;
+    Deplaceur deplaceurItem;
     GestionnaireScore score;
 
     public Manager() {
@@ -40,7 +40,6 @@ public class Manager {
         deplaceurPet = new DeplaceurPet(boucleur, monde);
         deplaceurBasePerso = new DeplaceurBasePerso(boucleur, monde);
         deplaceurItem = new DeplaceurItem(boucleur, monde);
-        deplaceurItemStatique = new DeplaceurItem(boucleur, monde);
 
         threadJeu =  new Thread(boucleur);
         threadJeu.start();
@@ -70,10 +69,6 @@ public class Manager {
 
     public Monde getMonde() { return monde; }
 
-    public Deplaceur getDeplaceurDino() {
-        return deplaceurBasePerso;
-    }
-
     /**
      * Déplace le dino
      */
@@ -89,10 +84,6 @@ public class Manager {
 
     public void creerPet(double x, double y) {
         monde.peter(x, y);
-    }
-
-    public void creerItemRechargePet(double x, double y) {
-        monde.addItemRechargePetDino(x, y);
     }
 
     public void arretPartie(){

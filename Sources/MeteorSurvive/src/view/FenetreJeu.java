@@ -125,36 +125,20 @@ public class FenetreJeu implements EventListener {
 
         // définition des paramètres;
         if (entite instanceof Meteorite) {
-            chemin = "/rsrc/media/meteorite.gif";
-            h = 180; w = 125;
-            //h = 150; w = 70;
+           // h = 180; w = 125;
+            h = 150; w = 70;
         }
         if (entite instanceof Pet) {
-            chemin = "/rsrc/media/pet_001.png";
             h = 50; w = 50;
         }
 
         if (entite instanceof Item) {
             h = 50; w = 50;
 
-            if (entite instanceof ItemRechargePetDino) {
-                chemin = "/rsrc/media/croquette_001.png";
-            }
-
-            else if (entite instanceof ItemRechargeVie) {
-                chemin = "/rscr/media/coeur.png";
-
-            }
-
-            else if (entite instanceof ItemAugmenterSaut) {
-                chemin = "/rsrc/media/bonus-item_002.png";
-            }
-
         }
 
         // création d'un élément dans la scene;
         if (!entite.isAffiche()) {
-            System.out.println(">> Nouvel objet : " + entite+ " CHEMIN : "+chemin);
             entite.getImageView().setFitHeight(h);
             entite.getImageView().setFitWidth(w);
             entite.getImageView().xProperty().bind(entite.posXProperty());

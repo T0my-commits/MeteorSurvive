@@ -19,11 +19,9 @@ public class Dino extends Entite {
     public IntegerProperty pdvProperty(){return pdv;}
 
     protected IntegerProperty nbPets = new SimpleIntegerProperty();
-    public int getPets() {
-        return nbPets.get();
-    }
-    public void setPet(int val) {
-        nbPets.set(val);
+    protected StringProperty nbPetsString = new SimpleStringProperty();
+    public ObservableValue<String> nbPetsStringProperty() {
+        return nbPetsString;
     }
 
     private int hauteur_saut;
@@ -44,6 +42,24 @@ public class Dino extends Entite {
     public void setDegat(){
         setPdv(getPdv()-1);
     }
+
+    public void setPet(int val) {
+        nbPets.set(val);
+        nbPetsString.set(val+"");
+    }
+
+    public int getPets() {
+        return nbPets.get();
+    }
+
+    public IntegerProperty petProperty() {
+        return nbPets;
+    }
+
+    public IntegerProperty getNbPetsProperty() {
+        return nbPets;
+    }
+
 
     public int getHauteurSaut() {
         return this.hauteur_saut;

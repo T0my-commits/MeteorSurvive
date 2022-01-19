@@ -19,5 +19,11 @@ public class Variables extends Sujet {
     public static int NB_PETS_DEBUT = 5;
     public static int NB_METEORITES_POUR_UN_ITEM = 10;
 
+    /* Variables deplacement meteorites */
+    public static final double XMOVE_BASE = 4d;
+    public static final double YMOVE_BASE = -0.8d;
+    // toutes les NEW_VITESSSE tours de boucle, on augmente la vitesse de chute des météorites;
+    public static final int NEW_VITESSE = 100000;
+
 
 }

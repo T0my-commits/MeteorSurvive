@@ -144,6 +144,7 @@ public class FenetreMenu {
     public void playButtonPress(ActionEvent actionEvent) throws IOException {
         Variables.nomJoueur = nomJoueur.get();
         Loader.gestionnaireJeu.firstStage();
+        System.out.println("Coucou les nazes");
     }
 
     public void difficultyButtonPress(ActionEvent actionEvent) {

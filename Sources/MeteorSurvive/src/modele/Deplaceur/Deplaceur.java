@@ -6,8 +6,6 @@ import modele.Sujet;
 
 public abstract class Deplaceur implements Observateur {
 
-    private boolean etatObservateur; // utilisé dans les méthodes upadate des classes filles
-    private static int velocity;
     private Sujet boucleur; // instancié dans les classes filles
     private Monde monde;
 

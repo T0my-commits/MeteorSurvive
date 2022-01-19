@@ -9,13 +9,13 @@ import java.util.List;
 
 public class DeplaceurItem extends Deplaceur {
 
-    private final int gravite;
+    private final int GRAVITE;
 
     public DeplaceurItem(Sujet s, Monde m) {
         setBoucleur(s);
         s.attacher(this);
         setMonde(m);
-        this.gravite = 5;
+        this.GRAVITE = 5;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class DeplaceurItem extends Deplaceur {
 
         for (Item i : p) {
             if (!ColisionneurItem.OnGround(getMonde(), i) && !i.isStatique())
-                i.updateY(gravite);
+                i.updateY(GRAVITE);
         }
     }
 }
