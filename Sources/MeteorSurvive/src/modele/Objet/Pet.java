@@ -1,5 +1,7 @@
 package modele.Objet;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -11,6 +13,8 @@ public class Pet extends Entite {
 
     public Pet(double x, double y) {
         super(x, y, new Rectangle(x,y,40,36));
+        setImageView(new ImageView(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/pet_001.png")));
+
     }
 
     public boolean isEnable() {

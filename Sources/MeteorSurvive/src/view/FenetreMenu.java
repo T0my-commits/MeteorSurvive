@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -49,6 +51,9 @@ public class FenetreMenu {
     @FXML
     public TextField nomJoueurTF;
 
+    @FXML
+    public Button difficultyButton;
+
     protected StringProperty nomJoueur = new SimpleStringProperty();
     public String getPosY(){return nomJoueur.get();}
     public void setnomJoueur(String value){nomJoueur.set(value);}
@@ -62,6 +67,9 @@ public class FenetreMenu {
     int i = 1;
     Text nom, score;
     vBox.setAlignment(Pos.CENTER);
+    difficultyButton.setText("Bébé Diplodocus");
+
+
     playButton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent e) {
@@ -75,6 +83,20 @@ public class FenetreMenu {
             playButton.setEffect(null);
         }
     });
+    difficultyButton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent e) {
+                difficultyButton.setEffect(shadow);
+            }
+    });
+    difficultyButton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent e) {
+                difficultyButton.setEffect(null);
+            }
+    });
+
+
     nomJoueur.set(Variables.nomJoueur);
     nomJoueurTF.textProperty().bindBidirectional(nomJoueur);
 
@@ -119,8 +141,46 @@ public class FenetreMenu {
     }
 
 
-    public void handleButtonPress(ActionEvent actionEvent) throws IOException {
+    public void playButtonPress(ActionEvent actionEvent) throws IOException {
         Variables.nomJoueur = nomJoueur.get();
         Loader.gestionnaireJeu.firstStage();
+    }
+
+    public void difficultyButtonPress(ActionEvent actionEvent) {
+
+        ImageView newimage;
+        String repCourant = "file:///" + System.getProperty("user.dir");
+
+        if(difficultyButton.getText().equals("Bébé Diplodocus")){
+            Variables.NB_METEORITES_POUR_UN_PET=25;
+            Variables.NB_PETS_DEBUT = 3;
+            Variables.NB_METEORITES_POUR_UN_ITEM = 20;
+            newimage =new ImageView(new Image(repCourant +"/rsrc/media/velociraptor.png"));
+            newimage.setFitWidth(60);
+            newimage.setFitHeight(40.0);
+            difficultyButton.setGraphic(newimage);
+            difficultyButton.setText("Vélociraptor");
+        }
+        else if(difficultyButton.getText() == "Vélociraptor"){
+            Variables.NB_METEORITES_POUR_UN_PET =50;
+            Variables.NB_PETS_DEBUT = 0;
+            Variables.NB_METEORITES_POUR_UN_ITEM = 30;
+            newimage =new ImageView(new Image(repCourant +"/rsrc/media/tRex.png"));
+            newimage.setFitWidth(40.0);
+            newimage.setFitHeight(40.0);
+            difficultyButton.setGraphic(newimage);
+            difficultyButton.setText("T-Rex");
+        }
+        else if(difficultyButton.getText() == "T-Rex"){
+            Variables.NB_METEORITES_POUR_UN_PET = 10;
+            Variables.NB_PETS_DEBUT = 5;
+            Variables.NB_METEORITES_POUR_UN_ITEM = 10;
+            newimage =new ImageView(new Image(repCourant +"/rsrc/media/diplo.png"));
+            newimage.setFitWidth(40.0);
+            newimage.setFitHeight(40.0);
+            difficultyButton.setGraphic(newimage);
+            difficultyButton.setText("Bébé Diplodocus");
+        }
+
     }
 }
