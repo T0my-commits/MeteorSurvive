@@ -6,7 +6,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.property.adapter.JavaBeanProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
+import modele.Variables;
 
 public class Dino extends Entite {
 
@@ -25,15 +28,17 @@ public class Dino extends Entite {
 
     private int hauteur_saut;
     private boolean isSaute; // est en train de sauter ?
-    private boolean isDoubleSaut;
+    private boolean double_saut;
 
     public Dino(double x, double y) {
         super(x,y, new Rectangle(x,y,100,100));
         setPdv(3);
-        setPet(5);
+        setPet(Variables.NB_PETS_DEBUT);
         hauteur_saut = 40;
         isSaute = false;
-        isDoubleSaut = false;
+        double_saut = false;
+        setImageView(new ImageView(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/dino_001.png")));
+
     }
 
     public void setDegat(){
@@ -49,14 +54,14 @@ public class Dino extends Entite {
     }
 
     public boolean isDoubleSaut() {
-        return isDoubleSaut;
+        return double_saut;
     }
 
     public void setDoubleSaut(boolean val) {
         //if (val) setHauteurSaut(60);
         //else setHauteurSaut(40);
 
-        this.isDoubleSaut = val;
+        this.double_saut = val;
     }
 
     public boolean isSaute() {

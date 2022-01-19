@@ -3,6 +3,7 @@ package view;
 import javafx.beans.InvalidationListener;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
+import javafx.scene.CacheHint;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -132,29 +133,33 @@ public class FenetreJeu implements EventListener {
             chemin = "/rsrc/media/pet_001.png";
             h = 50; w = 50;
         }
+
         if (entite instanceof Item) {
+            h = 50; w = 50;
+
             if (entite instanceof ItemRechargePetDino) {
-                chemin = "/rsrc/media/coeur.png";
+                chemin = "/rsrc/media/croquette_001.png";
             }
-            if (entite instanceof ItemRechargeVie) {
-                chemin = "/rscr/media/croquette_001.png";
+
+            else if (entite instanceof ItemRechargeVie) {
+                chemin = "/rscr/media/coeur.png";
+
             }
-            if (entite instanceof ItemAugmenterSaut) {
+
+            else if (entite instanceof ItemAugmenterSaut) {
                 chemin = "/rsrc/media/bonus-item_002.png";
             }
-            h = 50; w = 50;
+
         }
 
         // création d'un élément dans la scene;
         if (!entite.isAffiche()) {
-            System.out.println(">> Nouvel objet : " + entite);
-            entite.getImageView().setImage(new Image("file:///" + System.getProperty("user.dir") + chemin));
+            System.out.println(">> Nouvel objet : " + entite+ " CHEMIN : "+chemin);
             entite.getImageView().setFitHeight(h);
             entite.getImageView().setFitWidth(w);
             entite.getImageView().xProperty().bind(entite.posXProperty());
             entite.getImageView().yProperty().bind(entite.posYProperty());
             fenetrejeu.getChildren().add(entite.getImageView());
-            entite.getImageView().toFront();
             entite.setAffiche(true);
         }
     }

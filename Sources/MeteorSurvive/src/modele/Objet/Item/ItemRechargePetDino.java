@@ -1,5 +1,7 @@
 package modele.Objet.Item;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import modele.Bonus.IBonus;
 import modele.Objet.Dino;
@@ -8,6 +10,7 @@ public class ItemRechargePetDino extends Item implements IBonus {
 
     public ItemRechargePetDino(double x, double y, Rectangle hitbox) {
         super(x, y, hitbox);
+        setImageView(new ImageView(new Image("file:///" + System.getProperty("user.dir") + "/rsrc/media/croquette_001.png")));
         isStatique = true;
     }
 

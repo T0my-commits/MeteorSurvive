@@ -14,15 +14,24 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 
+<?import javafx.scene.layout.HBox?>
 <AnchorPane fx:id="mainAnchor" stylesheets="@style/StyleFenetre.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreMenu">
+   <HBox>
+
+   </HBox>
    <ImageView pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../media/volcan.png" />
       </image>
    </ImageView>
-   <ImageView layoutX="950" layoutY="100" fitWidth="300" fitHeight="550" >
+   <ImageView layoutX="980" layoutY="150" fitWidth="280" fitHeight="510" >
       <image>
          <Image url="@../media/Didacticiel.png" />
+      </image>
+   </ImageView>
+   <ImageView layoutX="15" layoutY="150" fitWidth="280" fitHeight="510" >
+      <image>
+         <Image url="@../media/item.png" />
       </image>
    </ImageView>
    <VBox fx:id="vBox" alignment="CENTER" minWidth="1280" spacing="20.0" styleClass="hboxStyle">
@@ -65,15 +74,27 @@
          </VBox>
       </children>
       <children>
-         <Button fx:id="playButton" minWidth="150" styleClass="playButton" text="Jouer" onAction="#handleButtonPress">
-            <graphic>
-               <ImageView fitHeight="40" fitWidth="40">
-                  <image>
-                     <Image url="@../media/dino_001.png" />
-                  </image>
-               </ImageView>
-            </graphic>
-         </Button>
+         <HBox alignment="CENTER" spacing="20.0">
+            <Button fx:id="playButton" minWidth="150" styleClass="playButton" text="Jouer" onAction="#playButtonPress">
+               <graphic>
+                  <ImageView fitHeight="40" fitWidth="40">
+                     <image>
+                        <Image url="@../media/dino_001.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="difficultyButton" minWidth="250" minHeight="55" styleClass="playButton" text="TEST" onAction="#difficultyButtonPress">
+               <graphic>
+                  <ImageView fitHeight="40" fitWidth="40">
+                     <image>
+                        <Image url="@../media/diplo.png"/>
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </HBox>
+
       </children>
       <children>
          <Text fill="WHITE" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeType="OUTSIDE" text="Tableau des meilleurs scores">
