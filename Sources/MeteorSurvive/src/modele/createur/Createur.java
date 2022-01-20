@@ -3,25 +3,25 @@ package modele.createur;
 import modele.Monde;
 
 /**
- * Classe abstraite qui defini quels méthodes et attribus un créateur doit avoir
+ * Classe abstraite qui defini quels methodes et attribus un createur doit avoir
  */
 public abstract class Createur {
     /**
-     * Monde où la classe doit créer
+     * Monde où la classe doit creer
      */
      Monde m;
 
     /**
-     * Constructeur d'un Créateur
-     * @param m Monde où la classe doit créer
+     * Constructeur d'un Createur
+     * @param m Monde où la classe doit creer
      */
      public Createur(Monde m){
         this.m = m;
      }
 
     /**
-     * Definition du prototype de la fonction de création
-     * @param m Monde où la classe doit créer
+     * Definition du prototype de la fonction de creation
+     * @param m Monde où la classe doit creer
      */
     public abstract void creer();
 

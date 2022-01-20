@@ -5,24 +5,24 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
 /**
- * Classe d'une météorite, hérite de Entite
+ * Classe d'une meteorite, herite de Entite
  */
 public class Meteorite extends Entite{
 
 
     /**
-     * Par defaut la météorite n'est pas affichée
+     * Par defaut la meteorite n'est pas affichee
      */
     private boolean isAffiche = false;
 
     /**
-     * Information si la météorite est activée ou pas
-     * par défaut la météorite est activé
+     * Information si la meteorite est activee ou pas
+     * par defaut la meteorite est active
      */
     private boolean isEnable = true;
 
     /**
-     * Constructeur d'un météorite
+     * Constructeur d'un meteorite
      * @param x Position en X
      * @param y Position en Y
      */

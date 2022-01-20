@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 
 /**
- * Classe d'un mur, hérite de Entite
+ * Classe d'un mur, herite de Entite
  */
 public class Mur extends Entite{
 

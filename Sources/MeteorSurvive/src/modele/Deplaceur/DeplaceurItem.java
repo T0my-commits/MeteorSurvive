@@ -8,19 +8,19 @@ import modele.Sujet;
 import java.util.List;
 
 /**
- * Classe qui gere le déplacement des Items, hérite de Déplaceur
+ * Classe qui gere le deplacement des Items, herite de Deplaceur
  */
 public class DeplaceurItem extends Deplaceur {
 
     /**
-     * Gravité appliqué au Item
+     * Gravite applique au Item
      */
     private final int GRAVITE;
 
     /**
      * Constructeur d'un DeplaceurItem
-     * @param s Boucle qui avertira quand faire le déplacement
-     * @param m Monde où le déplacement doit être applique
+     * @param s Boucle qui avertira quand faire le deplacement
+     * @param m Monde où le deplacement doit être applique
      */
     public DeplaceurItem(Sujet s, Monde m) {
         setBoucleur(s);
@@ -30,7 +30,7 @@ public class DeplaceurItem extends Deplaceur {
     }
 
     /**
-     * Méthode qui déplacera les Items à chaque fois que le sujet le notifiera
+     * Methode qui deplacera les Items a chaque fois que le sujet le notifiera
      */
     @Override
     public void update() {

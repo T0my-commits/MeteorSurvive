@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 import modele.GestionnaireJeu;
 
 /**
- * Class qui sert à lancer l'application
+ * Class qui sert a lancer l'application
  */
 public class Loader extends Application {
 

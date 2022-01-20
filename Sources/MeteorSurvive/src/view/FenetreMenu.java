@@ -153,7 +153,7 @@ public class FenetreMenu {
         ImageView newimage;
         String repCourant = "file:///" + System.getProperty("user.dir");
 
-        if(difficultyButton.getText().equals("Bébé Diplodocus")){
+        if(difficultyButton.getText().equals("Bebe Diplodocus")){
             Variables.NB_METEORITES_POUR_UN_PET=25;
             Variables.NB_PETS_DEBUT = 3;
             Variables.NB_METEORITES_POUR_UN_ITEM = 20;
@@ -161,9 +161,9 @@ public class FenetreMenu {
             newimage.setFitWidth(60);
             newimage.setFitHeight(40.0);
             difficultyButton.setGraphic(newimage);
-            difficultyButton.setText("Vélociraptor");
+            difficultyButton.setText("Velociraptor");
         }
-        else if(difficultyButton.getText() == "Vélociraptor"){
+        else if(difficultyButton.getText() == "Velociraptor"){
             Variables.NB_METEORITES_POUR_UN_PET =50;
             Variables.NB_PETS_DEBUT = 0;
             Variables.NB_METEORITES_POUR_UN_ITEM = 30;
@@ -181,7 +181,7 @@ public class FenetreMenu {
             newimage.setFitWidth(40.0);
             newimage.setFitHeight(40.0);
             difficultyButton.setGraphic(newimage);
-            difficultyButton.setText("Bébé Diplodocus");
+            difficultyButton.setText("Bebe Diplodocus");
         }
 
     }
@@ -196,6 +196,6 @@ public class FenetreMenu {
         newimage.setFitWidth(40.0);
         newimage.setFitHeight(40.0);
         difficultyButton.setGraphic(newimage);
-        difficultyButton.setText("Bébé Diplodocus");
+        difficultyButton.setText("Bebe Diplodocus");
     }
 }

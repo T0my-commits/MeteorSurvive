@@ -5,14 +5,14 @@ import javafx.application.Platform;
 import static java.lang.Thread.sleep;
 
 /**
- * BoucleurMeteorite hérite de boucleur, il sera la pour gerer l'apparition de météorites
+ * BoucleurMeteorite herite de boucleur, il sera la pour gerer l'apparition de meteorites
  */
 public class BoucleurMeteorite extends Boucleur{
 
     public BoucleurMeteorite(){System.out.println("METEORITE");}
 
     /**
-     * faire un boucle de 450ms, on notifie les observateur toutes les 450ms de lancer leur méthode updates
+     * faire un boucle de 450ms, on notifie les observateur toutes les 450ms de lancer leur methode updates
      */
     @Override
     public void run() {

@@ -22,8 +22,8 @@ public class ColisionneurDino extends Colisionneur{
     /**
      * Methode qui gere la colision entre le dino et le monde
      * @param m Monde où on veut savoir si le Dino est en Colision
-     * @param newX nouvelle coordonnées X ou l'entité veut se déplacer
-     * @param newY nouvelle coordonnées Y ou l'entité veut se déplacer
+     * @param newX nouvelle coordonnees X ou l'entite veut se deplacer
+     * @param newY nouvelle coordonnees Y ou l'entite veut se deplacer
      * @return true si il y a une colision, false sinon
      */
     public static boolean IsColision(Monde m, double newX, double newY){

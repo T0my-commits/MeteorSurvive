@@ -7,7 +7,7 @@ import modele.Bonus.IBonus;
 import modele.Objet.Dino;
 
 /**
- * Item qui recharge les pets du Dinosaure, Hérite de Item et implémente IBonus
+ * Item qui recharge les pets du Dinosaure, Herite de Item et implemente IBonus
  */
 public class ItemRechargePetDino extends Item implements IBonus {
 
@@ -26,8 +26,8 @@ public class ItemRechargePetDino extends Item implements IBonus {
 
     /**
      * Ajoute le Bonus au Dinosaure
-     * @param d Dinosaure affecté
-     * @param value Nombre de pets à ajouter au Dinosaure
+     * @param d Dinosaure affecte
+     * @param value Nombre de pets a ajouter au Dinosaure
      */
     @Override
     public void addBonus(Dino d, int value) {

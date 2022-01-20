@@ -9,9 +9,9 @@ import modele.Objet.Pet;
 public class ColisionneurPet extends Colisionneur {
 
     /**
-     * Methode qui verifie si il y a une colision entre le pet et la météorite
+     * Methode qui verifie si il y a une colision entre le pet et la meteorite
      * @param m Meteorite dont on veut savoir si le pets rentre en colision avec
-     * @param p Pet dont on veut savoir si la Metéorite rentre en colision avec
+     * @param p Pet dont on veut savoir si la Meteorite rentre en colision avec
      * @return
      */
     public static boolean OnMeteorite(Meteorite m, Pet p) {

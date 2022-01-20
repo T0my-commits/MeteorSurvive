@@ -4,7 +4,7 @@ import javafx.scene.shape.Rectangle;
 import modele.Objet.Entite;
 
 /**
- * Classe Item qui sert a décrire un item et sont comportement
+ * Classe Item qui sert a decrire un item et sont comportement
  */
 
 public class Item extends Entite {

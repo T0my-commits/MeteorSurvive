@@ -8,12 +8,12 @@ import static java.lang.Thread.sleep;
 /**
  * Classe qui defini une boucle de 1 seconde, sert de base pour les boucles suivantes
  * il herite de sujet car il doit etre observable pournotifier chaque tour de boucle
- * implémentes Runnable pour pouvoir être lancé dans un Thread
+ * implementes Runnable pour pouvoir être lance dans un Thread
  */
 public abstract class Boucleur extends Sujet implements Runnable {
 
     /**
-     * savoir si le jeu est terminé
+     * savoir si le jeu est termine
      */
     private static boolean gameOver = false;
 

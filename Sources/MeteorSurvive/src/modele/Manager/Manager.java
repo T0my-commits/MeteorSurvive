@@ -19,7 +19,7 @@ import modele.createur.CreateurPet;
 import java.io.IOException;
 
 /**
- * Classe qui sert a gerer le déroulement d'une partie et l'interaction entre la vue et le modele
+ * Classe qui sert a gerer le deroulement d'une partie et l'interaction entre la vue et le modele
  */
 public class Manager {
     /**
@@ -33,17 +33,17 @@ public class Manager {
     BoucleurJeu boucleur;
 
     /**
-     * Thread associé au boucleur du jeu
+     * Thread associe au boucleur du jeu
      */
     Thread threadJeu;
 
     /**
-     * Boucle pour la création de metéorite
+     * Boucle pour la creation de meteorite
      */
     BoucleurMeteorite boucleM;
 
     /**
-     * Thread associé a la Boucle Meteorite
+     * Thread associe a la Boucle Meteorite
      */
     Thread threadBoucleM;
 
@@ -103,7 +103,7 @@ public class Manager {
 
     /**
      *
-     * @return Liste Observable des metéorites
+     * @return Liste Observable des meteorites
      */
     public ObservableList<Meteorite> getMeteorite(){
         return monde.getMeteorite();
@@ -126,7 +126,7 @@ public class Manager {
     public Monde getMonde() { return monde; }
 
     /**
-     * Déplace le dino à droite
+     * Deplace le dino a droite
      */
     public void deplacerDinoDroite() {
         deplaceurBasePerso.deplacerDroite();
@@ -134,7 +134,7 @@ public class Manager {
     }
 
     /**
-     * Déplace le dino à gauche
+     * Deplace le dino a gauche
      */
     public void deplacerDinoGauche() {
 

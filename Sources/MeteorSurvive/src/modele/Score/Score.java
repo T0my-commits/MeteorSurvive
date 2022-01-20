@@ -4,7 +4,7 @@ import modele.Boucleur.Boucleur;
 import modele.Observateur;
 
 /**
- * Classe représentant le score courant, implémente observateur
+ * Classe representant le score courant, implemente observateur
  */
 
 public class Score implements Observateur {

@@ -5,7 +5,7 @@ import javafx.application.Platform;
 import static java.lang.Thread.sleep;
 
 /**
- * BoucleurJeu hérite de boucleur, il sera la pour gerer le taux de rafraichissment des images
+ * BoucleurJeu herite de boucleur, il sera la pour gerer le taux de rafraichissment des images
  */
 public class BoucleurJeu extends Boucleur {
 

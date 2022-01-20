@@ -8,7 +8,7 @@ import modele.Sujet;
 import modele.Variables;
 
 /**
- * Classe de création de Pet, hérite de Createur et implémente Observateur pour être notifier quand il faut creer un Pet
+ * Classe de creation de Pet, herite de Createur et implemente Observateur pour être notifier quand il faut creer un Pet
  */
 public class CreateurPet extends Createur implements Observateur {
 
@@ -18,13 +18,13 @@ public class CreateurPet extends Createur implements Observateur {
     private Sujet boucleur;
 
     /**
-     * Nombre de météorites avan de creer un pet
+     * Nombre de meteorites avan de creer un pet
      */
     private int nb_meteorite;
 
     /**
      * Constructeur d'un CreateurPet
-     * @param m Monde où le créateur vas creer
+     * @param m Monde où le createur vas creer
      * @param b Boucleur qui notifiera pour l'update
      */
     public CreateurPet(Monde m, Boucleur b) {
@@ -35,11 +35,11 @@ public class CreateurPet extends Createur implements Observateur {
     }
 
     /**
-     * Redefinition de la méthode d'update a chaque tour de boucle du Boucleur
+     * Redefinition de la methode d'update a chaque tour de boucle du Boucleur
      */
     @Override
     public void update() {
-        // toutes les NB_METEORITES_POUR_UN_PET météorites, on crée un pet pour le joueur;
+        // toutes les NB_METEORITES_POUR_UN_PET meteorites, on cree un pet pour le joueur;
         if (nb_meteorite == 0) {
             this.creer();
             nb_meteorite = Variables.NB_METEORITES_POUR_UN_PET;
@@ -50,7 +50,7 @@ public class CreateurPet extends Createur implements Observateur {
 
     /**
      *
-     * Methode qui defini comment un Pet doit être créé
+     * Methode qui defini comment un Pet doit être cree
      */
     @Override
     public void creer() {

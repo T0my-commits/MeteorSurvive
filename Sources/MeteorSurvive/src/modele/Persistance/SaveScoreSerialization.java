@@ -16,13 +16,13 @@ public class SaveScoreSerialization implements SaveScore {
 
 
     /**
-     * methode de sauvegarde des données
+     * methode de sauvegarde des donnees
      *
      */
 
     /**
-     * methode de sauvegarde des données
-     * @param allscore tous les scores triée
+     * methode de sauvegarde des donnees
+     * @param allscore tous les scores triee
      */
     @Override
     public void SaveScore(SortedList<ResultatScore> allscore) throws Exception {

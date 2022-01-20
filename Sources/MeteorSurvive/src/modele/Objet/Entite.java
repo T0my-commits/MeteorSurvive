@@ -9,13 +9,13 @@ import javafx.scene.shape.Rectangle;
 import java.util.Objects;
 
 /**
- * Classe entité qui sert a décrire une entité et sont comportement;
+ * Classe entite qui sert a decrire une entite et sont comportement;
  */
 public abstract class Entite {
 
     /**
      * Possition en X
-     * Propriété bindable
+     * Propriete bindable
      */
     protected DoubleProperty posX = new SimpleDoubleProperty();
     public double getPosX(){return posX.get();}
@@ -24,7 +24,7 @@ public abstract class Entite {
 
     /**
      * Possition en Y
-     * Propriété bindable
+     * Propriete bindable
      */
     protected DoubleProperty posY = new SimpleDoubleProperty();
     public double getPosY(){return posY.get();}
@@ -32,22 +32,22 @@ public abstract class Entite {
     public DoubleProperty posYProperty(){return posY;}
 
     /**
-     * Information si l'entite est déja affiché ou pas
+     * Information si l'entite est deja affiche ou pas
      */
     private boolean isAffiche = false;
 
     /**
-     * Image viex associé à l'entité
+     * Image viex associe a l'entite
      */
     private ImageView imageView;
 
     /**
-     * Hitbox de l'entité
+     * Hitbox de l'entite
      */
     private Rectangle hitbox;
 
     /**
-     * Constructeur d'un entité
+     * Constructeur d'un entite
      * @param x Position en X
      * @param y Position en Y
      * @param hitbox Hitbox de l'item
@@ -73,14 +73,14 @@ public abstract class Entite {
     }
 
     /**
-     * @param x nouvelle position en X de l'entité
+     * @param x nouvelle position en X de l'entite
      */
     public void updateX(double x){
         setPosX(getPosX()+x);
     }
 
     /**
-     * @param x nouvelle position en Y de l'entité
+     * @param x nouvelle position en Y de l'entite
      */
     public void updateY(double y){
         setPosY(getPosY()+y);
