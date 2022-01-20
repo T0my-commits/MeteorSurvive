@@ -11,7 +11,7 @@ import modele.Objet.Pet;
 /**
  * Classe qui gere les colisions entres les entitées du jeu
  */
-public class Colisionneur {
+
 public abstract class Colisionneur {
 
     /**
@@ -22,12 +22,9 @@ public abstract class Colisionneur {
      * @param newY nouvelle coordonnées Y ou l'entité veut se déplacer
      * @return true si il y a colision, false sinon
      */
-    public static boolean isColision(Entite e, Monde m, double newX, double newY){
+    public static boolean IsColision(Entite e, Monde m, double newX, double newY){
         if(m.getAllEntite().size()==0) return false; // si il n'y a pas d'entité il n'y a pas de colisions (si il y a un mauvais appel de la focntion)
         Rectangle newCoord = new Rectangle(newX, newY, e.getHitbox().getWidth(), e.getHitbox().getHeight()); // on creer la nouvelle hitbox
-    public static boolean IsColision(Entite e, Monde m, double newX, double newY){
-        if(m.getAllEntite().size()==0) return false;
-        Rectangle newCoord = new Rectangle(newX, newY, e.getHitbox().getWidth(), e.getHitbox().getHeight());
         for (Entite entite: m.getAllEntite()
              ) {
             // pas de collision entre un pet et un dino;
@@ -74,3 +71,4 @@ public abstract class Colisionneur {
         return m.getSol().getHitbox().intersects(e.getHitbox().getBoundsInLocal());
     }
 }
+
