@@ -1953,7 +1953,7 @@
 											"top": 446,
 											"width": 359.46142578125,
 											"height": 13,
-											"text": "-more_meteorite",
+											"text": "-more_meteorite: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1970,7 +1970,7 @@
 											"top": 461,
 											"width": 359.46142578125,
 											"height": 13,
-											"text": "-lenteur_jeu",
+											"text": "-lenteur_jeu: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1987,7 +1987,7 @@
 											"top": 476,
 											"width": 359.46142578125,
 											"height": 13,
-											"text": "-temoin",
+											"text": "-temoin: int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3864,7 +3864,8 @@
 										"$ref": "AAAAAAF+c48bLutQri8="
 									},
 									"name": "more_meteorite",
-									"visibility": "private"
+									"visibility": "private",
+									"type": "int"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -3873,7 +3874,8 @@
 										"$ref": "AAAAAAF+c48bLutQri8="
 									},
 									"name": "lenteur_jeu",
-									"visibility": "private"
+									"visibility": "private",
+									"type": "int"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -3882,7 +3884,8 @@
 										"$ref": "AAAAAAF+c48bLutQri8="
 									},
 									"name": "temoin",
-									"visibility": "private"
+									"visibility": "private",
+									"type": "int"
 								}
 							],
 							"operations": [
