@@ -4,6 +4,9 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+/**
+ * Classe Contenant toutes les Variables Static de l'application
+ */
 public class Variables extends Sujet {
 
     public static String nomJoueur;
@@ -22,6 +25,7 @@ public class Variables extends Sujet {
     /* Variables deplacement meteorites */
     public static final double XMOVE_BASE = 4d;
     public static final double YMOVE_BASE = -0.8d;
+
     // toutes les NEW_VITESSSE tours de boucle, on augmente la vitesse de chute des météorites;
     public static final int NEW_VITESSE = 100000;
 

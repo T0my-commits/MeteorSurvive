@@ -30,6 +30,7 @@ import modele.Variables;
 import java.io.IOException;
 import java.util.Objects;
 
+
 public class FenetreMenu {
 
 
@@ -67,7 +68,7 @@ public class FenetreMenu {
     int i = 1;
     Text nom, score;
     vBox.setAlignment(Pos.CENTER);
-    difficultyButton.setText("Bébé Diplodocus");
+    chargementdif();
 
 
     playButton.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
@@ -183,5 +184,18 @@ public class FenetreMenu {
             difficultyButton.setText("Bébé Diplodocus");
         }
 
+    }
+
+    public void chargementdif(){
+        ImageView newimage;
+        String repCourant = "file:///" + System.getProperty("user.dir");
+        Variables.NB_METEORITES_POUR_UN_PET = 10;
+        Variables.NB_PETS_DEBUT = 5;
+        Variables.NB_METEORITES_POUR_UN_ITEM = 10;
+        newimage =new ImageView(new Image(repCourant +"/rsrc/media/diplo.png"));
+        newimage.setFitWidth(40.0);
+        newimage.setFitHeight(40.0);
+        difficultyButton.setGraphic(newimage);
+        difficultyButton.setText("Bébé Diplodocus");
     }
 }

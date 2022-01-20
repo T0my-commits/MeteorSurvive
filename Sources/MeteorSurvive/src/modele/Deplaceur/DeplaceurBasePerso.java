@@ -8,30 +8,65 @@ import modele.Objet.Dino;
 import modele.Objet.Item.Item;
 import modele.Sujet;
 
+import java.util.List;
+
+/**
+ * Classe qui gere le déplacement du personnage (le Dino), hérite de Déplaceur
+ */
 public class DeplaceurBasePerso extends Deplaceur {
 
+    /**
+     * Gravité appliqué sur le personnage
+     */
     private final double GRAVITE = 9.81;
+
+    /**
+     * Vélocité du personnage
+     */
     private static int velocity = 5;
+
+    /**
+     * Nombre de saut disponnible lorsque l'Item correspondant est attrapé
+     */
     private int nb_double_saut = 5;
+
+    /**
+     * Direction où doit se déplacer le personnage
+     */
     private int direction;
 
     int i = 0;
 
+    /**
+     * Constructeur d'un DéplaceurBasePerso
+     * @param s Boucle qui avertira quand faire le déplacement
+     * @param m Monde où le déplacement doit être applique
+     */
     public DeplaceurBasePerso(Sujet s, Monde m) {
         setBoucleur(s);
         s.attacher(this);
         setMonde(m);
+        gravite = 9.81;
     }
 
+    /**
+     * Méthode pour changer la direction du personnage vers la droite
+     */
     public void deplacerDroite(){
         direction = velocity;
     }
 
+    /**
+     * Méthode pour changer la direction du personnage vers la gauche
+     */
     public void deplacerGauche(){
         direction = -velocity;
 
     }
 
+    /**
+     * Méthode permettant au personnage de sauter
+     */
     public void sauter(){
         if(ColisionneurDino.OnGround(getMonde())){
             getMonde().getDino().setSaute(true);
@@ -50,6 +85,9 @@ public class DeplaceurBasePerso extends Deplaceur {
         }
     }
 
+    /**
+     * Méthode qui déplacera le personnage à chaque fois que le sujet le notifiera
+     */
     @Override
     public void update() {
 
@@ -59,9 +97,9 @@ public class DeplaceurBasePerso extends Deplaceur {
             d.updateX(direction);
         }
 
-        if(getMonde().getDino().isSaute()){
-            if(i>(i/2))d.updateY(-((i-(i/2))*(i-(i/2)))*GRAVITE/200);
-            else d.updateY(((i-(i/2))*(i-(i/2)))*GRAVITE/200);
+        if(getMonde().getDino().isSaute()){ // si le personnage est sensé sauter
+            if(i>(i/2))d.updateY(-((i-(i/2))*(i-(i/2)))*gravite/200);
+            else d.updateY(((i-(i/2))*(i-(i/2)))*gravite/200);
 
             i--;
             if(i==0) getMonde().getDino().setSaute(false);
@@ -69,7 +107,7 @@ public class DeplaceurBasePerso extends Deplaceur {
         }
 
 
-        if(!ColisionneurDino.OnGround(getMonde()) && i==0){
+        if(!ColisionneurDino.OnGround(getMonde()) && i==0){ // si le personnage n'est pas sur le sol
             d.updateY(15);
 
         }

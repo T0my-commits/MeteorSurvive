@@ -11,20 +11,32 @@ import modele.Loader.Loader;
 import java.io.IOException;
 import java.util.Objects;
 
-public class GestionnaireJeu implements Observateur {
+/**
+ * Classe qui gere le fenetre de jeu
+ */
+public class GestionnaireJeu{
 
+    /**
+     * Stage de la fenetre
+     */
     private final Stage stage;
-    private boolean isPlaying; // true si en jeu, false si le joueur est sur le menu principal;
 
-
+    /**
+     * Constructeur de GestionnaireJeu
+     * @param primaryStage Stage de la fenêtre
+     * @param l Loader de la fenetre
+     */
     public GestionnaireJeu(Stage primaryStage, Loader l) throws IOException {
         stage = primaryStage;
-        setIsPlaying(false);
+        //setIsPlaying(false);
         Loader.gestionnaireJeu = this;
         secondStage();
 
     }
 
+    /**
+     * Methode de changement de scene vers la scene de jeu
+     */
     public void firstStage() throws IOException {
         Parent racine = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../FXML/FenetreJeu.fxml")));
         Scene scene = new Scene(racine);
@@ -38,6 +50,9 @@ public class GestionnaireJeu implements Observateur {
         });
     }
 
+    /**
+     * Methode de changement de scene vers la scene du menu
+     */
     public void secondStage() throws IOException {
         Parent racine = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../FXML/FenetreMenu.fxml")));
         Scene scene = new Scene(racine);
@@ -49,29 +64,5 @@ public class GestionnaireJeu implements Observateur {
         stage.setOnCloseRequest(event -> {
             System.exit(0);
         });
-    }
-
-    public boolean isPlaying() {
-        return this.isPlaying;
-    }
-
-    public void setIsPlaying(boolean val) {
-        isPlaying = val;
-    }
-
-    @Override
-    public void update() {
-        if (!isPlaying) {
-            setIsPlaying(true);
-            try {
-                secondStage();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        else {
-            setIsPlaying(false);
-            try {firstStage();} catch (IOException e) {e.printStackTrace();}
-        }
     }
 }

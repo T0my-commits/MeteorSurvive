@@ -11,23 +11,50 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import modele.Variables;
 
+/**
+ * Classe du dinosaure, hérite de Entite
+ */
 public class Dino extends Entite {
 
+    /**
+     * Point de vie du Dinosaure
+     * Propriété bindable
+     */
     protected IntegerProperty pdv = new SimpleIntegerProperty();
     public int getPdv(){return pdv.get();}
     public void setPdv(int value){pdv.set(value);}
     public IntegerProperty pdvProperty(){return pdv;}
 
+    /**
+     * Nombre de pets disponible
+     * Propriété bindable
+     */
     protected IntegerProperty nbPets = new SimpleIntegerProperty();
     protected StringProperty nbPetsString = new SimpleStringProperty();
     public ObservableValue<String> nbPetsStringProperty() {
         return nbPetsString;
     }
 
+    /**
+     * Hauteur du saut du Dinosaure
+     */
     private int hauteur_saut;
+
+    /**
+     * Information si le Dinosaure est en train de sauter
+     */
     private boolean isSaute; // est en train de sauter ?
+
+    /**
+     * Information si le dinosaure beneficie d'un double saut
+     */
     private boolean double_saut;
 
+    /**
+     * Constructeur de Dino
+     * @param x Position en X
+     * @param y Position en Y
+     */
     public Dino(double x, double y) {
         super(x,y, new Rectangle(x,y,100,100));
         setPdv(3);
@@ -39,6 +66,9 @@ public class Dino extends Entite {
 
     }
 
+    /**
+     * Sert à infliger un point de vie
+     */
     public void setDegat(){
         setPdv(getPdv()-1);
     }
@@ -51,15 +81,6 @@ public class Dino extends Entite {
     public int getPets() {
         return nbPets.get();
     }
-
-    public IntegerProperty petProperty() {
-        return nbPets;
-    }
-
-    public IntegerProperty getNbPetsProperty() {
-        return nbPets;
-    }
-
 
     public int getHauteurSaut() {
         return this.hauteur_saut;

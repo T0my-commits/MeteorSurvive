@@ -5,21 +5,30 @@ import modele.Score.ResultatScore;
 
 import java.util.List;
 
+/**
+ * Manager qui sert a gerer le menu principal et l'interaction entre la vue et le modele
+ */
 public class ManagerMenu {
 
+    /**
+     * Liste des meilleurs score déjà fait
+     */
     private List<ResultatScore> bestScores;
 
+    /**
+     * Constructeur du ManagerMenu
+     */
     public ManagerMenu() {
         bestScores=new LoadScoreSerialization().LoadScore();
     }
 
 
-
+    /**
+     *
+     * @return Liste des meilleurs scores
+     */
     public List<ResultatScore> getBestScores() {
         return bestScores;
     }
 
-    public void setBestScores(List<ResultatScore> bestScores) {
-        this.bestScores = bestScores;
-    }
 }

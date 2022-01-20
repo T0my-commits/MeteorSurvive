@@ -13,17 +13,38 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.SortedMap;
 
+/**
+ * Classe qui sert a gerer les score déjà fait et celle de la partie en cours
+ */
 public class GestionnaireScore {
 
+    /**
+     * Liste de tous les scores
+     */
     private ObservableList<ResultatScore> allScores;
+
+    /**
+     * score de la partie en cours
+     */
     private Score currentScore;
+
+    /**
+     * nom du joueur de la partie en cours
+     */
     private String currentPlayer;
 
+    /**
+     * Constructeur d'un GestionnaireScore
+     * @param b boucleur qui notifie pour augmenter le score
+     */
     public GestionnaireScore(Boucleur b){
         allScores = FXCollections.observableArrayList(new LoadScoreSerialization().LoadScore());
         currentScore = new Score(b);
     }
 
+    /**
+     * methode servant a sauvegarder les scores
+     */
     public void SauvegarderScore()  {
         currentPlayer= Variables.nomJoueur;
         Variables.lastScore=currentScore.getScore();

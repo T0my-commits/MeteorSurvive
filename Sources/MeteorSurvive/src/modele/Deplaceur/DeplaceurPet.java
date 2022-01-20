@@ -9,14 +9,25 @@ import modele.Sujet;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Classe qui gere le déplacement des Météorites, hérite de Déplaceur
+ */
 public class DeplaceurPet extends Deplaceur {
 
+    /**
+     * Constructeur d'un DeplaceurMeteorite
+     * @param s Boucle qui avertira quand faire le déplacement
+     * @param m Monde où le déplacement doit être applique
+     */
     public DeplaceurPet(Sujet s, Monde m) {
         setBoucleur(s);
         setMonde(m);
         s.attacher(this);
     }
 
+    /**
+     * Méthode qui déplacera les Pets à chaque fois que le sujet le notifiera
+     */
     @Override
     public void update() {
         List<Pet> allPets = getMonde().getPets();

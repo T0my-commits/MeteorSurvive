@@ -78,7 +78,7 @@ public class FenetreJeu implements EventListener {
                 dino_view.setScaleX(-1f);
             }
             case S, DOWN -> {
-                manager.creerPet(manager.getMonde().getDino().getPosX(), manager.getMonde().getDino().getPosY());
+                manager.creerPet();
             }
             case SPACE -> {
                 manager.sauter();
@@ -125,8 +125,8 @@ public class FenetreJeu implements EventListener {
 
         // définition des paramètres;
         if (entite instanceof Meteorite) {
-           // h = 180; w = 125;
-            h = 150; w = 70;
+           h = 180; w = 125;
+            //h = 150; w = 70;
         }
         if (entite instanceof Pet) {
             h = 50; w = 50;

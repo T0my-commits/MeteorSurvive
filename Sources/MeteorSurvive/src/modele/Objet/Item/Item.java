@@ -3,11 +3,27 @@ package modele.Objet.Item;
 import javafx.scene.shape.Rectangle;
 import modele.Objet.Entite;
 
-public class Item extends Entite {
+/**
+ * Classe Item qui sert a décrire un item et sont comportement
+ */
 
+public class Item extends Entite {
+    /**
+     * Etat de l'item
+     */
     private boolean isEnable;
+
+    /**
+     * Information si l'item doit tomber ou non
+     */
     protected boolean isStatique;
 
+    /**
+     * Constructeur d'item
+     * @param x Position en X
+     * @param y Position en Y
+     * @param r Hitbox de l'item
+     */
     public Item(double x, double y, Rectangle r) {
         super(x, y, r);
         isEnable = true;

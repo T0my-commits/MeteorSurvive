@@ -7,6 +7,9 @@ import java.io.IOException;
  */
 public interface Observateur {
 
+    /**
+     * Methode qui sera appelé lorsque le sujet notifi l'observateur
+     */
     void update();
 
 }

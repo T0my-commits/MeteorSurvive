@@ -14,7 +14,7 @@ import modele.Objet.Item.ItemRechargeVie;
 import java.util.*;
 
 /**
- * Le role du maitre du jeu est d'autoriser certaines les actions des objets en cours de partie.
+ * Le role du Monde est d'autoriser certaines les actions des objets en cours de partie.
  *
  * Il possède :
  *  - une instance de chaque objets dans le jeu;
@@ -22,17 +22,42 @@ import java.util.*;
  */
 public class Monde{
 
-
+    /**
+     * Liste de toutes les entitées
+     */
     private final List<Entite> allEntite;
+
+    /**
+     * Dinosaure de la partie
+     */
     private final Dino dino;
 
+    /**
+     * Sol du monde
+     */
     private Sol sol;
+
+    /**
+     * Liste de toutes les météorites
+     */
     private final ObservableList<Meteorite> listMeteorite = FXCollections.observableArrayList();
+
+    /**
+     * Listes de tous les pets
+     */
     private final ObservableList<Pet> listPets = FXCollections.observableArrayList();
+
+    /**
+     * Liste des tous les Items
+     */
     private final ObservableList<Item> listItem = FXCollections.observableArrayList();
     Manager manager;
 
 
+    /**
+     * Constructeur de Monde
+     * @param m manager a qui appartient le monde
+     */
     public Monde(Manager m) {
         dino = new Dino(600,0);
         allEntite = new ArrayList<>();
@@ -52,6 +77,10 @@ public class Monde{
         return listPets;
     }
 
+    /**
+     * Fonction d'ajout d'une météorite
+     * @param m Météorite a ajouter
+     */
     public void addMeteorite(Meteorite m){
         listMeteorite.add(m);
         allEntite.add(m);
@@ -83,27 +112,45 @@ public class Monde{
         return allEntite;
     }
 
-    public void peter(double x, double y) {
+    /**
+     * Fonction qui fait peter le Dinosaure
+     */
+    public void peter() {
         if (getDino().getPets() > 0) {
-            Pet p = new Pet(x, y);
+            Pet p = new Pet(dino.getPosX(), dino.getPosY());
             listPets.add(p);
             allEntite.add(p);
             getDino().setPet(getDino().getPets() - 1);
         }
     }
 
+    /**
+     * Fonction d'ajout d'une recharge de pets
+     * @param x Position en X
+     * @param y Position en Y
+     */
     public void addItemRechargePetDino(double x, double y) {
         Item i = new ItemRechargePetDino(x, y, new Rectangle(x, y, 25, 25));
         listItem.add(i);
         allEntite.add(i);
     }
 
+    /**
+     * Fonction d'ajout d'une vie
+     * @param posX Position en X
+     * @param posY Position en Y
+     */
     public void addItemVie(double posX, double posY) {
         Item i = new ItemRechargeVie(posX, posY, new Rectangle(posX, posY, 25, 25));
         listItem.add(i);
         allEntite.add(i);
     }
 
+    /**
+     * Fonction d'augmentation du saut
+     * @param posX Position en X
+     * @param posY Position en Y
+     */
     public void addItemAugmenterSaut(double posX, double posY) {
         Item i = new ItemAugmenterSaut(posX, posY, new Rectangle(posX, posY, 25, 25));
         listItem.add(i);
@@ -118,11 +165,19 @@ public class Monde{
         bonus.addBonus(getDino(), 1);
     }
 
+    /**
+     * Fonction de suppression dans la liste des entitées d'une entité
+     * @param e Entité a supprimer
+     */
     public void removeEntite(Entite e) {
         allEntite.remove(e);
         e.setPosX(-8000);
     }
 
+    /**
+     * Fonction qui inflige des degats au Dinosaure et arrete la partie si il n'y a pas de vie
+     * @param m
+     */
     public void infligerDegat(Meteorite m) {
         dino.setDegat();
         m.setEtat(false);

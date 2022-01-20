@@ -6,7 +6,15 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe de chargement des scores grace a la Serialization
+ */
 public class LoadScoreSerialization implements LoadScore{
+
+    /**
+     * methode de chargement des données
+     * @return liste des scores
+     */
     @Override
     public List<ResultatScore> LoadScore() {
         List<ResultatScore> allRes = new ArrayList<>();
@@ -15,7 +23,7 @@ public class LoadScoreSerialization implements LoadScore{
             FileInputStream fis = new FileInputStream("bin/scores.bin");
             ObjectInputStream ois = new ObjectInputStream(fis);
             {
-                while (nblu < 5) {
+                while (nblu < 5) { // on charges que les 5 premier scores (les meilleurs)
                     try {
                         allRes.add((ResultatScore) ois.readObject());
                         nblu++;

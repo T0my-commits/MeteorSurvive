@@ -10,14 +10,37 @@ import modele.Variables;
 
 import java.util.Random;
 
+/**
+ * Classe de création de Météorite, hérite de Createur et implémente Observateur pour être notifier quand il faut creer une Météorite
+ */
 public class CreateurMeteorite extends Createur implements Observateur {
 
+
+    /**
+     * Boucleur averti pour faire un update
+     */
     private Sujet boucleur;
 
-    // on passe more_meteorite tours de boucle avant de créer une nouvelle météorite;
+    /**
+     * Nombre de tour de boucle necessaire avant de creer une Météorite
+     */
     private int more_meteorite;
+
+    /**
+     * Variable qui defini la lenteur du jeu, plus elle est élevé, plus le jeu sera long
+     */
     private int lenteur_jeu; // = 5 -> lent ; = 0 -> rapide
+
+    /**
+     * temoin qui indique si une Météorite doit être creer
+     */
     private int temoin;
+
+    /**
+     * Constructeur d'un CreateurMétéorite
+     * @param m Monde où le créateur vas creer
+     * @param boucleM Boucleur qui notifiera pour l'update
+     */
 
     public CreateurMeteorite(Monde m, BoucleurMeteorite boucleurM) {
         super(m);
@@ -28,6 +51,9 @@ public class CreateurMeteorite extends Createur implements Observateur {
         temoin=Variables.temoin;
     }
 
+    /**
+     * Redefinition de la méthode d'update a chaque tour de boucle du Boucleur
+     */
     @Override
     public void update() {
         switch (more_meteorite) {
@@ -40,7 +66,7 @@ public class CreateurMeteorite extends Createur implements Observateur {
 
 
         if (temoin >= lenteur_jeu) {
-            this.creer(m);
+            this.creer();
             temoin = 0;
         }
         else
@@ -50,8 +76,13 @@ public class CreateurMeteorite extends Createur implements Observateur {
             more_meteorite += 1;
     }
 
+
+    /**
+     *
+     * Methode qui defini comment une Météorite doit être créé
+     */
     @Override
-    public void creer(Monde m) {
+    public void creer() {
         Meteorite tmp = new Meteorite(new Random().nextInt(1300) +10 , -150);
         while (Colisionneur.IsColision(tmp, m, tmp.getPosX(), tmp.getPosY())){
             tmp = new Meteorite(new Random().nextInt(1200) +10 , -150);

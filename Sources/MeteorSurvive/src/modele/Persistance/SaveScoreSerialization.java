@@ -8,16 +8,29 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
+
+/**
+ * Classe de sauvegarde des scores grace a la Serialization
+ */
 public class SaveScoreSerialization implements SaveScore {
 
 
+    /**
+     * methode de sauvegarde des données
+     *
+     */
+
+    /**
+     * methode de sauvegarde des données
+     * @param allscore tous les scores triée
+     */
     @Override
     public void SaveScore(SortedList<ResultatScore> allscore) throws Exception {
 
         try (FileOutputStream fos = new FileOutputStream("bin/scores.bin");
              ObjectOutputStream oos = new ObjectOutputStream(fos))
         {
-            if(allscore.size()<=5){
+            if(allscore.size()<=5){/// si il y a moin de 5 scores
                 for (ResultatScore res : allscore
                 ) {
                     System.out.println(res);
@@ -25,7 +38,7 @@ public class SaveScoreSerialization implements SaveScore {
                 }
             }
             else {
-                for(int i =1; i<=5;i++){
+                for(int i =1; i<=5;i++){ // on sauvegarde que les 5 meilleurs scores
                     System.out.println(allscore.get(allscore.size()-i));
                     oos.writeObject(allscore.get(allscore.size()-i));
                 }

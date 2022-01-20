@@ -18,20 +18,66 @@ import modele.createur.CreateurPet;
 
 import java.io.IOException;
 
+/**
+ * Classe qui sert a gerer le déroulement d'une partie et l'interaction entre la vue et le modele
+ */
 public class Manager {
+    /**
+     * Monde du jeu
+     */
     Monde monde;
+
+    /**
+     * Boucleur du jeu
+     */
     BoucleurJeu boucleur;
+
+    /**
+     * Thread associé au boucleur du jeu
+     */
     Thread threadJeu;
+
+    /**
+     * Boucle pour la création de metéorite
+     */
     BoucleurMeteorite boucleM;
+
+    /**
+     * Thread associé a la Boucle Meteorite
+     */
     Thread threadBoucleM;
+
+    /**
+     * Deplaceur du personnage (dino)
+     */
     DeplaceurBasePerso deplaceurBasePerso;
+
+    /**
+     * Deplaceur des meteorites
+     */
     Deplaceur deplaceurMeteorite;
+
+    /**
+     * Deplaceur des Pets
+     */
     Deplaceur deplaceurPet;
+
+    /**
+     * Deplaceur des Items
+     */
     Deplaceur deplaceurItem;
+
+    /**
+     * Gere les scores
+     */
     GestionnaireScore score;
 
+    /**
+     * Constructeur de Manager
+     */
     public Manager() {
-        Boucleur.setGameOver(false);
+
+        Boucleur.setGameOver(false);// debut d'une nouvelle partie
         monde = new Monde(this);
         boucleur = new BoucleurJeu();
         boucleM = new BoucleurMeteorite();
@@ -55,14 +101,24 @@ public class Manager {
 
     }
 
+    /**
+     *
+     * @return Liste Observable des metéorites
+     */
     public ObservableList<Meteorite> getMeteorite(){
         return monde.getMeteorite();
     }
 
+    /**
+     * @return   Liste Observable des Pets
+     */
     public ObservableList<Pet> getPets(){
         return monde.getPets();
     }
 
+    /**
+     * @return   Liste Observable des Items
+     */
     public ObservableList<Item> getItems() {
         return monde.getItems();
     }
@@ -70,22 +126,31 @@ public class Manager {
     public Monde getMonde() { return monde; }
 
     /**
-     * Déplace le dino
+     * Déplace le dino à droite
      */
     public void deplacerDinoDroite() {
         deplaceurBasePerso.deplacerDroite();
 
     }
 
+    /**
+     * Déplace le dino à gauche
+     */
     public void deplacerDinoGauche() {
 
         deplaceurBasePerso.deplacerGauche();
     }
 
-    public void creerPet(double x, double y) {
-        monde.peter(x, y);
+    /**
+     * Fait peter le Dinosaure
+     */
+    public void creerPet() {
+        monde.peter();
     }
 
+    /**
+     * gerer l'arret d'un patie, enregistre le score, arret des Thread etc
+     */
     public void arretPartie(){
 
         Boucleur.setGameOver(true);
@@ -103,6 +168,9 @@ public class Manager {
 
     }
 
+    /**
+     * Fait sauter le Dinosaure
+     */
     public void sauter(){
         deplaceurBasePerso.sauter();
     }

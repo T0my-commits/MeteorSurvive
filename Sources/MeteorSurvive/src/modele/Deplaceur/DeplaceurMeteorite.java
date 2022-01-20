@@ -8,12 +8,32 @@ import modele.Variables;
 
 import java.util.List;
 
+/**
+ * Classe qui gere le déplacement des Météorites, hérite de Déplaceur
+ */
 public class DeplaceurMeteorite extends Deplaceur {
 
+    /**
+     * Nombre de tour de boucle avant d'augmenter la vitesse
+     */
     private static int num_tour_de_boucle;
+
+    /**
+     * deplacement en X a chaque tout de boucle
+     */
     private static double xmove;
+
+    /**
+     * deplacement en Y a chaque tout de boucle
+     */
     private static double ymove;
 
+
+    /**
+     * Constructeur d'un DeplaceurMeteorite
+     * @param s Boucle qui avertira quand faire le déplacement
+     * @param m Monde où le déplacement doit être applique
+     */
     public DeplaceurMeteorite(Sujet s, Monde m) {
         setBoucleur(s);
         setMonde(m);
@@ -23,6 +43,9 @@ public class DeplaceurMeteorite extends Deplaceur {
         ymove = Variables.YMOVE_BASE;
     }
 
+    /**
+     * Méthode qui déplacera les Météorites à chaque fois que le sujet le notifiera
+     */
     @Override
     public void update() {
         List<Meteorite> allMereorite = getMonde().getMeteorite();

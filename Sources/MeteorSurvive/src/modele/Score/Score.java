@@ -3,9 +3,25 @@ package modele.Score;
 import modele.Boucleur.Boucleur;
 import modele.Observateur;
 
+/**
+ * Classe représentant le score courant, implémente observateur
+ */
+
 public class Score implements Observateur {
 
+    /**
+     * score courant
+     */
     private long score;
+
+    /**
+     * Constructeur d'un score
+     * @param b boucleur permettant d'incrementer le score
+     */
+    public Score(Boucleur b){
+        b.attacher(this);
+        score =0;
+    }
 
     public long getScore() {
         return score;
@@ -15,11 +31,10 @@ public class Score implements Observateur {
         this.score = score;
     }
 
-    public Score(Boucleur b){
-        b.attacher(this);
-        score =0;
-    }
 
+    /**
+     * Augmente le score a chaque notification du boucleur
+     */
     @Override
     public void update() {
         setScore(getScore()+1);

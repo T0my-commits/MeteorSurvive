@@ -1,0 +1,14 @@
+unnamed package
+modele
+modele.Bonus
+modele.Boucleur
+modele.Colisionneur
+modele.createur
+modele.Deplaceur
+modele.Loader
+modele.Manager
+modele.Objet
+modele.Objet.Item
+modele.Persistance
+modele.Score
+view
