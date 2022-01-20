@@ -11,7 +11,7 @@ import modele.Variables;
 import java.util.Random;
 
 /**
- * Classe de création de Météorite, hérite de Createur et implémente Observateur pour être notifier quand il faut creer une Météorite
+ * Classe de creation de Meteorite, herite de Createur et implemente Observateur pour être notifier quand il faut creer une Meteorite
  */
 public class CreateurMeteorite extends Createur implements Observateur {
 
@@ -22,23 +22,23 @@ public class CreateurMeteorite extends Createur implements Observateur {
     private Sujet boucleur;
 
     /**
-     * Nombre de tour de boucle necessaire avant de creer une Météorite
+     * Nombre de tour de boucle necessaire avant de creer une Meteorite
      */
     private int more_meteorite;
 
     /**
-     * Variable qui defini la lenteur du jeu, plus elle est élevé, plus le jeu sera long
+     * Variable qui defini la lenteur du jeu, plus elle est eleve, plus le jeu sera long
      */
     private int lenteur_jeu; // = 5 -> lent ; = 0 -> rapide
 
     /**
-     * temoin qui indique si une Météorite doit être creer
+     * temoin qui indique si une Meteorite doit être creer
      */
     private int temoin;
 
     /**
-     * Constructeur d'un CreateurMétéorite
-     * @param m Monde où le créateur vas creer
+     * Constructeur d'un CreateurMeteorite
+     * @param m Monde où le createur vas creer
      * @param boucleM Boucleur qui notifiera pour l'update
      */
 
@@ -52,7 +52,7 @@ public class CreateurMeteorite extends Createur implements Observateur {
     }
 
     /**
-     * Redefinition de la méthode d'update a chaque tour de boucle du Boucleur
+     * Redefinition de la methode d'update a chaque tour de boucle du Boucleur
      */
     @Override
     public void update() {
@@ -79,7 +79,7 @@ public class CreateurMeteorite extends Createur implements Observateur {
 
     /**
      *
-     * Methode qui defini comment une Météorite doit être créé
+     * Methode qui defini comment une Meteorite doit être cree
      */
     @Override
     public void creer() {

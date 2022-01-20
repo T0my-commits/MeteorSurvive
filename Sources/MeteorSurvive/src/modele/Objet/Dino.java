@@ -12,13 +12,13 @@ import javafx.scene.shape.Rectangle;
 import modele.Variables;
 
 /**
- * Classe du dinosaure, hérite de Entite
+ * Classe du dinosaure, herite de Entite
  */
 public class Dino extends Entite {
 
     /**
      * Point de vie du Dinosaure
-     * Propriété bindable
+     * Propriete bindable
      */
     protected IntegerProperty pdv = new SimpleIntegerProperty();
     public int getPdv(){return pdv.get();}
@@ -27,7 +27,7 @@ public class Dino extends Entite {
 
     /**
      * Nombre de pets disponible
-     * Propriété bindable
+     * Propriete bindable
      */
     protected IntegerProperty nbPets = new SimpleIntegerProperty();
     protected StringProperty nbPetsString = new SimpleStringProperty();
@@ -67,7 +67,7 @@ public class Dino extends Entite {
     }
 
     /**
-     * Sert à infliger un point de vie
+     * Sert a infliger un point de vie
      */
     public void setDegat(){
         setPdv(getPdv()-1);

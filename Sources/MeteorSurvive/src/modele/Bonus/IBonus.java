@@ -4,14 +4,14 @@ import modele.Objet.Dino;
 import modele.Objet.Entite;
 
 /**
- * Interface qui défini un objet de type bonus
+ * Interface qui defini un objet de type bonus
  */
 public interface IBonus {
 
     /**
-     * Méthode qui modifie un attribut d'un objet
+     * Methode qui modifie un attribut d'un objet
      * @param o1 L'objet qui reçoie les modifications
-     * @param value la nouvelle valeur de l'attribut modifié
+     * @param value la nouvelle valeur de l'attribut modifie
      */
     public void addBonus(Dino o1, int value);
 }

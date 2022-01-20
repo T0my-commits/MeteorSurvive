@@ -11,7 +11,7 @@ import java.util.List;
 public class ManagerMenu {
 
     /**
-     * Liste des meilleurs score déjà fait
+     * Liste des meilleurs score deja fait
      */
     private List<ResultatScore> bestScores;
 

@@ -12,7 +12,7 @@ import java.util.List;
 public class LoadScoreSerialization implements LoadScore{
 
     /**
-     * methode de chargement des données
+     * methode de chargement des donnees
      * @return liste des scores
      */
     @Override

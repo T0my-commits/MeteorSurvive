@@ -5,17 +5,17 @@ import modele.Observateur;
 import modele.Sujet;
 
 /**
- * Classe abstraite qui defini quels méthodes et attribus un déplaceur doit avoir
+ * Classe abstraite qui defini quels methodes et attribus un deplaceur doit avoir
  */
 public abstract class Deplaceur implements Observateur {
 
     /**
      * Boucleur qui notifiera a chaque tour de boucle
      */
-    private Sujet boucleur; // instancié dans les classes filles
+    private Sujet boucleur; // instancie dans les classes filles
 
     /*
-    Mon où le déplacement sera effectué
+    Mon où le deplacement sera effectue
      */
     private Monde monde;
 

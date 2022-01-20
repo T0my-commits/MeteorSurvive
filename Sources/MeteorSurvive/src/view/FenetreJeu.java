@@ -47,10 +47,10 @@ public class FenetreJeu implements EventListener {
 
     public void initialize()
     {
-        // création du monde, des objets, des déplaceurs, du collisionneur, etc.
+        // creation du monde, des objets, des deplaceurs, du collisionneur, etc.
         manager = new Manager();
 
-        // binding des propriétés
+        // binding des proprietes
         dino_view.xProperty().bind(manager.getMonde().getDino().posXProperty());
         dino_view.yProperty().bind(manager.getMonde().getDino().posYProperty());
         nb_de_pets.textProperty().bind(manager.getMonde().getDino().nbPetsStringProperty());
@@ -116,14 +116,14 @@ public class FenetreJeu implements EventListener {
     }
 
     /**
-     * Méthode qui permet d'ajouter un nouvel UI Element à la scene
+     * Methode qui permet d'ajouter un nouvel UI Element a la scene
      * @param entite
      */
     private void creerUIElement(Entite entite) {
         String chemin = "";
         int h=0, w=0;
 
-        // définition des paramètres;
+        // definition des paramètres;
         if (entite instanceof Meteorite) {
            h = 180; w = 125;
             //h = 150; w = 70;
@@ -137,7 +137,7 @@ public class FenetreJeu implements EventListener {
 
         }
 
-        // création d'un élément dans la scene;
+        // creation d'un element dans la scene;
         if (!entite.isAffiche()) {
             entite.getImageView().setFitHeight(h);
             entite.getImageView().setFitWidth(w);

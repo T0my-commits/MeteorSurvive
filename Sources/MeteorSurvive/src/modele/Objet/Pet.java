@@ -5,13 +5,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
 /**
- * Classe d'un pet, hérite de Entite
+ * Classe d'un pet, herite de Entite
  */
 public class Pet extends Entite {
 
     /**
-     * Information si la météorite est activée ou pas
-     * par défaut la météorite est activé
+     * Information si la meteorite est activee ou pas
+     * par defaut la meteorite est active
      */
     private boolean isEnable = true;
 

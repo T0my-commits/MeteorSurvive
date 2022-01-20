@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.SortedMap;
 
 /**
- * Classe qui sert a gerer les score déjà fait et celle de la partie en cours
+ * Classe qui sert a gerer les score deja fait et celle de la partie en cours
  */
 public class GestionnaireScore {
 

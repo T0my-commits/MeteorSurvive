@@ -7,7 +7,7 @@ import modele.Bonus.IBonus;
 import modele.Objet.Dino;
 
 /**
- * Item qui augmente les sauts du Dinosaure, Hérite de Item et implémente IBonus
+ * Item qui augmente les sauts du Dinosaure, Herite de Item et implemente IBonus
  */
 public class ItemAugmenterSaut extends Item implements IBonus {
 
@@ -24,7 +24,7 @@ public class ItemAugmenterSaut extends Item implements IBonus {
 
     /**
      * Ajoute le Bonus au Dinosaure
-     * @param d Dinosaure affecté
+     * @param d Dinosaure affecte
      * @param value la nouvelle valeur du saut
      */
     @Override

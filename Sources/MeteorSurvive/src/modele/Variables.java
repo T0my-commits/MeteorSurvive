@@ -26,7 +26,7 @@ public class Variables extends Sujet {
     public static final double XMOVE_BASE = 4d;
     public static final double YMOVE_BASE = -0.8d;
 
-    // toutes les NEW_VITESSSE tours de boucle, on augmente la vitesse de chute des météorites;
+    // toutes les NEW_VITESSSE tours de boucle, on augmente la vitesse de chute des meteorites;
     public static final int NEW_VITESSE = 100000;
 
 

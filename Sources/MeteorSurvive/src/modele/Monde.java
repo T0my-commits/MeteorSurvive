@@ -18,12 +18,12 @@ import java.util.*;
  *
  * Il possède :
  *  - une instance de chaque objets dans le jeu;
- *  - la capacité d'appeler chaque éléments du jeu et les faire travailler ensemble;
+ *  - la capacite d'appeler chaque elements du jeu et les faire travailler ensemble;
  */
 public class Monde{
 
     /**
-     * Liste de toutes les entitées
+     * Liste de toutes les entitees
      */
     private final List<Entite> allEntite;
 
@@ -38,7 +38,7 @@ public class Monde{
     private Sol sol;
 
     /**
-     * Liste de toutes les météorites
+     * Liste de toutes les meteorites
      */
     private final ObservableList<Meteorite> listMeteorite = FXCollections.observableArrayList();
 
@@ -78,8 +78,8 @@ public class Monde{
     }
 
     /**
-     * Fonction d'ajout d'une météorite
-     * @param m Météorite a ajouter
+     * Fonction d'ajout d'une meteorite
+     * @param m Meteorite a ajouter
      */
     public void addMeteorite(Meteorite m){
         listMeteorite.add(m);
@@ -166,8 +166,8 @@ public class Monde{
     }
 
     /**
-     * Fonction de suppression dans la liste des entitées d'une entité
-     * @param e Entité a supprimer
+     * Fonction de suppression dans la liste des entitees d'une entite
+     * @param e Entite a supprimer
      */
     public void removeEntite(Entite e) {
         allEntite.remove(e);

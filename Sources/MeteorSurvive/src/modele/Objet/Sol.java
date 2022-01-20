@@ -6,7 +6,7 @@ import javafx.scene.shape.Rectangle;
 
 
 /**
- * Classe d'un sol, hérite de Entite
+ * Classe d'un sol, herite de Entite
  */
 public class Sol extends Entite {
     /**
