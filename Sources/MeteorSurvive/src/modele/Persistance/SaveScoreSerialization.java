@@ -30,6 +30,7 @@ public class SaveScoreSerialization implements SaveScore {
         try (FileOutputStream fos = new FileOutputStream("bin/scores.bin");
              ObjectOutputStream oos = new ObjectOutputStream(fos))
         {
+            /*
             if(allscore.size()<=5){/// si il y a moin de 5 scores
                 for (ResultatScore res : allscore
                 ) {
@@ -37,11 +38,16 @@ public class SaveScoreSerialization implements SaveScore {
                     oos.writeObject(res);
                 }
             }
+
             else {
                 for(int i =1; i<=5;i++){ // on sauvegarde que les 5 meilleurs scores
                     System.out.println(allscore.get(allscore.size()-i));
                     oos.writeObject(allscore.get(allscore.size()-i));
                 }
+            }*/
+            for (ResultatScore res : allscore
+            ) {
+                oos.writeObject(res);
             }
 
         }

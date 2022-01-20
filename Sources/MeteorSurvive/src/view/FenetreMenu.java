@@ -2,6 +2,8 @@ package view;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,7 +12,10 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,6 +29,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import modele.Loader.Loader;
 import modele.Manager.ManagerMenu;
+import modele.Objet.Pet;
 import modele.Score.ResultatScore;
 import modele.Variables;
 
@@ -47,13 +53,21 @@ public class FenetreMenu {
     public Button playButton;
 
     @FXML
-    public GridPane tableauScore;
+    public GridPane tableauLastScore;
 
     @FXML
     public TextField nomJoueurTF;
 
     @FXML
     public Button difficultyButton;
+
+    @FXML
+    public TableView<ResultatScore> scoreTableView;
+
+
+
+    final ObservableList<ResultatScore> allscores = FXCollections.observableArrayList();
+
 
     protected StringProperty nomJoueur = new SimpleStringProperty();
     public String getPosY(){return nomJoueur.get();}
@@ -102,6 +116,11 @@ public class FenetreMenu {
     nomJoueurTF.textProperty().bindBidirectional(nomJoueur);
 
     manager = new ManagerMenu();
+        for (ResultatScore r : manager.getBestScores()){
+            allscores.add(r);
+        }
+
+    /*
         for (ResultatScore r :manager.getBestScores()
              ) {
 
@@ -121,23 +140,45 @@ public class FenetreMenu {
 
             i++;
         }
-
+        */
         if( Variables.lastScore!=null && Variables.lastScore>0 ){
             nom = new Text("Votre score :");
-            nom.setFont(Font.font("Impact", 50));
+            nom.setFont(Font.font("Impact", 30));
             nom.setFill(Color.WHITE);
             nom.setStroke(Color.BLACK);
 
             score = new Text(String.valueOf(Variables.lastScore));
-            score.setFont(Font.font("Impact", 50));
+            score.setFont(Font.font("Impact", 30));
             score.setFill(Color.WHITE);
             score.setStroke(Color.BLACK);
 
 
-            tableauScore.add(nom, 0,7);
-            tableauScore.add(score, 1,7);
+
+            tableauLastScore.add(nom, 0,0);
+            tableauLastScore.add(score, 1,0);
 
         }
+
+
+        TableColumn joueurCol = new TableColumn("Joueur");
+        joueurCol.setMinWidth(290);
+        TableColumn scoreCol = new TableColumn("score");
+        scoreCol.setMinWidth(290);
+        scoreTableView.getColumns().add(joueurCol);
+        scoreTableView.getColumns().add(scoreCol);
+
+        scoreCol.setCellValueFactory(new PropertyValueFactory<ResultatScore, Long>("score"));
+        joueurCol.setCellValueFactory(new PropertyValueFactory<ResultatScore, String>("nomJoueur"));
+
+        scoreTableView.setItems(allscores);
+        scoreCol.setSortType(TableColumn.SortType.DESCENDING);
+        scoreTableView.getSortOrder().add(scoreCol);
+
+
+
+
+
+
 
     }
 
@@ -145,7 +186,6 @@ public class FenetreMenu {
     public void playButtonPress(ActionEvent actionEvent) throws IOException {
         Variables.nomJoueur = nomJoueur.get();
         Loader.gestionnaireJeu.firstStage();
-        System.out.println("Coucou les nazes");
     }
 
     public void difficultyButtonPress(ActionEvent actionEvent) {

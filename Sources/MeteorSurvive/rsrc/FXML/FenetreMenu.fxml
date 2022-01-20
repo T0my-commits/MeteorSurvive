@@ -15,10 +15,11 @@
 <?import javafx.scene.control.TextField?>
 
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <AnchorPane fx:id="mainAnchor" stylesheets="@style/StyleFenetre.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetreMenu">
-   <HBox>
 
-   </HBox>
    <ImageView pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../media/volcan.png" />
@@ -34,7 +35,7 @@
          <Image url="@../media/item.png" />
       </image>
    </ImageView>
-   <VBox fx:id="vBox" alignment="CENTER" minWidth="1280" spacing="20.0" styleClass="hboxStyle">
+   <VBox fx:id="vBox" alignment="CENTER" minWidth="600" spacing="20.0" styleClass="hboxStyle">
       <children>
          <Text fx:id="titre" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="5.0" text="Meteor Survive">
             <font>
@@ -62,6 +63,10 @@
                </RadialGradient>
             </fill>
          </Text>
+      </children>
+      <children>
+         <GridPane fx:id="tableauLastScore"  alignment="CENTER" hgap="300.0" vgap="10.0" styleClass="tableauScore" maxWidth="500">
+         </GridPane>
       </children>
       <children>
          <VBox alignment="CENTER" minWidth="1280">
@@ -102,11 +107,15 @@
                <Font name="Copperplate Gothic Bold" size="29.0" />
             </font>
          </Text>
-
+         <!--
          <GridPane fx:id="tableauScore"  alignment="CENTER" hgap="300.0" vgap="10.0" styleClass="tableauScore" maxWidth="500">
             <Text GridPane.columnIndex="0" GridPane.rowIndex="0" text="Nom du joueur" styleClass="TitreColScore"/>
             <Text GridPane.columnIndex="1" GridPane.rowIndex="0" text="Score" styleClass="TitreColScore"/>
-         </GridPane>
+         </GridPane>-->
+
+         <TableView fx:id="scoreTableView" maxWidth="600" maxHeight="300">
+
+         </TableView>
       </children>
 
    </VBox>

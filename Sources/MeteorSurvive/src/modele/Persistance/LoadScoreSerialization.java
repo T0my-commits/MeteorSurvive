@@ -22,7 +22,8 @@ public class LoadScoreSerialization implements LoadScore{
         try {
             FileInputStream fis = new FileInputStream("bin/scores.bin");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            {
+
+                /*
                 while (nblu < 5) { // on charges que les 5 premier scores (les meilleurs)
                     try {
                         allRes.add((ResultatScore) ois.readObject());
@@ -32,17 +33,26 @@ public class LoadScoreSerialization implements LoadScore{
                     } catch (EOFException e) {
                         return allRes;
                     }
-                }
+                }*/
+            while (true){
+                allRes.add((ResultatScore) ois.readObject());
             }
-            return allRes;
+
+
         }
         catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Fichier de score inexistant");
+        }
+        catch (EOFException e){
+            return allRes;
         }
         catch (IOException e) {
             e.printStackTrace();
             return allRes;
 
+        }
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
         return allRes;
     }

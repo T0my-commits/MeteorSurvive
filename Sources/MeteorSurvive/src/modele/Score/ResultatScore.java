@@ -1,5 +1,10 @@
 package modele.Score;
 
+import javafx.beans.property.*;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 
@@ -8,22 +13,60 @@ import java.io.Serializable;
  */
 public class ResultatScore implements Serializable {
 
-    private long score;
-    private String nomJoueur;
+    //private long score;
+    private SimpleLongProperty score;
+    private SimpleStringProperty nomJoueur;
+
+    //private String nomJoueur;
+
+
     static final long serialVersionUID = 8216180604790104263L;
-
-
     /**
      * Constructeur d'un ResultatScore
      * @param score
      * @param nomJoueur
      */
     public ResultatScore(long score, String nomJoueur) {
-        this.score = score;
-        this.nomJoueur = nomJoueur;
+        this.score=new SimpleLongProperty();
+        this.score.set(score);
+        this.nomJoueur=new SimpleStringProperty();
+        this.nomJoueur.set(nomJoueur);
     }
 
-    public long getScore() {
+    /*
+    public ResultatScore(String score, String nomJoueur) {
+        this.score=new SimpleStringProperty();
+        this.score.set(String.valueOf(score));
+        this.nomJoueur=new SimpleStringProperty();
+        this.nomJoueur.set(nomJoueur);
+    }*/
+
+
+
+    public Long getScore() {
+        return score.get();
+    }
+
+    public void setScore(long newscore) {
+        this.score.set(newscore);
+    }
+
+    /*
+    public void setScore(String newscore) {
+        this.score.set(newscore);
+    }*/
+
+    public String getNomJoueur() {
+        return nomJoueur.get();
+    }
+
+    public void setNomJoueur(String nomJoueur) {
+        this.nomJoueur.set(nomJoueur);
+    }
+
+    /*
+
+    public Long getScore() {
         return score;
     }
 
@@ -37,7 +80,7 @@ public class ResultatScore implements Serializable {
 
     public void setNomJoueur(String nomJoueur) {
         this.nomJoueur = nomJoueur;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -45,6 +88,31 @@ public class ResultatScore implements Serializable {
                 "score=" + score +
                 ", nomJoueur='" + nomJoueur + '\'' +
                 '}';
+    }
+
+    private void readObject(ObjectInputStream aInputStream) throws ClassNotFoundException, IOException
+    {
+
+        score = new SimpleLongProperty();
+        nomJoueur = new SimpleStringProperty();
+        String tmpScore = aInputStream.readUTF();
+        String tmpNom= aInputStream.readUTF();
+
+        if(tmpScore == null)this.score.set(0);
+        else this.score.set(Long.valueOf(tmpScore));
+
+        if(tmpNom == null)this.nomJoueur.set("T-rex");
+        this.nomJoueur.set(tmpNom);
+
+    }
+
+    private void writeObject(ObjectOutputStream aOutputStream) throws IOException
+    {
+        if(score.get() == 0)aOutputStream.writeUTF(String.valueOf(0));
+        else aOutputStream.writeUTF(String.valueOf(score.get()));
+        if(nomJoueur.get() == null)aOutputStream.writeUTF("T-Rex");
+        else aOutputStream.writeUTF(nomJoueur.get());
+
     }
 
 }
